@@ -1,7 +1,18 @@
 .navbar-style{
-    background-color: #9124a3;
+    background-color: #F2911B;
+    height: 20%;
 }
 
 .text-style{
-    color:white;
+    color: #014029;
+    font-size: large;
+    font-weight: bold;
 }
+
+.titilenav-style{
+    color: #F2F2F2;
+    font-size: x-large;
+    margin-left:1%;
+    font-weight: bold;
+}
+

@@ -2,7 +2,7 @@ import React from "react";
 import {
     Button
 } from 'reactstrap';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Base from "./base";
 
 const Home = () =>{

@@ -17,18 +17,23 @@ class Base extends React.Component{
         return(
             <div>
                 <div className="navbar-style">
+                    <div className="title">
+                        <p className="titilenav-style">VoluntariApp</p>
+                    </div>
                     <Navbar  expand="md">
-                        <NavbarBrand className="text-style" href="/">Issue Tracker</NavbarBrand>
+                        <Nav navbar>
+                            <NavItem>
+                                <NavLink className="text-style" href="/">Calendari</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="text-style" href="/">Perfil</NavLink>
+                            </NavItem>
+                        </Nav>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink className="text-style" href="/">Issues</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="text-style" href="/">User</NavLink>
-                            </NavItem>
+
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle className="text-style" nav caret>
-                                    Options
+                                    Opcions
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
