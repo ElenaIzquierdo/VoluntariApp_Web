@@ -8,13 +8,7 @@ import {
     CarouselCaption,
     Row,
     Col,
-    Card,
-    CardTitle,
-    CardText,
     Button,
-    CardBody,
-    CardHeader,
-    CardFooter
 } from 'reactstrap';
 
 const items = [
@@ -90,43 +84,45 @@ class Home extends React.Component{
                 <Carousel
                     activeIndex={activeIndex}
                     next={this.next}
-                    previous={this.previous}
-                >
+                    previous={this.previous}>
                     <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
                     {slides}
                     <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
-                <div className="cardsRow">
-                    <Row>
-                        <Col sm="6">
-                            <Card outline color="secondary">
-                                <CardHeader tag="h4">Propera activitat</CardHeader>
-                                <CardBody>
-                                    <CardText tag="h5">Dilluns 16 de maig</CardText>
-                                    <CardText>Assistents 3/4</CardText>
-                                    <CardText>Grup Petits</CardText>
+                <div className="viewStyle">
+                    <div className="cardsRow">
+                        <Row>
+                            <Col sm="6">
+                                <div className="cardStyle">
+                                    <h4 style={{textAlign:"center"}}>Propera activitat</h4>
+                                    <hr></hr>
+                                    <i className="fa fa-eye"></i>
+                                    <p>Dilluns 16 de maig</p>
+                                    <p>Assistents 3/4</p>
+                                    <p>Grup Petits</p>
+                                    <hr></hr>
+                                    <div className="footerStyle">
+                                        <Button color="link">Veure més</Button>
+                                    </div>
+                                </div>
+                            </Col>
 
-                                </CardBody>
-                                <CardFooter>
-                                    <Button color="link">Veure més</Button>
-                                </CardFooter>
-                            </Card>
-                        </Col>
-                        <Col sm="6">
-                            <Card outline color="secondary">
-                                <CardHeader tag="h4"> Esdeveniments propers</CardHeader>
-                                <CardBody>
-                                    <CardTitle>Special Title Treatment</CardTitle>
-                                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                </CardBody>
-                                 <CardFooter>
-                                    <Button color="link">Veure més</Button>
-                                 </CardFooter>
-                            </Card>
-                        </Col>
-                    </Row>
+                            <Col sm="6">
+                                <div className="cardStyle">
+                                    <h4 style={{textAlign:"center"}}>Propera activitat</h4>
+                                    <hr></hr>
+                                    <p>Dilluns 16 de maig</p>
+                                    <p>Assistents 3/4</p>
+                                    <p>Grup Petits</p>
+                                    <hr></hr>
+                                    <div className="footerStyle">
+                                        <Button color="link">Veure més</Button>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
                 </div>
             </div>
         );

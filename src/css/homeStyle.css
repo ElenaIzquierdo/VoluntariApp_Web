@@ -26,7 +26,26 @@
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
+    background: #F2F2F2;
 }
 
+.cardStyle{
+    border: 5px solid #014029;
+    border-radius: 20px;
+    padding: 2%;
+    width:75%;
+}
+
+.footerStyle{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.viewStyle{
+    height: 100vh;
+    width: 100%;
+    background: #F2F2F2;
+}
 
 
