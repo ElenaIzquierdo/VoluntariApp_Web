@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Container,
-    Row,
-    Col,
-    Jumbotron,
-    Button
-} from 'reactstrap';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 //Pages:
 import Home from './pages';
