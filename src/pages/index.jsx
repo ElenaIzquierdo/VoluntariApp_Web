@@ -5,9 +5,17 @@ import {
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
-    CarouselCaption
+    CarouselCaption,
+    Row,
+    Col,
+    Card,
+    CardTitle,
+    CardText,
+    Button,
+    CardBody,
+    CardHeader,
+    CardFooter
 } from 'reactstrap';
-
 
 const items = [
     {
@@ -89,6 +97,37 @@ class Home extends React.Component{
                     <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                 </Carousel>
+                <div className="cardsRow">
+                    <Row>
+                        <Col sm="6">
+                            <Card outline color="secondary">
+                                <CardHeader tag="h4">Propera activitat</CardHeader>
+                                <CardBody>
+                                    <CardText tag="h5">Dilluns 16 de maig</CardText>
+                                    <CardText>Assistents 3/4</CardText>
+                                    <CardText>Grup Petits</CardText>
+
+                                </CardBody>
+                                <CardFooter>
+                                    <Button color="link">Veure més</Button>
+                                </CardFooter>
+                            </Card>
+                        </Col>
+                        <Col sm="6">
+                            <Card outline color="secondary">
+                                <CardHeader tag="h4"> Esdeveniments propers</CardHeader>
+                                <CardBody>
+                                    <CardTitle>Special Title Treatment</CardTitle>
+                                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                </CardBody>
+                                 <CardFooter>
+                                    <Button color="link">Veure més</Button>
+                                 </CardFooter>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
             </div>
         );
     }
