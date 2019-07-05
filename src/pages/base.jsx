@@ -30,6 +30,9 @@ class Base extends React.Component{
                             <NavItem>
                                 <NavLink className="text-style" href="/">Calendari</NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink className="text-style" href="/">Tutories</NavLink>
+                            </NavItem>
                         </Nav>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
