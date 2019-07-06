@@ -22,16 +22,19 @@ class Base extends React.Component{
                     <Navbar  expand="md">
                         <Nav navbar>
                             <NavItem>
-                                <NavLink className="text-style" href="/">Esdeveniments</NavLink>
+                                <NavLink className="text-style" href="/">Inici</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="text-style" href="/">Forum</NavLink>
+                                <NavLink className="text-style" href="/events">Esdeveniments</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="text-style" href="/">Calendari</NavLink>
+                                <NavLink className="text-style" href="/forum">Forum</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="text-style" href="/">Tutories</NavLink>
+                                <NavLink className="text-style" href="/calendari">Calendari</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="text-style" href="/tutories">Tutories</NavLink>
                             </NavItem>
                         </Nav>
                         <Nav className="ml-auto" navbar>

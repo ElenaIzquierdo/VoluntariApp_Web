@@ -6,7 +6,10 @@ import { store } from "./store";
 
 //Pages:
 import Home from './pages';
-import Home2 from './pages/home2';
+import Events from './pages/events';
+import Forum from './pages/forum';
+import Calendari from './pages/calendari';
+import Tutories from './pages/tutories';
 
 class App extends Component {
   render(){
@@ -14,7 +17,10 @@ class App extends Component {
         <Provider store={store}>
             <Router>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/home2" component={Home2}/>
+              <Route exact path="/events" component={Events}/>
+              <Route exact path="/forum" component={Forum}/>
+              <Route exact path="/calendari" component={Calendari}/>
+              <Route exact path="/tutories" component={Tutories}/>
             </Router>
         </Provider>
     )
