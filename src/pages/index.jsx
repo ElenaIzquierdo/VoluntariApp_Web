@@ -11,24 +11,9 @@ import {
     Button,
     Table
 } from 'reactstrap';
+import connect from "react-redux/es/connect/connect";
+import {incIterator,decIterator,changeIteratorParam} from "../actions/homeActions";
 
-const items = [
-    {
-        id: 1,
-        altText: 'Crea activitats!',
-        caption: 'Clica la opció Esdeveniments del menú superior'
-    },
-    {
-        id: 2,
-        altText: 'Controla assistencia!',
-        caption: 'Clica la opció Esdeveniments del menú superior'
-    },
-    {
-        id: 3,
-        altText: 'Visualitza el Forum dels voluntaris!',
-        caption: 'Clica la opció Forum del menú superior'
-    }
-];
 
 class Home extends React.Component{
     constructor(props) {
@@ -50,26 +35,33 @@ class Home extends React.Component{
 
     next() {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
-        this.setState({ activeIndex: nextIndex });
+        if(this.props.activeIndex === this.props.items.length-1){
+            this.props.changeIteratorParam(0);
+        }
+        else{
+            this.props.incIterator();
+        }
     }
 
     previous() {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
-        this.setState({ activeIndex: nextIndex });
+        if(this.props.activeIndex === 0){
+            this.props.changeIteratorParam(this.props.items.length-1);
+        }
+        else{
+            this.props.decIterator();
+        }
     }
 
     goToIndex(newIndex) {
         if (this.animating) return;
-        this.setState({ activeIndex: newIndex });
+        this.props.changeIteratorParam(newIndex);
     }
 
 
 
     render(){
-        const { activeIndex } = this.state;
-        const slides = items.map((item) => {
+        const slides = this.props.items.map((item) => {
             return (
                 <CarouselItem
                     className="custom-tag"
@@ -86,10 +78,10 @@ class Home extends React.Component{
             <div>
                 <Base/>
                 <Carousel
-                    activeIndex={activeIndex}
+                    activeIndex={this.props.activeIndex}
                     next={this.next}
                     previous={this.previous}>
-                    <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                    <CarouselIndicators items={this.props.items} activeIndex={this.props.activeIndex} onClickHandler={this.goToIndex} />
                     {slides}
                     <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
@@ -191,4 +183,18 @@ class Home extends React.Component{
     }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        items: state.homeReducer.items,
+        activeIndex: state.homeReducer.activeIndex
+    }
+};
+const  mapDispatchToProps = (dispatch)=>{
+    return {
+        incIterator: ()=>dispatch(incIterator()),
+        decIterator: ()=>dispatch(decIterator()),
+        changeIteratorParam: (iterator)=>dispatch(changeIteratorParam(iterator))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
