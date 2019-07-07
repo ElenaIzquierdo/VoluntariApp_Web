@@ -3,7 +3,7 @@ import Base from "./base";
 import '../css/eventScreenStyle.css';
 import {
     Row,
-    Col
+    Col, Button
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {unshowWeek, showWeek} from "../actions/eventsActions";
@@ -52,7 +52,7 @@ class Events extends React.Component{
                     <h4 className="titleStyle">Activitats anteriors</h4>
 
                     <Row>
-                        <Col sm="24" md={{ size: 6, offset: 3 }}>
+                        <Col sm="18" md={{ size: 6, offset: 3 }}>
                             <div className="card">
                                 <Grid
                                     rows={rows}
@@ -67,6 +67,50 @@ class Events extends React.Component{
                                         contentComponent={RowDetail}
                                     />
                                 </Grid>
+                            </div>
+                        </Col>
+                        <Col sm="3">
+                            <div className="cardStyle">
+                                <h5 className="titleCardStyle">Llegenda</h5>
+                                <hr></hr>
+                                <Row className="rowIconStyle">
+                                    <i className="fa fa-star iconStarStyle"></i>
+                                    <p className="textIconStyle">Valoració mitjana</p>
+                                </Row>
+                                <div>
+                                    <ul>
+                                        És la mitjana de les valoracions de tota la setmana
+                                    </ul>
+                                </div>
+
+                                <Row className="rowIconStyle">
+                                    <i className="fa fa-users iconStyle"></i>
+                                    <p className="textIconStyle">Assistència</p>
+                                </Row>
+                                <div>
+                                    <ul>
+                                        <Row className="rowIconStyle">
+                                            <i className="fa fa-angle-double-up assaltaStyle"></i>
+                                            <p>Alta</p>
+                                        </Row>
+                                    </ul>
+                                    <ul>
+                                        <Row className="rowIconStyle">
+                                            <i className="fa fa-angle-up assmitjaStyle"></i>
+                                            <p>Mitja</p>
+                                        </Row>
+                                    </ul>
+                                    <ul>
+                                        <Row className="rowIconStyle">
+                                            <i className="fa fa-angle-double-down assbaixaStyle"></i>
+                                            <p>Baixa</p>
+                                        </Row>
+                                    </ul>
+                                </div>
+                                <hr></hr>
+                                <div className="footerStyle">
+                                    <Button color="link">Veure més</Button>
+                                </div>
                             </div>
                         </Col>
                     </Row>
