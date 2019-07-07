@@ -1,0 +1,17 @@
+.card2Style{
+    border: 3px solid #014029;
+    border-radius: 10px;
+    width:90%;
+    height: 10%;
+    margin-left: 3%;
+    padding-left: 1%;
+}
+
+.title2Style{
+    font-weight: normal;
+    color: #014029;
+}
+
+.rowIcon2Style{
+    padding-left: 1%;
+}

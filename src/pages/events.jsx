@@ -1,5 +1,5 @@
 import React from "react";
-import Base from "./base";
+import Base from "../components/base";
 import '../css/eventScreenStyle.css';
 import {
     Row,
@@ -51,8 +51,6 @@ class Events extends React.Component{
             <div>
                 <Base/>
                 <div className="viewStyle">
-
-
                     <Row>
                         <Col md={{ size: 6, offset: 2 }}>
                             <h4 className="titleStyle">Activitats anteriors</h4>
