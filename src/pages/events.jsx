@@ -3,16 +3,20 @@ import Base from "./base";
 import '../css/eventScreenStyle.css';
 import {
     Row,
-    Col, Button
+    Col
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {unshowWeek, showWeek} from "../actions/eventsActions";
-import { RowDetailState } from '@devexpress/dx-react-grid';
+import {
+        RowDetailState,
+        PagingState,
+        IntegratedPaging} from '@devexpress/dx-react-grid';
 import {
     Grid,
     Table,
     TableHeaderRow,
     TableRowDetail,
+    PagingPanel,
 } from '@devexpress/dx-react-grid-bootstrap4';
 import { generateRows } from '../demo-data/generator';
 
@@ -49,27 +53,34 @@ class Events extends React.Component{
             <div>
                 <Base/>
                 <div className="viewStyle">
-                    <h4 className="titleStyle">Activitats anteriors</h4>
+
 
                     <Row>
-                        <Col sm="18" md={{ size: 6, offset: 3 }}>
+                        <Col md={{ size: 6, offset: 2 }}>
+                            <h4 className="titleStyle">Activitats anteriors</h4>
                             <div className="card">
                                 <Grid
                                     rows={rows}
                                     columns={columns}
                                 >
+                                    <PagingState
+                                        defaultCurrentPage={0}
+                                        pageSize={6}
+                                    />
                                     <RowDetailState
                                         defaultExpandedRowIds={[]}
                                     />
+                                    <IntegratedPaging />
                                     <Table />
                                     <TableHeaderRow />
                                     <TableRowDetail
                                         contentComponent={RowDetail}
                                     />
+                                    <PagingPanel />
                                 </Grid>
                             </div>
                         </Col>
-                        <Col sm="3">
+                        <Col  md={{ size: 4 }}>
                             <div className="cardStyle">
                                 <h5 className="titleCardStyle">Llegenda</h5>
                                 <hr></hr>
@@ -106,10 +117,6 @@ class Events extends React.Component{
                                             <p>Baixa</p>
                                         </Row>
                                     </ul>
-                                </div>
-                                <hr></hr>
-                                <div className="footerStyle">
-                                    <Button color="link">Veure més</Button>
                                 </div>
                             </div>
                         </Col>

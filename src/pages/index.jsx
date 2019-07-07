@@ -18,7 +18,6 @@ import {incIterator,decIterator,changeIteratorParam} from "../actions/homeAction
 class Home extends React.Component{
     constructor(props) {
         super(props);
-        this.state = { activeIndex: 0 };
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
         this.goToIndex = this.goToIndex.bind(this);

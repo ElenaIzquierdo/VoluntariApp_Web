@@ -23,10 +23,19 @@
 .titleCardStyle{
     text-align: center;
     color: #014029;
+    font-size: 19px;
 }
 
 .textIconStyle{
     font-size: 17px;
+}
+
+.cardStyle{
+    border: 2px solid #014029;
+    border-radius: 20px;
+    width:60%;
+    margin-top:6%;
+    margin-left:15%;
 }
 
 
