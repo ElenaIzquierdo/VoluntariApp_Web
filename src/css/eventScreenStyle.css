@@ -2,4 +2,23 @@
     height: 100vh;
     width: 100%;
     background: #F2F2F2;
+    padding-top: 2%;
 }
+
+.titleStyle{
+    margin-bottom: 1%;
+    text-align: center;
+    font-weight: bold;
+    color: #014029;
+}
+
+.divTableStyle{
+    align-content: center;
+    alignment: center;
+    align-self: center;
+    align-items: center;
+    background-color: #014029;
+}
+
+
+
