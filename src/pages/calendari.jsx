@@ -1,6 +1,6 @@
 import React from "react";
 import Base from "./base";
-import '../css/calendariScreenStyle.css'
+import '../css/calendariScreenStyle.css';
 
 class Calendari extends React.Component{
     render(){
