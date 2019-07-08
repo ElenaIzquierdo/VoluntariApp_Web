@@ -5,11 +5,13 @@
     height: 10%;
     margin-left: 3%;
     padding-left: 1%;
+    margin-top: 1%;
 }
 
 .title2Style{
-    font-weight: normal;
+    font-weight: bold;
     color: #014029;
+    text-decoration: underline;
 }
 
 .rowIcon2Style{

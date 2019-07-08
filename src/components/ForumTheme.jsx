@@ -10,7 +10,10 @@ class ForumTheme extends React.Component{
         return(
             <div>
                 <div className="card2Style">
-                    <h4 className="title2Style">{this.props.title}</h4>
+                    <Button color="link">
+                        <h4 className="title2Style">{this.props.title}</h4>
+                    </Button>
+
                     <Row className="rowIcon2Style">
                         <i className="fa fa-calendar iconStyle"></i>
                         <p className="textIconStyle">Creat el dia {this.props.createdDate}</p>
