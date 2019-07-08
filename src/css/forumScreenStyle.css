@@ -3,3 +3,23 @@
     width: 100%;
     background: #F2F2F2;
 }
+
+.titleScreenStyle{
+    font-weight: bold;
+    color: #014029;
+    text-align: left;
+    margin-left: 4%;
+}
+
+.filtresStyle{
+    margin-left: 4%;
+    font-size: 18px;
+}
+
+.buttonStyle{
+    margin-left: 1%;
+}
+
+.rowBotons{
+    margin-top:1%;
+}

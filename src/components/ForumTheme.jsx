@@ -6,6 +6,24 @@ import {
 import '../css/forumthemeComponentStyle.css';
 
 class ForumTheme extends React.Component{
+    pintarEstat(){
+        if(this.props.finished){
+            return(
+                <Row className="rowIcon2Style">
+                    <i className="fa fa-times-circle closedStyle"></i>
+                    <p className="textIconStyle">Tancat</p>
+                </Row>
+            );
+        }
+        else{
+            return(
+                <Row className="rowIcon2Style">
+                    <i className="fa fa-check-circle openedStyle"></i>
+                    <p className="textIconStyle">Obert</p>
+                </Row>
+            );
+        }
+    }
     render(){
         return(
             <div>
@@ -22,6 +40,7 @@ class ForumTheme extends React.Component{
                         <i className="fa fa-comment iconStyle"></i>
                         <p className="textIconStyle">Descripcio: {this.props.description}</p>
                     </Row>
+                    {this.pintarEstat()}
                 </div>
             </div>
         )
