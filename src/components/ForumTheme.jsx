@@ -1,9 +1,9 @@
 import React from "react";
 import {
     Row,
-    Button
 } from 'reactstrap';
 import '../css/forumthemeComponentStyle.css';
+import { Link} from "react-router-dom";
 
 class ForumTheme extends React.Component{
     pintarEstat(){
@@ -28,9 +28,9 @@ class ForumTheme extends React.Component{
         return(
             <div>
                 <div className="card2Style">
-                    <Button color="link">
+                    <Link style={{ textDecoration: 'none' }} to={`viewforumtheme/${this.props.id}`}>
                         <h4 className="title2Style">{this.props.title}</h4>
-                    </Button>
+                    </Link>
 
                     <Row className="rowIcon2Style">
                         <i className="fa fa-calendar iconStyle"></i>

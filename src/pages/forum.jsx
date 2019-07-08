@@ -20,7 +20,7 @@ class Forum extends React.Component{
         return this.props.forumthemes.map((tema)=>{
                 return(
                     <ForumTheme key={tema.id} title={tema.title} description={tema.description}
-                                createdDate={tema.createdDate} finished={tema.finished}/>
+                                createdDate={tema.createdDate} finished={tema.finished} id={tema.id}/>
                 );
             }
         );
