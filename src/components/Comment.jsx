@@ -14,7 +14,7 @@ class Comment extends React.Component {
                 <Row style={{marginLeft: "3%"}}>
                     <p>{this.props.content}</p>
                 </Row>
-                <p>{this.props.created_date}</p>
+                <p style={{paddingLeft: "3%"}}>{this.props.created_date}</p>
             </div>
         )
     }

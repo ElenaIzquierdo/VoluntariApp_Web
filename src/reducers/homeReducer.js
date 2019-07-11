@@ -18,7 +18,8 @@ const INITIAL_STATE = {
     ],
     activitat_propera: null,
     activitats_anteriors: [],
-    activeIndex: 0
+    activeIndex: 0,
+    idProva:0
 }
 
 const homeReducer = (state = INITIAL_STATE,action) => {

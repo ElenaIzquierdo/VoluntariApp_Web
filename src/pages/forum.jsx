@@ -1,6 +1,6 @@
 import React from "react";
 import Base from "../components/base";
-import '../css/forumScreenStyle.css'
+import '../css/forumScreenStyle.css';
 import { Row, Button } from 'reactstrap';
 
 import ForumTheme from '../components/ForumTheme';
@@ -40,6 +40,8 @@ class Forum extends React.Component{
                         <p className="filtresStyle">Ordenar per:</p>
                         <Button outline color="warning" className="buttonStyle">Títol</Button>
                         <Button outline color="warning" className="buttonStyle">Data de creació</Button>
+
+                        <Button color="success" className="buttonCreateStyle">Nou Tema</Button>
                     </Row>
                     {this.pintarTemes()}
                 </div>

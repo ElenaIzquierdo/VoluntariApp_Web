@@ -13,6 +13,7 @@ import {
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {incIterator,decIterator,changeIteratorParam} from "../actions/homeActions";
+import {Link} from "react-router-dom";
 
 
 class Home extends React.Component{
@@ -89,7 +90,7 @@ class Home extends React.Component{
                     <div className="cardsRow">
                         <Row>
                             <Col sm="6">
-                                <div className="cardStyle">
+                                <div className="cardEventStyle">
                                     <h4 className="titleCardStyle">Propera activitat</h4>
                                     <hr></hr>
                                     <Row className="rowIconStyle">
@@ -106,7 +107,9 @@ class Home extends React.Component{
                                     </Row>
                                     <hr></hr>
                                     <div className="footerStyle">
-                                        <Button color="link">Veure més</Button>
+                                        <Link style={{ textDecoration: 'none' }} to={`viewEventProper/${this.props.idProva}`}>
+                                            <Button color="link">Veure més</Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </Col>
@@ -185,7 +188,8 @@ class Home extends React.Component{
 const mapStateToProps = (state) => {
     return {
         items: state.homeReducer.items,
-        activeIndex: state.homeReducer.activeIndex
+        activeIndex: state.homeReducer.activeIndex,
+        idProva: state.homeReducer.idProva
     }
 };
 const  mapDispatchToProps = (dispatch)=>{

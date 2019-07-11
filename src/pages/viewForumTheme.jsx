@@ -2,8 +2,10 @@ import React from "react";
 import Base from "../components/base";
 import connect from "react-redux/es/connect/connect";
 import {} from "../actions/viewforumthemeActions";
-import {Row} from "reactstrap";
+import {Row, Button} from "reactstrap";
 import Comment from "../components/Comment";
+import Textarea from 'react-textarea-autosize';
+import '../css/viewforumStyle.css';
 
 class viewForumTheme extends React.Component{
     pintarComments(){
@@ -16,21 +18,67 @@ class viewForumTheme extends React.Component{
         );
 
     }
+
+    pintarHeader(){
+        if(this.props.forumtheme.finished){
+            return(
+                <Row>
+                    <h4 className="title2ScreenStyle">{this.props.forumtheme.title}</h4>
+                    <Button outline color="success" className="buttonopencloseStyle">Obrir</Button>
+                </Row>
+            );
+        }
+        else{
+            return(
+                <Row>
+                    <h4 className="title2ScreenStyle">{this.props.forumtheme.title}</h4>
+                    <Button outline color="danger" className="buttonopencloseStyle">Tancar</Button>
+                </Row>
+            );
+        }
+
+    }
+
+    pintarEstat(){
+        if(this.props.finished){
+            return(
+                <Row className="rowIcon2Style">
+                    <i className="fa fa-times-circle closedStyle"></i>
+                    <p className="textIconStyle">Tema tancat</p>
+                </Row>
+            );
+        }
+        else{
+            return(
+                <Row className="rowIcon2Style">
+                    <i className="fa fa-check-circle openedStyle"></i>
+                    <p className="textIconStyle">Tema obert</p>
+                </Row>
+            );
+        }
+    }
+
     render(){
         return(
             <div>
                 <Base/>
-                <div className="viewStyle">
-                    <h4>{this.props.forumtheme.title}</h4>
+                <div className="view2Style">
+                    {this.pintarHeader()}
+
                     <Row className="rowIcon2Style">
-                        <i className="fa fa-calendar iconStyle"></i>
-                        <p className="textIconStyle">Creat el dia {this.props.forumtheme.createdDate}</p>
+                        <p className="textIconStyle">Creat el {this.props.forumtheme.createdDate}</p>
                     </Row>
+                    {this.pintarEstat()}
                     <Row className="rowIcon2Style">
                         <i className="fa fa-comment iconStyle"></i>
                         <p className="textIconStyle">Descripcio: {this.props.forumtheme.description}</p>
                     </Row>
-                    <h5>Comments</h5>
+                    <hr></hr>
+                    <h5 className="title2ScreenStyle">Comentaris ({this.props.comments.length})</h5>
+                    <div>
+                        <Textarea className="textAreaStyle" />
+                        <Button style={{marginLeft:"1%"}} color="success">Comentar</Button>{' '}
+                    </div>
                     {this.pintarComments()}
                 </div>
             </div>
