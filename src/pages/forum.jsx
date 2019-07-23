@@ -6,6 +6,7 @@ import { Row, Button } from 'reactstrap';
 import ForumTheme from '../components/ForumTheme';
 import connect from "react-redux/es/connect/connect";
 import {changeDropDown} from "../actions/forumActions";
+import {Link} from "react-router-dom";
 
 class Forum extends React.Component{
     constructor(props) {
@@ -41,7 +42,10 @@ class Forum extends React.Component{
                         <Button outline color="warning" className="buttonStyle">Títol</Button>
                         <Button outline color="warning" className="buttonStyle">Data de creació</Button>
 
-                        <Button color="success" className="buttonCreateStyle">Nou Tema</Button>
+                        <Link className="buttonCreateStyle" style={{textDecoration: 'none'}} to='/createForumTheme'>
+                            <Button color="success" >Nou Tema</Button>
+                        </Link>
+
                     </Row>
                     {this.pintarTemes()}
                 </div>

@@ -12,6 +12,7 @@ import Calendari from './pages/calendari';
 import Tutories from './pages/tutories';
 import viewForumTheme from './pages/viewForumTheme';
 import viewEventProper from './pages/viewEventProper';
+import createForumTheme from './pages/createForumTheme';
 
 class App extends Component {
   render(){
@@ -25,6 +26,7 @@ class App extends Component {
               <Route exact path="/tutories" component={Tutories}/>
               <Route path="/viewforumtheme/:forumthemeid" component={viewForumTheme}/>
               <Route path="/viewEventProper/:eventid" component={viewEventProper}/>
+              <Route path="/createForumTheme" component={createForumTheme}/>
             </Router>
         </Provider>
     )
