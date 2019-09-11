@@ -20,7 +20,7 @@ import {
 } from '@devexpress/dx-react-grid-bootstrap4';
 import { generateRows } from '../demo-data/generator';
 
-const RowDetail = ({ row }) => (
+const RowDetail = ({  }) => (
     <div>
         Dilluns
         Dimarts
@@ -79,9 +79,9 @@ class Events extends React.Component{
                         <Col  md={{ size: 4 }}>
                             <div className="cardStyle">
                                 <h5 className="titleCardStyle">Llegenda</h5>
-                                <hr></hr>
+                                <hr/>
                                 <Row className="rowIconStyle">
-                                    <i className="fa fa-star iconStarStyle"></i>
+                                    <i className="fa fa-star iconStarStyle"/>
                                     <p className="textIconStyle">Valoració mitjana</p>
                                 </Row>
                                 <div>
@@ -91,29 +91,55 @@ class Events extends React.Component{
                                 </div>
 
                                 <Row className="rowIconStyle">
-                                    <i className="fa fa-users iconStyle"></i>
+                                    <i className="fa fa-users iconStyle"/>
                                     <p className="textIconStyle">Assistència</p>
                                 </Row>
                                 <div>
                                     <ul>
                                         <Row className="rowIconStyle">
-                                            <i className="fa fa-angle-double-up assaltaStyle"></i>
+                                            <i className="fa fa-angle-double-up assaltaStyle"/>
                                             <p>Alta</p>
                                         </Row>
                                     </ul>
                                     <ul>
                                         <Row className="rowIconStyle">
-                                            <i className="fa fa-angle-up assmitjaStyle"></i>
+                                            <i className="fa fa-angle-up assmitjaStyle"/>
                                             <p>Mitja</p>
                                         </Row>
                                     </ul>
                                     <ul>
                                         <Row className="rowIconStyle">
-                                            <i className="fa fa-angle-double-down assbaixaStyle"></i>
+                                            <i className="fa fa-angle-double-down assbaixaStyle"/>
                                             <p>Baixa</p>
                                         </Row>
                                     </ul>
                                 </div>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={{ size: 6, offset: 2 }}>
+                            <h4 className="titleStyle">Activitats posteriors</h4>
+                            <div className="card">
+                                <Grid
+                                    rows={rows}
+                                    columns={columns}
+                                >
+                                    <PagingState
+                                        defaultCurrentPage={0}
+                                        pageSize={6}
+                                    />
+                                    <RowDetailState
+                                        defaultExpandedRowIds={[]}
+                                    />
+                                    <IntegratedPaging />
+                                    <Table />
+                                    <TableHeaderRow />
+                                    <TableRowDetail
+                                        contentComponent={RowDetail}
+                                    />
+                                    <PagingPanel />
+                                </Grid>
                             </div>
                         </Col>
                     </Row>
