@@ -20,7 +20,7 @@ import {
 } from '@devexpress/dx-react-grid-bootstrap4';
 import { generateRows } from '../demo-data/generator';
 
-const RowDetail = ({  }) => (
+const RowDetail = () => (
     <div>
         Dilluns
         Dimarts

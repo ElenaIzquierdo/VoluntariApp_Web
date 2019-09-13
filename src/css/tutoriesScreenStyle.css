@@ -3,3 +3,24 @@
     width: 100%;
     background: #F2F2F2;
 }
+.cardEkipStyle{
+    border: 3px solid #014029;
+    border-radius: 20px;
+    padding: 2%;
+    width:100%;
+    margin-left:50%;
+}
+
+.rowTutoAnteriors{
+    margin-top:3%;
+    align-content: center;
+}
+
+.nomMoniStyle{
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.nomMoniRowStyle{
+    padding-left: 2%;
+}

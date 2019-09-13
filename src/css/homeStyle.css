@@ -66,10 +66,11 @@
 }
 
 .cardBigStyle{
-    border: 5px solid #014029;
+    border: 3px solid #014029;
     border-radius: 20px;
     padding: 2%;
     width:100%;
+    margin-left:3%;
 }
 
 .iconStarStyle{
@@ -103,7 +104,7 @@
 
 .columnStyle{
     text-align: center;
-    font-size: 19px;
+    font-size: 17px;
 }
 
 
