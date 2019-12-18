@@ -36,6 +36,16 @@ const forumReducer = (state = INITIAL_STATE,action) => {
                 opened_topics: action.data,
                 isFetching:false
             }
+        case 'CHANGE_FILTER_PROPERTY':
+            let new_filters = {...state.filters}
+            new_filters[action.data.propertyName]=!new_filters[action.data.propertyName]
+            if(action.data.propertyName === "order_by_name"){
+                new_filters["order_by_date"]=!new_filters["order_by_date"]
+            }
+            if(action.data.propertyName === "order_by_date"){
+                new_filters["order_by_name"]=!new_filters["order_by_name"]
+            }
+            return {...state, filters: new_filters}
 
         default: return state
     }

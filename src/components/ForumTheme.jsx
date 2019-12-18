@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Row,
+    Row
 } from 'reactstrap';
 import '../css/forumthemeComponentStyle.css';
 import { Link} from "react-router-dom";

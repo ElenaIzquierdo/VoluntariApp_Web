@@ -22,8 +22,20 @@
 
 .rowBotons{
     margin-top:1%;
+    padding-left:3%;
 }
 
 .buttonCreateStyle{
     margin-left:43%;
+}
+
+.checkBoxRow{
+    padding-left: 2%;
+}
+
+.checkBoxButton{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 0.5%;
+    color:#014029;
 }

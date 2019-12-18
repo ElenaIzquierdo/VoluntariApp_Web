@@ -101,4 +101,4 @@ export const changeFilterProperty=(propertyName) =>{
             propertyName
         }
     }
-};
+}
