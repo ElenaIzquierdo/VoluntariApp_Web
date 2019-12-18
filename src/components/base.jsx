@@ -34,7 +34,7 @@ class Base extends React.Component{
                                 <NavLink className="text-style" href="/tutories">Tutories</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="text-style" href="/tutories">Centre Interes</NavLink>
+                                <NavLink className="text-style" href="/centre-interes">Centre Interes</NavLink>
                             </NavItem>
                         </Nav>
                         <Nav className="ml-auto" navbar>

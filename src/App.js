@@ -13,6 +13,7 @@ import Tutories from './pages/tutories';
 import viewForumTheme from './pages/viewForumTheme';
 import viewEventProper from './pages/viewEventProper';
 import createForumTheme from './pages/createForumTheme';
+import centreInteres from './pages/centreInteres';
 
 class App extends Component {
   render(){
@@ -27,6 +28,7 @@ class App extends Component {
               <Route path="/viewforumtheme/:forumthemeid" component={viewForumTheme}/>
               <Route path="/viewEventProper/:eventid" component={viewEventProper}/>
               <Route path="/createForumTheme" component={createForumTheme}/>
+              <Route path="/centre-interes" component={centreInteres}/>
             </Router>
         </Provider>
     )

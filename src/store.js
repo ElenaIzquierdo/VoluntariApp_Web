@@ -5,13 +5,15 @@ import {eventsReducer} from "./reducers/eventsReducer";
 import {forumReducer} from "./reducers/forumReducer";
 import {viewforumthemeReducer} from "./reducers/viewforumthemeReducer"
 import {tutoriesReducer} from "./reducers/tutoriesReducer";
+import {centreInteresReducer} from "./reducers/centreInteresReducer";
 
 const rootReducer = combineReducers({
     homeReducer: homeReducer,
     eventsReducer: eventsReducer,
     forumReducer: forumReducer,
     viewforumReducer: viewforumthemeReducer,
-    tutoriesReducer: tutoriesReducer
+    tutoriesReducer: tutoriesReducer,
+    centreInteresReducer: centreInteresReducer
 });
 
 const store= createStore(

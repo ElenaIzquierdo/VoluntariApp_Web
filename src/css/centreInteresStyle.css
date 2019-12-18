@@ -1,0 +1,36 @@
+.goalsView{
+    border: 3px solid #014029;
+    border-radius: 20px;
+    padding: 2%;
+    width:36%;
+    margin:2%;
+    margin-left:5%;
+    margin-top:4%;
+}
+
+.explicacionsView{
+    border: 3px solid #014029;
+    border-radius: 20px;
+    padding: 2%;
+    width:50%;
+    margin:2%;
+    margin-right:5%;
+    margin-top:4%;
+}
+
+.dateExplicacio{
+    color: #014029;
+    font-weight: bold;
+}
+
+.titleCentreInteres{
+    text-align: center;
+    font-weight: bold;
+    color: #014029;
+    margin-top: 2%;
+}
+
+.iconplusTitle{
+    color: #014029;
+    align-self: flex-start;
+}
