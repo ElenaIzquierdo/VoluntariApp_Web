@@ -1,13 +1,15 @@
 const INITIAL_STATE = {
     dropdownOpen: false,
-    forumthemes:[
-        {id:0,title:'Comisio centre interes',description:'La comisio del centre d\'interes es per coordinar tasques i que tot surti genial!',
-            createdDate:'27/05/2019',finished:false},
-        {id:1,title:'Cançons per petits',description:'Aquest tema és per recopilar cançons per poder cantar amb els infants',
-            createdDate:'15/04/2019',finished:true},
-        {id:2,title:'Activitat voluntaries dill',description:'El grup de voluntaries del grup de petits dels dilluns hem decidit dinamitzar una activitat molt xula',
-            createdDate:'05/02/2019',finished:false}
-    ]
+    opened_topics:[],
+    closed_topics:[],
+    isOpen: false,
+    isFetching: false,
+    filters:{
+        closed: true,
+        opened: true, 
+        order_by_name: false,
+        order_by_date: true
+    }
 }
 
 const forumReducer = (state = INITIAL_STATE,action) => {
@@ -18,6 +20,22 @@ const forumReducer = (state = INITIAL_STATE,action) => {
             var dropdownOpen_copy = state.dropdownOpen;
             dropdownOpen_copy = !dropdownOpen_copy;
             return {...state, dropdownOpen: dropdownOpen_copy}
+        case 'REQUEST_FORUM_TOPICS':
+                return{...state, isFetching: true};
+            
+        case 'RECEIVE_CLOSED_TOPICS':
+            return {
+                ...state,
+                closed_topics: action.data,
+                isFetching:false
+            }
+
+        case 'RECEIVE_OPENED_TOPICS':
+            return {
+                ...state,
+                opened_topics: action.data,
+                isFetching:false
+            }
 
         default: return state
     }

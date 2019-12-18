@@ -4,6 +4,7 @@ import {
 } from 'reactstrap';
 import '../css/forumthemeComponentStyle.css';
 import { Link} from "react-router-dom";
+import Moment from 'react-moment';
 
 class ForumTheme extends React.Component{
     pintarEstat(){
@@ -34,7 +35,11 @@ class ForumTheme extends React.Component{
 
                     <Row className="rowIcon2Style">
                         <i className="fa fa-calendar iconStyle"></i>
-                        <p className="textIconStyle">Creat el dia {this.props.createdDate}</p>
+                        <Row className="rowIcon2Style">
+                            <p className="textIconStyle">Creat el dia </p>
+                            <Moment className="textIconStyle" format="DD/MM/YYYY">{this.props.createdDate}</Moment>  
+                        </Row>
+                        
                     </Row>
                     <Row className="rowIcon2Style">
                         <i className="fa fa-comment iconStyle"></i>

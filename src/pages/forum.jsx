@@ -5,20 +5,36 @@ import { Row, Button } from 'reactstrap';
 
 import ForumTheme from '../components/ForumTheme';
 import connect from "react-redux/es/connect/connect";
-import {changeDropDown} from "../actions/forumActions";
+import {changeDropDown, fetchClosedForumTopics, fetchOpenedForumTopics} from "../actions/forumActions";
 import {Link} from "react-router-dom";
 
 class Forum extends React.Component{
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
+        this.props.fetchClosedForumTopics("-created_date");
+        this.props.fetchOpenedForumTopics("-created_date");
+        console.log("topics ", this.props.closed_topics)
     }
 
     toggle() {
         this.props.changeDropDown();
     }
-    pintarTemes(){
-        return this.props.forumthemes.map((tema)=>{
+
+    renderClosedTopics(){
+        console.log("closed_topics ", this.props.closed_topics)
+        return this.props.closed_topics.map((tema)=>{
+                return(
+                    <ForumTheme key={tema.id} title={tema.title} description={tema.description}
+                                createdDate={tema.created_date} finished={tema.finished} id={tema.id}/>
+                );
+            }
+        );
+
+    }
+
+    renderOpenedTopics(){
+        return this.props.opened_topics.map((tema)=>{
                 return(
                     <ForumTheme key={tema.id} title={tema.title} description={tema.description}
                                 createdDate={tema.createdDate} finished={tema.finished} id={tema.id}/>
@@ -27,6 +43,7 @@ class Forum extends React.Component{
         );
 
     }
+
     render(){
         return(
             <div>
@@ -47,7 +64,8 @@ class Forum extends React.Component{
                         </Link>
 
                     </Row>
-                    {this.pintarTemes()}
+                    {this.renderOpenedTopics()}
+                    {this.renderClosedTopics()}
                 </div>
             </div>
         )
@@ -55,12 +73,17 @@ class Forum extends React.Component{
 }
 const mapStateToProps = (state) => {
     return {
-        forumthemes: state.forumReducer.forumthemes,
+        opened_topics: state.forumReducer.opened_topics,
+        closed_topics: state.forumReducer.closed_topics,
+        isFetching: state.forumReducer.isFetching,
+        filters: state.forumReducer.filters,
         dropdownOpen: state.forumReducer.dropdownOpen
     }
 };
 const  mapDispatchToProps = (dispatch)=>{
     return {
+        fetchClosedForumTopics: (order) => dispatch(fetchClosedForumTopics(order)),
+        fetchOpenedForumTopics: (order) => dispatch(fetchOpenedForumTopics(order)),
         changeDropDown:()=>dispatch(changeDropDown()),
     }
 };
