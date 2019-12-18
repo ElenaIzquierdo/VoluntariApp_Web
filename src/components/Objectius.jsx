@@ -1,14 +1,13 @@
 import React from "react";
 import {
-    Table,
-    Row, Col
+    Table
 } from 'reactstrap';
 
 class Objectius extends React.Component{
     renderGoals(){
         return this.props.objectius.map((objectiu)=>{
             return(
-                <tr>
+                <tr key={objectiu}>
                     <td>
                         <i className="fa fa-angle-right assaltaStyle"></i>
                     </td>    
@@ -25,6 +24,7 @@ class Objectius extends React.Component{
                     <tbody>
                         {this.renderGoals()}
                     </tbody>
+                    
                 </Table>
             </div>
         )

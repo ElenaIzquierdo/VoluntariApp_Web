@@ -34,3 +34,20 @@
     color: #014029;
     align-self: flex-start;
 }
+
+.paginationButtons{
+    border-top: #014029;
+    border-top-width: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.iconLeft{
+    align-self: flex-start;
+    size:40px;
+}
+
+.iconRight{
+    align-self: flex-end;
+    size:40px;
+}

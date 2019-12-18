@@ -7,9 +7,9 @@ import Moment from 'react-moment';
 class Explicacions extends React.Component {
 
     renderExplicacions(){
-        return this.props.explicacions.map((explicacio)=>{
+        return this.props.explicacions.results.map((explicacio)=>{
             return(
-                <tr>
+                <tr key={explicacio.id}>
                     <td>
                         <Moment className="dateExplicacio" format="DD/MM/YYYY">{explicacio.date}</Moment>   
                     </td>

@@ -4,11 +4,16 @@ import '../css/tutoriesScreenStyle.css';
 import '../css/centreInteresStyle.css';
 import connect from "react-redux/es/connect/connect";
 import {fetchExplicacions, fetchObjectius} from "../actions/centreInteresActions";
-import {Table, Row} from "reactstrap";
+import { Row} from "reactstrap";
 import Objectius from "../components/Objectius";
 import Explicacions from "../components/Explicacions";
 
 class CentreInteres extends React.Component{
+    constructor(props){
+        super(props)
+        this.props.fetchExplicacions(1);
+        this.props.fetchObjectius(1);
+    }
     renderObjectius(){
         return this.props.objectius.map((objectiu)=>{
             return(
