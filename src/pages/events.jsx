@@ -3,80 +3,41 @@ import Base from "../components/base";
 import '../css/eventScreenStyle.css';
 import {
     Row,
-    Col
+    Col,
+    InputGroupButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {unshowWeek, showWeek} from "../actions/eventsActions";
-import {
-        RowDetailState,
-        PagingState,
-        IntegratedPaging} from '@devexpress/dx-react-grid';
-import {
-    Grid,
-    Table,
-    TableHeaderRow,
-    TableRowDetail,
-    PagingPanel,
-} from '@devexpress/dx-react-grid-bootstrap4';
-import { generateRows } from '../demo-data/generator';
-
-const RowDetail = () => (
-    <div>
-        Dilluns
-        Dimarts
-        Dimecres
-        Dijous
-        Divendres
-    </div>
-);
-
+import WeeksTable from "../components/WeeksTable";
 
 class Events extends React.Component{
     constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: 'setmana', title: 'Setmana' },
-                { name: 'valoracions', title: 'Valoració mitjana' },
-                { name: 'assistencia_voluntaris', title: 'Assistencia Voluntaris' },
-                { name: 'assistencia_infants', title: 'Assistencia Infants' },
-            ],
-            rows: generateRows({ length: 8 }),
-        };
+        super(props)
     }
     render(){
-        const { rows, columns } = this.state;
         return(
             <div>
                 <Base/>
                 <div className="viewStyle">
                     <Row>
-                        <Col md={{ size: 6, offset: 2 }}>
-                            <h4 className="titleStyle">Activitats anteriors</h4>
-                            <div className="card">
-                                <Grid
-                                    rows={rows}
-                                    columns={columns}
-                                >
-                                    <PagingState
-                                        defaultCurrentPage={0}
-                                        pageSize={6}
-                                    />
-                                    <RowDetailState
-                                        defaultExpandedRowIds={[]}
-                                    />
-                                    <IntegratedPaging />
-                                    <Table />
-                                    <TableHeaderRow />
-                                    <TableRowDetail
-                                        contentComponent={RowDetail}
-                                    />
-                                    <PagingPanel />
-                                </Grid>
-                            </div>
+                        <Col>
+                            <InputGroupButtonDropdown color="#F2911B" addonType="append" style={{marginLeft:"5%"}}>
+                                <DropdownToggle caret>
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem >Primer trimestre</DropdownItem>
+                                    <DropdownItem >Segon trimestre</DropdownItem>
+                                    <DropdownItem >Tercer trimestre</DropdownItem>
+                                </DropdownMenu>
+                                <p style={{marginLeft:"1%"}}>Segon Trimestre</p>
+                            </InputGroupButtonDropdown>
                         </Col>
-                        <Col  md={{ size: 4 }}>
+                    </Row>
+                    <Row style={{marginTop:"3%"}}>
+                        <Col md={{ size: 6, offset: 1 }}>
+                            <WeeksTable title={"Activitats anteriors"} activities={{results:[]}}/>
+                        </Col>
+                        <Col  md={{ size: 4 }} style={{marginLeft:"3%"}}>
                             <div className="cardStyle">
                                 <h5 className="titleCardStyle">Llegenda</h5>
                                 <hr/>
@@ -118,29 +79,8 @@ class Events extends React.Component{
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={{ size: 6, offset: 2 }}>
-                            <h4 className="titleStyle">Activitats posteriors</h4>
-                            <div className="card">
-                                <Grid
-                                    rows={rows}
-                                    columns={columns}
-                                >
-                                    <PagingState
-                                        defaultCurrentPage={0}
-                                        pageSize={6}
-                                    />
-                                    <RowDetailState
-                                        defaultExpandedRowIds={[]}
-                                    />
-                                    <IntegratedPaging />
-                                    <Table />
-                                    <TableHeaderRow />
-                                    <TableRowDetail
-                                        contentComponent={RowDetail}
-                                    />
-                                    <PagingPanel />
-                                </Grid>
-                            </div>
+                        <Col md={{ size: 6, offset: 1 }}>
+                            <WeeksTable title={"Activitats anteriors"} activities={{results:[]}}/>
                         </Col>
                     </Row>
 

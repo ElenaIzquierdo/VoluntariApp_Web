@@ -3,7 +3,9 @@ const INITIAL_STATE ={
         id:1,
         name: "Centre Interes curs 2019-2020: Persona prehistòrica"
     },
-    objectius: [],
+    objectius: {
+        results: []
+    },
     explicacions: {
         results:[]
     },

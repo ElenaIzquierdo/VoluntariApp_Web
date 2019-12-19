@@ -5,7 +5,7 @@ import {
 
 class Objectius extends React.Component{
     renderGoals(){
-        return this.props.objectius.map((objectiu)=>{
+        return this.props.objectius.results.map((objectiu)=>{
             return(
                 <tr key={objectiu}>
                     <td>
