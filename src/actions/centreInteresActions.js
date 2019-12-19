@@ -66,3 +66,38 @@ const receiveObjectius =(objectius)=>{
         data: objectius
     }
 }
+
+export const fetchObjectiusWithURL = (url) => {
+    return (dispatch) => {
+        dispatch(requestObjectius());
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            dataType: 'json',
+        }).then((resp) =>
+            resp.json().then((body) =>
+                dispatch(receiveObjectius(body)))
+            );
+          
+    }
+}
+export const fetchExplicacionsWithURL = (url) => {
+    return (dispatch) => {
+        dispatch(requestExplicacions());
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            dataType: 'json',
+        }).then((resp) =>
+            resp.json().then((body) =>
+                dispatch(receiveExplicacions(body)))
+            );
+          
+    }
+}

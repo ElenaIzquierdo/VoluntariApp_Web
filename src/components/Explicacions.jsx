@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Table
+    Table, Row
 } from 'reactstrap';
 import Moment from 'react-moment';
 
@@ -30,6 +30,11 @@ class Explicacions extends React.Component {
                         {this.renderExplicacions()}
                     </tbody>
                 </Table>
+                <Row style={{justifyContent: 'space-between'}}>
+                    <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} onClick={()=>this.props.fetchExplicacionsWithURL(this.props.explicacions.previous)}></i>
+                    <h5 className="titleCardStyle">Pàgina {this.props.explicacions.current}</h5>
+                    <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} onClick={()=>this.props.fetchExplicacionsWithURL(this.props.explicacions.next)}></i>
+                </Row>
             </div>
         )
     }

@@ -3,7 +3,7 @@ import Base from "../components/base";
 import '../css/tutoriesScreenStyle.css';
 import '../css/centreInteresStyle.css';
 import connect from "react-redux/es/connect/connect";
-import {fetchExplicacions, fetchObjectius} from "../actions/centreInteresActions";
+import {fetchExplicacions, fetchObjectius, fetchObjectiusWithURL, fetchExplicacionsWithURL} from "../actions/centreInteresActions";
 import { Row} from "reactstrap";
 import Objectius from "../components/Objectius";
 import Explicacions from "../components/Explicacions";
@@ -30,8 +30,8 @@ class CentreInteres extends React.Component{
                 <Base/>
                 <h4 className="titleCentreInteres"> {this.props.centreInteres.name}</h4>
                 <Row>
-                    <Objectius objectius={this.props.objectius}/>
-                    <Explicacions explicacions={this.props.explicacions}/>
+                    <Objectius objectius={this.props.objectius} fetchObjectiusWithURL={this.props.fetchObjectiusWithURL}/>
+                    <Explicacions explicacions={this.props.explicacions} fetchExplicacionsWithURL={this.props.fetchExplicacionsWithURL}/>
                 </Row>
             </div>
         )
@@ -50,7 +50,9 @@ const mapStateToProps = (state) => {
 const  mapDispatchToProps = (dispatch)=>{
     return {
         fetchExplicacions: (centreInteres_id) => dispatch(fetchExplicacions(centreInteres_id)),
-        fetchObjectius: (centreInteres_id) => dispatch(fetchObjectius(centreInteres_id))
+        fetchObjectius: (centreInteres_id) => dispatch(fetchObjectius(centreInteres_id)),
+        fetchObjectiusWithURL: (url)=>dispatch(fetchObjectiusWithURL(url)),
+        fetchExplicacionsWithURL: (url)=>dispatch(fetchExplicacionsWithURL(url))
     }
 };
 

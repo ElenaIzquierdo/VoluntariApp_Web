@@ -32,11 +32,6 @@ class Events extends React.Component{
     }
 
     render(){
-        console.log(this.props.quarter_iterator)
-        if(this.props.isFetching){
-            return <Dots />;
-        }
-        else{
             return(
                 <div>
                     <Base/>
@@ -93,7 +88,6 @@ class Events extends React.Component{
                     </div>
                 </div>
             )
-        }
     }
 }
 
