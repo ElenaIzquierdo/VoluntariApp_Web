@@ -1,5 +1,4 @@
 export const incIterator = () => {
-    console.log("EOEOEOEOEOEO")
     return {
         type: 'INC_ITERATOR',
     }

@@ -9,9 +9,7 @@ import {changeCreateTopicFormProperty, createForumTopic, changeDropDown} from ".
 import connect from "react-redux/es/connect/connect";
 
 class CreateForumTheme extends React.Component {
-    constructor(props){
-        super(props)
-    }
+    
     onPressAccept(){
         if(this.props.title !== "" && this.props.description !== "" && this.props.group !== ""){
             const topicInfo = {
