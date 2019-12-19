@@ -1,64 +1,104 @@
 import React from "react";
 import Base from "../components/base";
-import {Button, Col, Form, FormGroup, Label, Input, Row} from 'reactstrap';
-import {Link} from "react-router-dom";
+import {Button, Col, Label, Input, Row,
+        InputGroupButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
+import {Link, Redirect} from "react-router-dom";
+
+
+import {changeCreateTopicFormProperty, createForumTopic, changeDropDown} from "../actions/createForumTopicActions";
+import connect from "react-redux/es/connect/connect";
 
 class CreateForumTheme extends React.Component {
+    constructor(props){
+        super(props)
+    }
+    onPressAccept(){
+        if(this.props.title !== "" && this.props.description !== "" && this.props.group !== ""){
+            const topicInfo = {
+                title: this.props.title,
+                group: this.props.group,
+                description: this.props.description
+            };
+            this.props.createForumTopic(topicInfo)
+            this.renderRedirect()
+        } 
+    }
+
+    renderRedirect = () => {
+        return <Redirect to='/forum' />
+      }
+
+    selectDropDownOption(dropdownOption){
+        this.props.changeCreateTopicFormProperty("group",dropdownOption)
+    }
+
     render(){
         return(
             <div>
                 <Base/>
                 <div className="view2Style">
-                    <Form>
                     <Row form style={{marginTop:"3%"}}>
                         <Col md={10}>
-
-                                <FormGroup row>
                                     <Label for="title" sm={2}>Títol</Label>
                                     <Col sm={10}>
-                                        <Input name="title" id="title" required defaultValue={this.props.title}
-                                               onChange={this.handleChange}/>
+                                        <Input name="title" id="title" required value={this.props.title}
+                                               onChange={(event)=>this.props.changeCreateTopicFormProperty("title",event.target.value)}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row>
                                     <Label for="description" sm={2}>Descripció</Label>
                                     <Col sm={10}>
                                         <Input type="textarea" name="description" id="description"
-                                               defaultValue={this.props.description}
-                                               onChange={this.handleChange}/>
+                                               value={this.props.description}
+                                               onChange={(event)=>this.props.changeCreateTopicFormProperty("description",event.target.value)}/>
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row>
-                                    <Label for="description" sm={2}>Tasques</Label>
+                                    <Label for="description" sm={2}>Grup</Label>
                                     <Col sm={10}>
-                                        <Input type="textarea" name="description" id="description"
-                                               defaultValue={this.props.description}
-                                               onChange={this.handleChange}/>
+                                        <InputGroupButtonDropdown color="#F2911B" addonType="append" isOpen={this.props.dropdownOpen} toggle={()=>this.props.changeDropDown()}>
+                                            <DropdownToggle caret value={this.props.group}>
+                                            </DropdownToggle>
+                                            <DropdownMenu>
+                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[0])}>{this.props.group_choices[0]}</DropdownItem>
+                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[1])}>{this.props.group_choices[1]}</DropdownItem>
+                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[2])}>{this.props.group_choices[2]}</DropdownItem>
+                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[3])}>{this.props.group_choices[3]}</DropdownItem>
+                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[4])}>{this.props.group_choices[4]}</DropdownItem>
+                                            </DropdownMenu>
+                                            <p style={{marginLeft:"1%"}}>{this.props.group}</p>
+                                        </InputGroupButtonDropdown>
+                                        
                                     </Col>
-                                </FormGroup>
-                                <FormGroup row>
-                                    <Label for="exampleFile" sm={2}>Attachment</Label>
-                                    <Col sm={10}>
-                                        <Input type="file" name="attachment" id="exampleFile" onChange={this.handleChange}/>
-                                    </Col>
-                                </FormGroup>
 
-                                <FormGroup check row>
                                     <Row style={{marginLeft:"16%"}}>
                                         <Button color="link">
-                                            <Link style={{ textDecoration: 'none' }} to={"/"}>Cancel·lar</Link>
+                                            <Link style={{ textDecoration: 'none' }} to={"/forum"}>Cancel·lar</Link>
                                         </Button>
-                                        <Button color="success" type="submit">Crear</Button>
+                                        <Button color="success" onClick={this.onPressAccept.bind(this)}>Crear</Button>
                                     </Row>
-                                </FormGroup>
 
                         </Col>
                     </Row>
-                    </Form>
                 </div>
             </div>
         )
     }
 }
 
-export default CreateForumTheme;
+const mapStateToProps = (state) => {
+    return {
+        title: state.createForumTopicReducer.title,
+        description: state.createForumTopicReducer.description,
+        group: state.createForumTopicReducer.group,
+        group_choices: state.createForumTopicReducer.group_choices,
+        dropdownOpen: state.createForumTopicReducer.dropdownOpen
+    }
+
+};
+
+const  mapDispatchToProps = (dispatch)=>{
+    return {
+        changeCreateTopicFormProperty : (propertyName, value) => dispatch(changeCreateTopicFormProperty(propertyName, value)),
+        createForumTopic: (topicInfo) => dispatch(createForumTopic(topicInfo)),
+        changeDropDown: () => dispatch(changeDropDown())
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(CreateForumTheme)

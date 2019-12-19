@@ -8,7 +8,7 @@ export const fetchClosedForumTopics = (order) => {
     return (dispatch) => {
         dispatch(requestForumTopics());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum?status=closed';
-        if(order != ""){
+        if(order !== ""){
             const url1 = '&sort='+order
             fetch(baseUrl+url1, {
                 method: 'GET',
@@ -56,7 +56,7 @@ export const fetchOpenedForumTopics = (order) => {
     return (dispatch) => {
         dispatch(requestForumTopics());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum?status=open';
-        if(order != ""){
+        if(order !== ""){
             const url1 = '&sort='+order
             fetch(baseUrl+url1, {
                 method: 'GET',

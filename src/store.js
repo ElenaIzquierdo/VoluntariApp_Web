@@ -6,6 +6,7 @@ import {forumReducer} from "./reducers/forumReducer";
 import {viewforumthemeReducer} from "./reducers/viewforumthemeReducer"
 import {tutoriesReducer} from "./reducers/tutoriesReducer";
 import {centreInteresReducer} from "./reducers/centreInteresReducer";
+import { createForumTopicReducer } from './reducers/createForumTopicReducer';
 
 const rootReducer = combineReducers({
     homeReducer: homeReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     forumReducer: forumReducer,
     viewforumReducer: viewforumthemeReducer,
     tutoriesReducer: tutoriesReducer,
-    centreInteresReducer: centreInteresReducer
+    centreInteresReducer: centreInteresReducer,
+    createForumTopicReducer: createForumTopicReducer
 });
 
 const store= createStore(
