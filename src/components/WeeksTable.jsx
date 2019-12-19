@@ -4,13 +4,17 @@ import {
     Row
 } from 'reactstrap';
 import Moment from 'react-moment';
+import { Link} from "react-router-dom";
 
 class WeeksTable extends React.Component{
     renderActivities(){
         return this.props.activities.results.map((activity)=>{
             return(
                 <tr key={activity}>   
-                    <td>{activity.name}</td>
+                    <Link style={{ textDecoration: 'none' }} to={`week/${activity.id}`}>
+                        <td style={{color:'black'}}>{activity.name}</td>
+                    </Link>
+                   
                     <td>
                         <Moment format="DD/MM/YYYY">{activity.start_date}</Moment>   
                     </td>
