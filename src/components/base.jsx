@@ -31,9 +31,6 @@ class Base extends React.Component{
                                 <NavLink className="text-style" href="/forum">Forum</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="text-style" href="/tutories">Tutories</NavLink>
-                            </NavItem>
-                            <NavItem>
                                 <NavLink className="text-style" href="/centre-interes">Centre Interes</NavLink>
                             </NavItem>
                         </Nav>
