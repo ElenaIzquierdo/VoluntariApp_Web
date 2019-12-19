@@ -2,6 +2,8 @@ import React from "react";
 import {
     Row
 } from 'reactstrap';
+import Moment from 'react-moment';
+
 
 class Comment extends React.Component {
     render(){
@@ -14,7 +16,7 @@ class Comment extends React.Component {
                 <Row style={{marginLeft: "3%"}}>
                     <p>{this.props.content}</p>
                 </Row>
-                <p style={{paddingLeft: "3%"}}>{this.props.created_date}</p>
+                <Moment style={{paddingLeft: "3%"}} format="DD/MM/YYYY HH:mm">{this.props.created_date}</Moment> 
             </div>
         )
     }

@@ -25,6 +25,7 @@ class ForumTheme extends React.Component{
             );
         }
     }
+    
     render(){
         return(
             <div>
