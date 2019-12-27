@@ -31,6 +31,10 @@ class CreateForumTheme extends React.Component {
     }
 
     render(){
+        if(this.props.new_topic){
+            this.props.changeCreateTopicFormProperty("new_topic", false);
+            return <Redirect to={`/forum`}/>
+        }
         return(
             <div>
                 <Base/>
@@ -86,7 +90,8 @@ const mapStateToProps = (state) => {
         description: state.createForumTopicReducer.description,
         group: state.createForumTopicReducer.group,
         group_choices: state.createForumTopicReducer.group_choices,
-        dropdownOpen: state.createForumTopicReducer.dropdownOpen
+        dropdownOpen: state.createForumTopicReducer.dropdownOpen,
+        new_topic: state.createForumTopicReducer.new_topic
     }
 
 };
@@ -95,7 +100,7 @@ const  mapDispatchToProps = (dispatch)=>{
     return {
         changeCreateTopicFormProperty : (propertyName, value) => dispatch(changeCreateTopicFormProperty(propertyName, value)),
         createForumTopic: (topicInfo) => dispatch(createForumTopic(topicInfo)),
-        changeDropDown: () => dispatch(changeDropDown())
+        changeDropDown: () => dispatch(changeDropDown()),
     }
 };
 
