@@ -6,6 +6,7 @@ export const changeDropDown =() => {
 
 export const fetchClosedForumTopics = (order) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestForumTopics());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum?status=closed';
         if(order !== ""){
@@ -15,6 +16,7 @@ export const fetchClosedForumTopics = (order) => {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + token
                 },
                 dataType: 'json',
             }).then((resp) =>
@@ -54,6 +56,7 @@ const receiveClosedForumTopics =(closedTopics)=>{
 
 export const fetchOpenedForumTopics = (order) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestForumTopics());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum?status=open';
         if(order !== ""){
@@ -63,6 +66,7 @@ export const fetchOpenedForumTopics = (order) => {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + token
                 },
                 dataType: 'json',
             }).then((resp) =>

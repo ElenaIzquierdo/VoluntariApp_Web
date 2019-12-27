@@ -69,12 +69,14 @@ const receiveObjectius =(objectius)=>{
 
 export const fetchObjectiusWithURL = (url) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestObjectius());
         fetch(url, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
@@ -86,12 +88,14 @@ export const fetchObjectiusWithURL = (url) => {
 }
 export const fetchExplicacionsWithURL = (url) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestExplicacions());
         fetch(url, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>

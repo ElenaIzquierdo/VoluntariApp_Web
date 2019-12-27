@@ -1,9 +1,11 @@
 const baseUrl = "http://165.22.76.147:8080/voluntariapp";
 export const request = async (path = "", method = "GET", body) => {
     return new Promise((res, rej) => {
+        const token = localStorage.getItem('token')
         let headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
         };
         const finalPath = baseUrl + path;
         const bodyString = JSON.stringify(body);

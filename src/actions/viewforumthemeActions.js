@@ -1,6 +1,7 @@
 import {request} from "../request";
 export const fetchForumTopic = (id) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestTopic());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum/';
         const finalPath = baseUrl + id;
@@ -9,6 +10,7 @@ export const fetchForumTopic = (id) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
@@ -33,6 +35,7 @@ const receiveTopic =(topic)=>{
 
 export const fetchForumTopicComments = (id) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/comment/forum/';
         const finalPath = baseUrl + id;
         fetch(finalPath, {
@@ -40,6 +43,7 @@ export const fetchForumTopicComments = (id) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>

@@ -12,6 +12,7 @@ export const unshowWeek =() => {
 
 export const fetchWeeksForQuarter = (quarter) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestWeeks());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/week/quarter/'+quarter;
         fetch(baseUrl, {
@@ -19,6 +20,7 @@ export const fetchWeeksForQuarter = (quarter) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
@@ -56,12 +58,14 @@ export const previousQuarter = () =>{
 
 export const fetchWeeksForQuarterWithURL = (url) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestWeeks());
         fetch(url, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
@@ -74,6 +78,7 @@ export const fetchWeeksForQuarterWithURL = (url) => {
 
 export const getQuartersFromCours = (cours) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestQuarters());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/quarter/cours/'+cours;
         fetch(baseUrl, {
@@ -81,6 +86,7 @@ export const getQuartersFromCours = (cours) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>

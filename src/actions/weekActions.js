@@ -1,5 +1,6 @@
 export const fetchWeek = (id) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestWeek());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/week/';
         const finalPath = baseUrl + id;
@@ -8,6 +9,7 @@ export const fetchWeek = (id) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
@@ -32,6 +34,7 @@ const receiveWeek =(week)=>{
 
 export const fetchActivitiesFromWeek = (weekid) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestActivitiesFromWeek());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/events/week/';
         const finalPath = baseUrl + weekid;
@@ -40,6 +43,7 @@ export const fetchActivitiesFromWeek = (weekid) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
