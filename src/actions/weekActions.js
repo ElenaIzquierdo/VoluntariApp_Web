@@ -36,7 +36,7 @@ export const fetchActivitiesFromWeek = (weekid) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
         dispatch(requestActivitiesFromWeek());
-        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/events/week/';
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/event/week/';
         const finalPath = baseUrl + weekid;
         fetch(finalPath, {
             method: 'GET',
@@ -60,6 +60,7 @@ const requestActivitiesFromWeek = () =>{
 }
 
 const receiveActivitiesFromWeek =(activities)=>{
+    console.log(activities)
     return {
         type: 'RECEIVE_ACTIVITIES_FROM_WEEK',
         data: activities

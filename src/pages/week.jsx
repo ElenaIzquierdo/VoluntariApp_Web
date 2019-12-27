@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 class week extends React.Component{
     componentWillMount(){
         this.props.fetchWeek(this.props.match.params.weekid)
-        //this.props.fetchActivitiesFromWeek(this.props.match.params.weekid)
+        this.props.fetchActivitiesFromWeek(this.props.match.params.weekid)
     }
 
     renderActivities(){

@@ -120,8 +120,6 @@ class Activity extends React.Component {
                     <p>{this.props.activity.description}</p>
                 </Row>
                 
-                {this.renderRate()}
-                
             </div>
         )
     }
