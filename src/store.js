@@ -8,6 +8,7 @@ import {tutoriesReducer} from "./reducers/tutoriesReducer";
 import {centreInteresReducer} from "./reducers/centreInteresReducer";
 import { createForumTopicReducer } from './reducers/createForumTopicReducer';
 import { weekReducer } from './reducers/weekReducer';
+import { loginReducer } from './reducers/loginReducer';
 
 const rootReducer = combineReducers({
     homeReducer: homeReducer,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     tutoriesReducer: tutoriesReducer,
     centreInteresReducer: centreInteresReducer,
     createForumTopicReducer: createForumTopicReducer,
-    weekReducer: weekReducer
+    weekReducer: weekReducer,
+    loginReducer: loginReducer
 });
 
 const store= createStore(

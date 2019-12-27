@@ -1,7 +1,27 @@
 const INITIAL_STATE = {
     dropdownOpen: false,
-    opened_topics:[],
-    closed_topics:[],
+    opened_topics:[
+        {
+            "id": 1,
+            "title": "Tema 1",
+            "creator": 1,
+            "description": "Aquest es un tema moplt guai",
+            "finished": false,
+            "created_date": "2019-12-26T18:19:44.003479Z",
+            "group": "Petits"
+            }
+    ],
+    closed_topics:[
+        {
+            "id": 2,
+            "title": "Tema 2",
+            "creator": 1,
+            "description": "Aquest es un tema tancat",
+            "finished": true,
+            "created_date": "2019-12-26T18:20:18.868471Z",
+            "group": "Petits"
+            }
+    ],
     isOpen: false,
     isFetching: false,
     filters:{

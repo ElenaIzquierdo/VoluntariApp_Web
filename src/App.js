@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Provider} from 'react-redux';
 import { store } from "./store";
 
+
 //Pages:
 import Home from './pages';
 import Events from './pages/events';
@@ -15,12 +16,14 @@ import viewEventProper from './pages/viewEventProper';
 import createForumTheme from './pages/createForumTheme';
 import centreInteres from './pages/centreInteres';
 import week from './pages/week';
+import login from './pages/login';
 
 class App extends Component {
   render(){
     return(
         <Provider store={store}>
             <Router>
+              <Route exact path="/login" component={login}/>
               <Route exact path="/" component={Home}/>
               <Route exact path="/events" component={Events}/>
               <Route exact path="/forum" component={Forum}/>
