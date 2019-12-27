@@ -2,6 +2,7 @@
 
 export const fetchExplicacions = (centreInteresId) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestExplicacions());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/explicacio/centreinteres/';
         
@@ -10,6 +11,7 @@ export const fetchExplicacions = (centreInteresId) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
@@ -36,6 +38,7 @@ const receiveExplicacions =(explicacions)=>{
 
 export const fetchObjectius = (centreInteresId) => {
     return (dispatch) => {
+        const token = localStorage.getItem('token')
         dispatch(requestObjectius());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/objectiu/centreinteres/';
         
@@ -44,6 +47,7 @@ export const fetchObjectius = (centreInteresId) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
             },
             dataType: 'json',
         }).then((resp) =>
