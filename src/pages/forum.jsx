@@ -66,39 +66,40 @@ class Forum extends React.Component{
             <div>
                 <Base/>
                 <div className="viewStyle">
-                    <h4 className="titleScreenStyle"> Forum VoluntariApp</h4>
                     <Row className="rowBotons">
                         <Col sm="1">
-                            <p className="filtresStyle">Filtrar per:</p>
-                            <p className="filtresStyle">Ordenar per:</p>
+                            <p className="filtresStyle text-style">Filtrar per:</p>
+                            <p className="filtresStyle text-style">Ordenar per:</p>
                         </Col>
                         <Col sm="2">
                             <Row>
                                 <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["opened"]}
                                         onChange={()=>this.props.changeFilterProperty("opened")}/>
-                                <p>Temes oberts</p>
+                                <p className="text-style">Temes oberts</p>
                             </Row>
                             <Row>
                                 <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["order_by_date"]}
                                         onChange={this.changeFiltersAndFetchFilteredTopics.bind(this,"order_by_date")}/>
-                                <p>Data</p>
+                                <p className="text-style">Data</p>
                             </Row>
                         </Col>
                         <Col sm="1">
                             <Row>
                                 <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["closed"]}
                                         onChange={()=>this.props.changeFilterProperty("closed")}/>
-                                <p>Temes tancats</p>
+                                <p className="text-style">Temes tancats</p>
                             </Row>
                             <Row>
                                 <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["order_by_name"]}
                                         onChange={this.changeFiltersAndFetchFilteredTopics.bind(this,"order_by_name")}/>
-                                <p>Títol</p>
+                                <p className="text-style">Títol</p>
                             </Row>
                         </Col>
                         <Col>
                             <Link className="buttonCreateStyle" style={{textDecoration: 'none'}} to='/createForumTheme'>
-                                <Button color="success" >Nou Tema</Button>
+                                <div className="buttonCreateStyle">  
+                                    <p className="text-white">Nou Tema</p> 
+                                </div>
                             </Link>
                         </Col>
                     </Row>

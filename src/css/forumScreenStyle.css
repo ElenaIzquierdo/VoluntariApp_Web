@@ -1,5 +1,3 @@
-
-
 .titleScreenStyle{
     font-weight: bold;
     color: #014029;
@@ -9,7 +7,6 @@
 
 .filtresStyle{
     margin-left: 4%;
-    font-size: 18px;
 }
 
 .buttonStyle{
@@ -18,11 +15,15 @@
 
 .rowBotons{
     margin-top:1%;
-    padding-left:3%;
+    padding-left:12%;
 }
 
 .buttonCreateStyle{
-    margin-left:43%;
+    margin-left:65%;
+    height: 35px;
+    width: 100px;
+    background-color: #014029;
+    border-radius: 6px;
 }
 
 .checkBoxRow{
@@ -34,4 +35,12 @@
     margin-right: 2%;
     margin-top: 0.5%;
     color:#014029;
+}
+
+.text-white{
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: light;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }

@@ -1,18 +1,19 @@
 .card2Style{
-    border: 3px solid #014029;
-    border-radius: 10px;
-    width:90%;
+    border-top: 2px solid #014029;
     height: 10%;
-    margin-left: 3%;
+    margin-left: 12%;
+    margin-right: 13%;
     padding-left: 1%;
     margin-top: 1%;
-
+    padding-top: 1%;
 }
 
 .title2Style{
-    font-weight: bold;
-    color: #014029;
-    text-decoration: underline;
+    font-size: 18px !important;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align:start !important;
+    color: #014029 !important;
 }
 
 .rowIcon2Style{

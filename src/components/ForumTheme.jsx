@@ -12,7 +12,7 @@ class ForumTheme extends React.Component{
             return(
                 <Row className="rowIcon2Style">
                     <i className="fa fa-times-circle closedStyle"></i>
-                    <p className="textIconStyle">Tancat</p>
+                    <p className="text-style">Tancat</p>
                 </Row>
             );
         }
@@ -20,7 +20,7 @@ class ForumTheme extends React.Component{
             return(
                 <Row className="rowIcon2Style">
                     <i className="fa fa-check-circle openedStyle"></i>
-                    <p className="textIconStyle">Obert</p>
+                    <p className="text-style">Obert</p>
                 </Row>
             );
         }
@@ -37,14 +37,13 @@ class ForumTheme extends React.Component{
                     <Row className="rowIcon2Style">
                         <i className="fa fa-calendar iconStyle"></i>
                         <Row className="rowIcon2Style">
-                            <p className="textIconStyle">Creat el dia </p>
-                            <Moment className="textIconStyle" format="DD/MM/YYYY">{this.props.createdDate}</Moment>  
+                            <Moment className="text-style" format="DD/MM/YYYY">{this.props.createdDate}</Moment>  
                         </Row>
                         
                     </Row>
                     <Row className="rowIcon2Style">
                         <i className="fa fa-comment iconStyle"></i>
-                        <p className="textIconStyle">Descripcio: {this.props.description}</p>
+                        <p className="text-style">{this.props.description}</p>
                     </Row>
                     {this.pintarEstat()}
                 </div>
