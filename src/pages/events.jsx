@@ -1,6 +1,7 @@
 import React from "react";
 import Base from "../components/base";
 import '../css/eventScreenStyle.css';
+import '../css/homeStyle.css';
 import {
     Row,
     Col
@@ -31,13 +32,11 @@ class Events extends React.Component{
     }
 
     render(){
-        console.log(this.props.quarter_iterator)
-        console.log(this.props.quarters)
-        console.log(this.props.quarters[this.props.quarter_iterator-1].name)
             return(
                 <div>
                     <Base/>
                     <div className="viewStyle">
+                    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"></link>
                         <Row style={{marginTop:"3%"}}>
                             <Col md={{ size: 6, offset: 1 }}>
                                 <WeeksTable quarter={this.props.quarters[this.props.quarter_iterator-1].name} activities={this.props.weeks} 
@@ -47,41 +46,31 @@ class Events extends React.Component{
                             </Col>
                             <Col  md={{ size: 4 }} style={{marginLeft:"3%"}}>
                                 <div className="cardStyle">
-                                    <h5 className="titleCardStyle">Llegenda</h5>
+                                    <h3 className="titleCardStyle">LLEGENDA</h3>
                                     <hr/>
                                     <Row className="rowIconStyle">
-                                        <i className="fa fa-star iconStarStyle"/>
-                                        <p className="textIconStyle">Valoració mitjana</p>
+                                        <p className="text-style">VALORACIÓ MITJANA</p>
                                     </Row>
                                     <div>
-                                        <ul>
-                                            És la mitjana de les valoracions de tota la setmana
-                                        </ul>
+                                        <p className="text-style">És la mitjana de les valoracions de tota la setmana</p>
                                     </div>
     
                                     <Row className="rowIconStyle">
-                                        <i className="fa fa-users iconStyle"/>
-                                        <p className="textIconStyle">Assistència</p>
+                                        <p className="text-style">ASSISTÈNCIA MITJANA</p>
                                     </Row>
                                     <div>
-                                        <ul>
                                             <Row className="rowIconStyle">
                                                 <i className="fa fa-angle-double-up assaltaStyle"/>
-                                                <p>Alta</p>
+                                                <p className="text-style">Alta</p>
                                             </Row>
-                                        </ul>
-                                        <ul>
                                             <Row className="rowIconStyle">
                                                 <i className="fa fa-angle-up assmitjaStyle"/>
-                                                <p>Mitja</p>
+                                                <p className="text-style">Mitja</p>
                                             </Row>
-                                        </ul>
-                                        <ul>
                                             <Row className="rowIconStyle">
                                                 <i className="fa fa-angle-double-down assbaixaStyle"/>
-                                                <p>Baixa</p>
+                                                <p className="text-style">Baixa</p>
                                             </Row>
-                                        </ul>
                                     </div>
                                 </div>
                             </Col>

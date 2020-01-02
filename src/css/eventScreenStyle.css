@@ -3,22 +3,25 @@
 .titleStyle{
     margin-bottom: 1%;
     text-align: center;
-    font-weight: bold;
+    font-size: 18px;
+    font-style: regular;
+    font-family: 'Montserrat', sans-serif;
     color: #014029;
 }
 
 .divTableStyle{
     align-content: center;
-    alignment: center;
     align-self: center;
     align-items: center;
     background-color: #014029;
 }
 
 .titleCardStyle{
+    font-size: 18px;
+    font-style: regular;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     color: #014029;
-    font-size: 19px;
 }
 
 .textIconStyle{
@@ -26,21 +29,53 @@
 }
 
 .cardStyle{
-    border: 2px solid #014029;
-    border-radius: 20px;
+    border-bottom: 2px solid #014029;
+    border-top: 2px solid #014029;
     width:60%;
     margin-top:6%;
     margin-left:15%;
+    padding-top: 8px;
 }
 
 .activitiesView{
-    border: 3px solid #014029;
-    border-radius: 20px;
+    border-bottom: 2px solid #014029;
+    border-top: 2px solid #014029;
     padding: 2%;
     width:100%;
     margin:2%;
     margin-left:5%;
     margin-top:4%;
+}
+
+.text-style{
+    font-size: 14px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+    color: #014029;
+}
+
+.table th{
+    font-size: 14px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #014029;
+}
+
+.table td {
+    font-size: 14px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #014029 !important;
+}
+
+h4 {
+    font-size: 18px !important;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #014029 !important;
 }
 
 

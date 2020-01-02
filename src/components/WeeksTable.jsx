@@ -14,13 +14,6 @@ class WeeksTable extends React.Component{
                     <Link style={{ textDecoration: 'none' }} to={`week/${activity.id}`}>
                         <td style={{color:'black'}}>{activity.name}</td>
                     </Link>
-                   
-                    <td>
-                        <Moment format="DD/MM/YYYY">{activity.start_date}</Moment>   
-                    </td>
-                    <td>
-                        <Moment format="DD/MM/YYYY">{activity.end_date}</Moment>
-                    </td>
                     <td>{activity.rate_avg}</td>
                     <td>{activity.attendance_avg}</td>
                 </tr>
@@ -31,6 +24,7 @@ class WeeksTable extends React.Component{
     render(){
         return(
             <div className="activitiesView">
+                <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"></link>
                 <Row style={{justifyContent: 'space-between'}}>
                     <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} onClick={()=>this.props.previousQuarter()}></i>
                     <h4 className="titleCardStyle">{this.props.quarter}</h4>
@@ -39,11 +33,9 @@ class WeeksTable extends React.Component{
                 
                 <Table responsive>
                     <thead>
-                        <th>Nom</th>
-                        <th>Inici</th>
-                        <th>Final</th>
-                        <th>Valoració mitjana</th>
-                        <th>Assistència mitjana</th>
+                        <th>SETMANA</th>
+                        <th>VALORACIÓ MITJANA</th>
+                        <th>ASSISTÈNCIA MITJANA</th>
                     </thead>
                     <tbody>
                         {this.renderActivities()}

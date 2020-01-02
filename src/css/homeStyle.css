@@ -114,20 +114,22 @@
 .assbaixaStyle{
     margin-left: 1%;
     margin-right: 1%;
-    color: red;
-    size:40px;
+    color: #F2A71B;
+    size:50px;
 }
 
 .assmitjaStyle{
     margin-left: 1%;
     margin-right: 1%;
     color: #F2A71B;
+    size:80px;
 }
 
 .assaltaStyle{
     margin-left: 1%;
     margin-right: 1%;
-    color: green;
+    color: #F2A71B;
+    size:50px;
 }
 
 .textIconStyle{
