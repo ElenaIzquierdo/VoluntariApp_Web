@@ -4,60 +4,32 @@ import {
     Nav,
     NavItem,
     NavLink,
-    DropdownToggle,
-    DropdownItem,
-    DropdownMenu,
-    UncontrolledDropdown,
 } from 'reactstrap';
 import '../css/homeStyle.css'
+import logo from '../images/VoluntariApp_Logo.png';
 
 class Base extends React.Component{
     render(){
         return(
-            <div>
-                <div className="navbar-style">
-                    <div className="title">
-                        <p className="titilenav-style">VoluntariApp</p>
-                    </div>
-                    <Navbar  expand="md">
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink className="text-style" href="/">Inici</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="text-style" href="/events">Esdeveniments</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="text-style" href="/forum">Forum</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="text-style" href="/centre-interes">Centre Interes</NavLink>
-                            </NavItem>
-                        </Nav>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <NavLink className="text-style" href="/">Perfil</NavLink>
-                            </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle className="text-style" nav caret>
-                                    Opcions
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem >
-                                        Logout
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
-                        </Nav>
-                    </Navbar>
-                </div>
+            <div className="navbar-style">
+                <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"></link>
+                <Navbar expand="sm" className="navbar-content-style">
+                    <Nav navbar>
+                        <img src={logo} className="logo-style"></img>
+                        <NavItem className="navbar-item-style">
+                            <NavLink className="text-style" href="/">INICI</NavLink>
+                        </NavItem>
+                        <NavItem className="navbar-item-style">
+                            <NavLink className="text-style" href="/events">ESDEVENIMENTS</NavLink>
+                        </NavItem>
+                        <NavItem className="navbar-item-style">
+                            <NavLink className="text-style" href="/forum">FORUM</NavLink>
+                        </NavItem>
+                        <NavItem className="navbar-item-style">
+                            <NavLink className="text-style" href="/centre-interes">CENTRE INTERES</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Navbar>
             </div>
         )
     }

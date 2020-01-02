@@ -11,7 +11,7 @@ class Comment extends React.Component {
             <div style={{marginBottom: "3%"}}>
                 <Row className="rowIcon2Style">
                     <i className="fa fa-user iconStyle"></i>
-                    <h5> {this.props.author}</h5>
+                    <h5> {this.props.user}</h5>
                 </Row>
                 <Row style={{marginLeft: "3%"}}>
                     <p>{this.props.content}</p>

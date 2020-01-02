@@ -16,7 +16,7 @@ class viewForumTheme extends React.Component{
     pintarComments(){
         return this.props.comments.map((comment)=>{
                 return(
-                    <Comment key={comment.id} author={comment.author} content={comment.content}
+                    <Comment key={comment.id} user={comment.user} content={comment.content}
                              created_date={comment.created_date}/>
                 );
             }

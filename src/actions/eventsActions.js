@@ -80,7 +80,7 @@ export const getQuartersFromCours = (cours) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
         dispatch(requestQuarters());
-        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/quarter/cours/'+cours;
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/quarter/course/'+cours;
         fetch(baseUrl, {
             method: 'GET',
             headers: {

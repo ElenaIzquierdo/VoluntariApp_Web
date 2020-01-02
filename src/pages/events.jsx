@@ -9,7 +9,6 @@ import connect from "react-redux/es/connect/connect";
 import {fetchWeeksForQuarter, nextQuarter, previousQuarter, fetchWeeksForQuarterWithURL, getQuartersFromCours} from "../actions/eventsActions";
 import WeeksTable from "../components/WeeksTable";
 
-import { Dots } from 'react-activity';
 import 'react-activity/dist/react-activity.css';
 
 class Events extends React.Component{
@@ -32,6 +31,9 @@ class Events extends React.Component{
     }
 
     render(){
+        console.log(this.props.quarter_iterator)
+        console.log(this.props.quarters)
+        console.log(this.props.quarters[this.props.quarter_iterator-1].name)
             return(
                 <div>
                     <Base/>

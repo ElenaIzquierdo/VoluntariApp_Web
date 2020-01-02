@@ -1,12 +1,43 @@
 .navbar-style{
-    background-color: #F2911B;
+    background-color:#FFFFFF;
     height: 20%;
+    border-bottom: #014029;
+    border-bottom-width: 2px;
+    flex-direction: row;
+    border-bottom-style: solid;
+    border-bottom-color: #014029;
+    padding-left: 15%;
+}
+
+.navbar-content-style{
+    width: 60%;
+}
+
+.navbar-item-style{
+    padding-top: 42px;
 }
 
 .text-style{
     color: #014029;
+    font-size: 18px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo-style{
+    width: 80px;
+    height: 80px;
+    border-width: 5;
+    border-color: #FFFFFF;
+    border-radius: 75;
+    margin-right: 60px;
+}
+
+.text-yellow-style{
+    color: #F2A71B;
     font-size: large;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .titilenav-style{
@@ -14,6 +45,7 @@
     font-size: 36px;
     font-weight: bold;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .titleCardStyle{
@@ -32,7 +64,7 @@
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
-    background: #F2F2F2;
+    background: #FFFFFF;
 }
 
 .cardEventStyle{
@@ -51,7 +83,7 @@
 .viewStyle{
     height: 100vh;
     width: 100%;
-    background: #F2F2F2;
+    background: #FFFFFF;
 }
 
 .rowIconStyle{
