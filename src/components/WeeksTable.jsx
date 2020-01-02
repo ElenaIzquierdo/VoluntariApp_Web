@@ -12,7 +12,7 @@ class WeeksTable extends React.Component{
             return(
                 <tr key={activity}>   
                     <Link style={{ textDecoration: 'none' }} to={`week/${activity.id}`}>
-                        <td style={{color:'black'}}>{activity.name}</td>
+                        <td className="title-center">{activity.name}</td>
                     </Link>
                     <td>{activity.rate_avg}</td>
                     <td>{activity.attendance_avg}</td>

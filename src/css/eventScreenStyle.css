@@ -62,11 +62,14 @@
     color: #014029;
 }
 
-.table td {
+.title-center{
+    text-align: center;
+}
+
+.table td{
     font-size: 14px;
     font-style: light;
     font-family: 'Montserrat', sans-serif;
-    text-align: center;
     color: #014029 !important;
 }
 

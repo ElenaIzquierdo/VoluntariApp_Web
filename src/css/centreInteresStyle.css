@@ -1,6 +1,6 @@
 .goalsView{
-    border: 3px solid #014029;
-    border-radius: 20px;
+    border-bottom: 2px solid #014029;
+    border-top: 2px solid #014029;
     padding: 2%;
     width:36%;
     margin:2%;
@@ -9,8 +9,8 @@
 }
 
 .explicacionsView{
-    border: 3px solid #014029;
-    border-radius: 20px;
+    border-bottom: 2px solid #014029;
+    border-top: 2px solid #014029;
     padding: 2%;
     width:50%;
     margin:2%;

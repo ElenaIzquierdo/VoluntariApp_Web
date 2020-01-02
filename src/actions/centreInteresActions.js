@@ -4,7 +4,7 @@ export const fetchExplicacions = (centreInteresId) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
         dispatch(requestExplicacions());
-        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/explicacio/centreinteres/';
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/schedule/centreinteres/';
         
         fetch(baseUrl+centreInteresId, {
             method: 'GET',
@@ -40,7 +40,7 @@ export const fetchObjectius = (centreInteresId) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
         dispatch(requestObjectius());
-        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/objectiu/centreinteres/';
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/goal/centreinteres/';
         
         fetch(baseUrl+centreInteresId, {
             method: 'GET',

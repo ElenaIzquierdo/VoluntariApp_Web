@@ -1,91 +1,28 @@
 import React from "react";
 import Base from "../components/base";
 import {
-    Carousel,
-    CarouselItem,
-    CarouselControl,
-    CarouselIndicators,
-    CarouselCaption,
     Row,
     Col,
     Button,
     Table
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
-import {incIterator,decIterator,changeIteratorParam} from "../actions/homeActions";
+import {} from "../actions/homeActions";
 import {Link} from "react-router-dom";
 
 
 class Home extends React.Component{
     constructor(props) {
         super(props);
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
-        this.goToIndex = this.goToIndex.bind(this);
-        this.onExiting = this.onExiting.bind(this);
-        this.onExited = this.onExited.bind(this);
-    }
-    onExiting() {
-        this.animating = true;
-    }
-
-    onExited() {
-        this.animating = false;
-    }
-
-    next() {
-        if (this.animating) return;
-        if(this.props.activeIndex === this.props.items.length-1){
-            this.props.changeIteratorParam(0);
-        }
-        else{
-            this.props.incIterator();
-        }
-    }
-
-    previous() {
-        if (this.animating) return;
-        if(this.props.activeIndex === 0){
-            this.props.changeIteratorParam(this.props.items.length-1);
-        }
-        else{
-            this.props.decIterator();
-        }
-    }
-
-    goToIndex(newIndex) {
-        if (this.animating) return;
-        this.props.changeIteratorParam(newIndex);
     }
 
 
 
     render(){
-        const slides = this.props.items.map((item) => {
-            return (
-                <CarouselItem
-                    className="custom-tag"
-                    tag="div"
-                    key={item.id}
-                    onExiting={this.onExiting}
-                    onExited={this.onExited}
-                >
-                    <CarouselCaption captionText={item.caption} captionHeader={item.altText} />
-                </CarouselItem>
-            );
-        });
+        
         return(
             <div>
                 <Base/>
-                <Carousel
-                    activeIndex={this.props.activeIndex}
-                    next={this.next}
-                    previous={this.previous}>
-                    <CarouselIndicators items={this.props.items} activeIndex={this.props.activeIndex} onClickHandler={this.goToIndex} />
-                    {slides}
-                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-                </Carousel>
                 <div className="viewStyle">
                     <div className="cardsRow">
                         <Row>
@@ -187,16 +124,10 @@ class Home extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        items: state.homeReducer.items,
-        activeIndex: state.homeReducer.activeIndex,
-        idProva: state.homeReducer.idProva
     }
 };
 const  mapDispatchToProps = (dispatch)=>{
     return {
-        incIterator: ()=>dispatch(incIterator()),
-        decIterator: ()=>dispatch(decIterator()),
-        changeIteratorParam: (iterator)=>dispatch(changeIteratorParam(iterator))
     }
 };
 
