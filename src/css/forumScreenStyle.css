@@ -44,3 +44,11 @@
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
+
+.text-red-style{
+    color: darkred;
+    font-size: 16px;
+    font-weight: light;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}

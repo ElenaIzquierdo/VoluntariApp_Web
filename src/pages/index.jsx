@@ -2,11 +2,9 @@ import React from "react";
 import Base from "../components/base";
 import {
     Row,
-    Col,
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {} from "../actions/homeActions";
-import logo from '../images/VoluntariApp_Logo.png';
 
 
 class Home extends React.Component{

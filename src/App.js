@@ -9,7 +9,6 @@ import { store } from "./store";
 import Home from './pages';
 import Events from './pages/events';
 import Forum from './pages/forum';
-import Calendari from './pages/calendari';
 import viewForumTheme from './pages/viewForumTheme';
 import viewEventProper from './pages/viewEventProper';
 import createForumTheme from './pages/createForumTheme';
@@ -26,7 +25,6 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route exact path="/events" component={Events}/>
               <Route exact path="/forum" component={Forum}/>
-              <Route exact path="/calendari" component={Calendari}/>
               <Route path="/viewforumtheme/:forumthemeid" component={viewForumTheme}/>
               <Route path="/viewEventProper/:eventid" component={viewEventProper}/>
               <Route path="/createForumTheme" component={createForumTheme}/>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../css/calendariScreenStyle.css';
 import connect from "react-redux/es/connect/connect";
 import {changeLoginFormProperty, changeErrorLoginMapProperty, resetErrorLoginMap, login} from "../actions/loginActions";
 import { Redirect} from 'react-router-dom';

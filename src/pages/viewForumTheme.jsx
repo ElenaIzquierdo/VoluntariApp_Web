@@ -2,10 +2,10 @@ import React from "react";
 import Base from "../components/base";
 import connect from "react-redux/es/connect/connect";
 import {fetchForumTopic, fetchForumTopicComments, changeNewComment, publishNewComment, closeForumTopic} from "../actions/viewforumthemeActions";
-import {Row, Button} from "reactstrap";
+import {Row, Button, Form, FormGroup, Input} from "reactstrap";
 import Comment from "../components/Comment";
-import Textarea from 'react-textarea-autosize';
 import '../css/viewforumStyle.css';
+import Moment from 'react-moment';
 
 class viewForumTheme extends React.Component{
     componentWillMount(){
@@ -27,18 +27,34 @@ class viewForumTheme extends React.Component{
     pintarHeader(){
         if(this.props.theme.finished){
             return(
-                <Row>
-                    <h4 className="title2ScreenStyle">{this.props.theme.title}</h4>
-                    <Button outline color="success" className="buttonopencloseStyle" onClick={this.onopenForumTopic.bind(this)}>Obrir</Button>
-                </Row>
+                <div style={{paddingLeft: '13%', paddingTop: '2%'}}>
+                    <Row >
+                        <h4 className="title2ScreenStyle">{this.props.theme.title}</h4>
+                        <Button outline color="success" className="buttonopencloseStyle" onClick={this.onopenForumTopic.bind(this)}>Obrir</Button>
+                    </Row>
+                    <Moment className="text-style" format="DD/MM/YYYY">
+                        {this.props.theme.created_date}
+                    </Moment>
+                    <p className="text-grey-style">Tancat</p>
+                    <p className="text-style">{this.props.theme.description}</p>
+                </div>
+                
             );
         }
         else{
             return(
-                <Row>
-                    <h4 className="title2ScreenStyle">{this.props.theme.title}</h4>
-                    <Button outline color="danger" className="buttonopencloseStyle" onClick={this.oncloseForumTopic.bind(this)}>Tancar</Button>
-                </Row>
+                <div style={{paddingLeft: '13%', paddingTop: '2%'}}>
+                    <Row>
+                        <h4 className="title2ScreenStyle">{this.props.theme.title}</h4>
+                        <Button outline color="danger" className="buttonopencloseStyle" onClick={this.oncloseForumTopic.bind(this)}>Tancar</Button>
+                    </Row>
+                    <Moment className="text-style" format="DD/MM/YYYY">
+                        {this.props.theme.created_date}
+                    </Moment> 
+                    <p className="text-style">Obert</p>
+                    <p className="text-style">{this.props.theme.description}</p>
+                </div>
+                
             );
         }
 
@@ -47,18 +63,12 @@ class viewForumTheme extends React.Component{
     pintarEstat(){
         if(this.props.finished){
             return(
-                <Row className="rowIcon2Style">
-                    <i className="fa fa-times-circle closedStyle"></i>
-                    <p className="textIconStyle">Tema tancat</p>
-                </Row>
+                <p className="text-style">Tancat</p>
             );
         }
         else{
             return(
-                <Row className="rowIcon2Style">
-                    <i className="fa fa-check-circle openedStyle"></i>
-                    <p className="textIconStyle">Tema obert</p>
-                </Row>
+                <p className="text-style">Obert</p>
             );
         }
     }
@@ -93,26 +103,27 @@ class viewForumTheme extends React.Component{
         return(
             <div>
                 <Base/>
-                <div className="view2Style">
+                <div className="viewStyle">
                     {this.pintarHeader()}
-
-                    <Row className="rowIcon2Style">
-                        <p className="textIconStyle">Creat el {this.props.theme.createdDate}</p>
-                    </Row>
-                    {this.pintarEstat()}
-                    <Row className="rowIcon2Style">
-                        <i className="fa fa-comment iconStyle"></i>
-                        <p className="textIconStyle">Descripcio: {this.props.theme.description}</p>
-                    </Row>
-                    <hr></hr>
-                    <h5 className="title2ScreenStyle">Comentaris ({this.props.comments.length})</h5>
-                    <div>
-                        <Textarea className="textAreaStyle" 
-                                    value={this.props.new_comment}
-                                    onChange={(event)=>this.props.changeNewComment(event.target.value)}/>
-                        <Button style={{marginLeft:"1%"}} color="success" onClick={this.publishComment.bind(this)}>Comentar</Button>{' '}
+                    <hr style={{marginLeft: '10%', marginRight: '11%'}}></hr>
+                    <div style={{paddingLeft: '13%', paddingTop: '1%', paddingRight: '11%'}}>
+                        <Row>
+                            <h4 className="title2ScreenStyle">Comentaris ({this.props.comments.length})</h4>
+                        </Row>
+                        <div style={{flexDirection: 'row'}}>
+                            <Form style={{width: '65%'}}>
+                                <FormGroup>
+                                    <Input type="textarea" name="text" id="exampleText" />
+                                </FormGroup>
+                            </Form>
+                            <div className="comment-button" onClick={this.publishComment.bind(this)}>  
+                                <p className="text-white">Comentar</p> 
+                            </div>
+                            
+                        </div>
+                        {this.pintarComments()}
                     </div>
-                    {this.pintarComments()}
+                    
                 </div>
             </div>
         )

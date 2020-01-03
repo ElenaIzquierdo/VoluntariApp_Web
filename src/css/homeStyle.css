@@ -24,6 +24,20 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.text-red-style{
+    color: darkred;
+    font-size: 18px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.text-grey-style{
+    color: #373838;
+    font-size: 14px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .title-style{
     color: #014029;
     font-size: 28px;
