@@ -81,6 +81,14 @@ h4 {
     color: #014029 !important;
 }
 
+h5 {
+    font-size: 15px !important;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #014029 !important;
+}
+
 .title-activity{
     font-size: 16px;
     font-style: light;
