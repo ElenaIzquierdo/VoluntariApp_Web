@@ -3,119 +3,57 @@ import Base from "../components/base";
 import {
     Row,
     Col,
-    Button,
-    Table
 } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {} from "../actions/homeActions";
-import {Link} from "react-router-dom";
+import logo from '../images/VoluntariApp_Logo.png';
 
 
 class Home extends React.Component{
     constructor(props) {
         super(props);
     }
-
-
-
     render(){
         
         return(
             <div>
                 <Base/>
                 <div className="viewStyle">
-                    <div className="cardsRow">
-                        <Row>
-                            <Col sm="6">
-                                <div className="cardEventStyle">
-                                    <h4 className="titleCardStyle">Propera activitat</h4>
-                                    <hr></hr>
-                                    <Row className="rowIconStyle">
-                                        <i className="fa fa-calendar iconStyle"></i>
-                                        <p className="textIconStyle">Dilluns 16 de maig</p>
-                                    </Row>
-                                    <Row className="rowIconStyle">
-                                        <i className="fa fa-users iconStyle"></i>
-                                        <p className="textIconStyle">Assistents 3/4</p>
-                                    </Row>
-                                    <Row className="rowIconStyle">
-                                        <i className="fa fa-map-pin iconStyle"></i>
-                                        <p className="textIconStyle">Grup Petits</p>
-                                    </Row>
-                                    <hr></hr>
-                                    <div className="footerStyle">
-                                        <Link style={{ textDecoration: 'none' }} to={`viewEventProper/${this.props.idProva}`}>
-                                            <Button color="link">Veure més</Button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </Col>
-
-                            <Col sm="6">
-                                <div className="cardBigStyle">
-                                    <h4 className="titleCardStyle">Activitats anteriors</h4>
-                                    <hr></hr>
-                                    <Table responsive>
-                                        <thead>
-                                        <tr className="columnStyle">
-                                            <th>Setmana</th>
-                                            <th>Valoracio mitjana</th>
-                                            <th>Assistencia</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr className="columnStyle">
-                                            <td>03/06/2019</td>
-                                            <td>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                            </td>
-                                            <td>
-                                                <i className="fa fa-angle-double-up assaltaStyle"></i>
-                                            </td>
-                                            <td>
-                                                <i className="fa fa-eye iconStyle"></i>
-                                            </td>
-                                        </tr>
-                                        <tr className="columnStyle">
-                                            <td>27/05/2019</td>
-                                            <td>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                            </td>
-                                            <td>
-                                                <i className="fa fa-angle-up assmitjaStyle"></i>
-                                            </td>
-                                            <td>
-                                                <i className="fa fa-eye iconStyle"></i>
-                                            </td>
-                                        </tr>
-                                        <tr className="columnStyle">
-                                            <td>20/05/2019</td>
-                                            <td>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                                <i className="fa fa-star iconStarStyle"></i>
-                                            </td>
-                                            <td>
-                                                <i className="fa fa-angle-double-down assbaixaStyle"></i>
-                                            </td>
-                                            <td>
-                                                <i className="fa fa-eye iconStyle"></i>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </Table>
-                                    <hr></hr>
-                                    <div className="footerStyle">
-                                        <Button color="link">Veure més</Button>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
+                    <div className="div-welcome">   
+                        <h1 className="title-style">Benvingut a VoluntariApp!</h1>
                     </div>
+                    <Row>
+                        <div className="column column-left">
+                            <p className="titleCardStyle">Esdeveniments</p>
+                            <p className="text-style">A la pestanya Esdeveniments pots veure tota la informació sobre les setmanes de cada trimestre.</p> 
+                            <p className="text-style">  
+                                Per cada setmana pots crear les activitats que estiguin programades perquè els monitors del 
+                                teu grup puguin veure tota la informació.</p>
+                            <p className="text-style">Per les activitats que ja s’han realitzat pots passar llista dels monitors que han assistit i 
+                                afegir la valoració que s’ha fet amb els infants i durant el diari de sortida. </p>
+                        </div>
+                        <div className="column">
+                            <p className="titleCardStyle">Forum</p>
+                            <p className="text-style">
+                                A la pestanya de Fòrum pots veure tots els temes que s’estan parlant i dels que s’han parlat. 
+                            </p>
+                            <p className="text-style">
+                                Pots filtrar-los i ordenar-los segons les teves necessitats amb els filtres que estan a la part superior. 
+                            </p>
+                            <p className="text-style">
+                                Aquests temes els pots crear tu i també els poden crear els monitors, 
+                                d’aquesta manera es poden repartir les responsabilitats i poden col·laborar molt més fora del casal! 
+                            </p>
+                        </div>
+                        <div className="column column-right">
+                            <p className="titleCardStyle">Centre d'interes</p>
+                            <p className="text-style">A la pestanya Centre Interes podràs crear el centre d’interès associat a un curs, 
+                                posant-li un nom i una breu descripció. </p>
+                            <p className="text-style">Podràs afegir tots els objectius que es volen assolir i la programació per fer-lo possible.</p>
+                            <p className="text-style">Tota aquesta informació la podrà veure tots els que formen part del teu grup, 
+                                d’aquesta manera tothom està al dia.</p>
+                        </div>
+                    </Row>
                 </div>
             </div>
         );
