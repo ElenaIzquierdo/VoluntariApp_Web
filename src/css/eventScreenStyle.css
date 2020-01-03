@@ -54,6 +54,13 @@
     color: #014029;
 }
 
+.text-grey-style{
+    font-size: 14px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+    color: #2e2e2e;
+}
+
 .table th{
     font-size: 14px;
     font-style: light;
@@ -79,6 +86,27 @@ h4 {
     font-family: 'Montserrat', sans-serif !important;
     text-align: center !important;
     color: #014029 !important;
+}
+
+.title-activity{
+    font-size: 16px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+    color: #014029;
+}
+
+.activity-div{
+    border-top: 2px solid #014029;
+    margin-bottom: 3%;
+    margin-left: 2%;
+    margin-right: 12%;
+    padding-top:1%;
+}
+
+.column-description{
+    border-right: 1px solid #014029;
+    width: 28%;
+    margin-left: 1%;
 }
 
 

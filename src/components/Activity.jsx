@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Row, Col
+    Row, Col, Button
 } from 'reactstrap';
 import Moment from 'react-moment';
 import {Link} from "react-router-dom";
@@ -10,18 +10,18 @@ class Activity extends React.Component {
     renderAttendance(){
         if(this.props.activity.attendanceControl){
             return(
-                <Row style={{marginLeft: "6%"}}>
-                    <i className="fa fa-check"/>
-                    <p style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia: {this.props.activity.attendance}</p>
-                </Row>
+                <div style={{marginLeft: "6%"}}>
+                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia: {this.props.activity.attendance}</p>
+                </div>
             )
         }
         else{
             return(
-                <Row style={{marginLeft: "6%"}}>
-                    <i className="fa fa-check"/>
-                    <p style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia esperada: {this.props.activity.attendance}</p>
-                </Row>
+                <div style={{marginLeft: "6%"}}>
+                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia esperada: {this.props.activity.attendance}</p>
+                    <Button>Passar llista</Button>
+                </div>
+                    
             )
         }
     }
@@ -89,37 +89,29 @@ class Activity extends React.Component {
     }
     render(){
         return(
-            <div style={{marginBottom: "3%"}}>
-                <h5 style={{marginLeft: "3%",color:"#014029"}}> {this.props.activity.title}</h5>
-                <Row style={{marginLeft: "5%"}}>
-                    <Col sm="3">
-                        <i className="fa fa-calendar"/>
-                        <Moment style={{paddingLeft: "1%", paddingRight: "1%"}} format="DD/MM/YYYY HH:mm">
-                            {this.props.activity.start_date}
-                        </Moment> - <Moment style={{paddingLeft: "1%"}} format="DD/MM/YYYY HH:mm">{this.props.activity.end_date}</Moment>
-                    </Col>
-                    <Col sm="1">
-                        <Row>
-                            <i className="fa fa-group"/>
-                            <p style={{paddingLeft: "1%", paddingRight: "1%"}}>Grup {this.props.activity.group}</p>
-                        </Row>
-                    </Col>
-                    <Col sm="3">
+            <div className="activity-div">
+                <h5 className="title-activity"> {this.props.activity.title}</h5>
+                <Moment className="text-style" style={{paddingLeft: "1%"}} format="DD/MM/YYYY HH:mm">
+                    {this.props.activity.start_date}
+                </Moment> - <Moment className="text-style" format="DD/MM/YYYY HH:mm">{this.props.activity.end_date}</Moment>
+                <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>
+                    Grup {this.props.activity.group}
+                </p>
+                
+                <Row style={{marginLeft: '1%'}}>
+                    <div className="column-description">
+                        <p className="text-grey-style">
+                            {this.props.activity.description}
+                        </p>
+                    </div>
+                    <div className="column-description">
                         {this.renderAttendance()}
-                    </Col>
-                    <Col sm="3">
-                        <Row>
-                            <i className="fa fa-download"/>
-                            <p style={{paddingLeft: "1%", paddingRight: "1%"}}>Descarregar fitxa</p>
-                        </Row>
-                    </Col>
-                    
+                    </div>
+                    <div className="column-description">
+                        <p className="text-style">Valoracio</p>
+                    </div>
                 </Row>
-                
-                <Row style={{marginLeft: "6%"}}>
-                    <p>{this.props.activity.description}</p>
-                </Row>
-                
+                 
             </div>
         )
     }
