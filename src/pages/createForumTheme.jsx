@@ -38,7 +38,7 @@ class CreateForumTheme extends React.Component {
         return(
             <div>
                 <Base/>
-                <div className="view2Style">
+                <div className="viewStyle">
                     <Row form style={{marginTop:"3%"}}>
                         <Col md={10}>
                                     <Label for="title" sm={2}>Títol</Label>

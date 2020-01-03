@@ -119,7 +119,6 @@ class viewForumTheme extends React.Component{
                             <div className="comment-button" onClick={this.publishComment.bind(this)}>  
                                 <p className="text-white">Comentar</p> 
                             </div>
-                            
                         </div>
                         {this.pintarComments()}
                     </div>

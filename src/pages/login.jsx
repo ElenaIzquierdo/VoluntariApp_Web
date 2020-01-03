@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {changeLoginFormProperty, changeErrorLoginMapProperty, resetErrorLoginMap, login} from "../actions/loginActions";
 import { Redirect} from 'react-router-dom';
+import logo from '../images/VoluntariApp_Logo.png';
 
 class LoginScreen extends React.Component{
     clickLogin(){
@@ -20,15 +21,17 @@ class LoginScreen extends React.Component{
         else{
             return(
                 <div>
-                    <div className="viewStyle">
-                        <Form>
+                    <div className="login-view">
+                        <h2>Benvingut a VoluntariApp!</h2>
+                        <img src={logo} className="logo-login"></img>
+                        <Form style={{width: '40%', marginLeft: '30%'}}>
                             <FormGroup>
-                                <Label for="exampleEmail">Email</Label>
+                                <Label className="text-style" for="exampleEmail">Email</Label>
                                 <Input type="email" name="email" id="exampleEmail" value={this.props.email}
                                         onChange={(e) => this.props.changeLoginFormProperty("email",e.target.value)}/>
                             </FormGroup>
                             <FormGroup>
-                                <Label for="examplePassword">Password</Label>
+                                <Label className="text-style" for="examplePassword">Password</Label>
                                 <Input type="password" name="password" id="examplePassword" value={this.props.password}
                                         onChange={(e) => this.props.changeLoginFormProperty("password",e.target.value)}/>
                             </FormGroup>

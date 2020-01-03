@@ -187,4 +187,31 @@
     margin-right: 10%
 }
 
+.login-view{
+    height: 100vh;
+    width: 100%;
+    background: #FFFFFF;
+    align-content: center;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10%;
+}
+
+.logo-login{
+    width: 160px;
+    height: 160px;
+    border-width: 5;
+    border-color: #FFFFFF;
+    border-radius: 75;
+}
+
+h2 {
+    font-size: 28px !important;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    color: #014029 !important;
+}
+
 
