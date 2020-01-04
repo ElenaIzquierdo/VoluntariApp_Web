@@ -15,6 +15,7 @@ import createForumTheme from './pages/createForumTheme';
 import centreInteres from './pages/centreInteres';
 import week from './pages/week';
 import login from './pages/login';
+import createEvent from './pages/createEvent';
 
 class App extends Component {
   render(){
@@ -30,6 +31,7 @@ class App extends Component {
               <Route path="/createForumTheme" component={createForumTheme}/>
               <Route path="/centre-interes" component={centreInteres}/>
               <Route path="/week/:weekid" component={week}/>
+              <Route path="/createevent" component={createEvent}/>
             </Router>
         </Provider>
     )
