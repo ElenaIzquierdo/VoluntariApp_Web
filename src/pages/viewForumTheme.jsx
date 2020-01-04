@@ -110,16 +110,20 @@ class viewForumTheme extends React.Component{
                         <Row>
                             <h4 className="title2ScreenStyle">Comentaris ({this.props.comments.length})</h4>
                         </Row>
-                        <div style={{flexDirection: 'row'}}>
+                        {this.props.theme.finished ? null:
+                            <div style={{flexDirection: 'row'}}>
                             <Form style={{width: '65%'}}>
                                 <FormGroup>
-                                    <Input type="textarea" name="text" id="exampleText" />
+                                    <Input type="textarea" name="text" id="exampleText" value={this.props.new_comment}
+                                    onChange={(event)=>this.props.changeNewComment(event.target.value)} />
                                 </FormGroup>
                             </Form>
                             <div className="comment-button" onClick={this.publishComment.bind(this)}>  
                                 <p className="text-white">Comentar</p> 
                             </div>
                         </div>
+                        }
+                        
                         {this.pintarComments()}
                     </div>
                     
