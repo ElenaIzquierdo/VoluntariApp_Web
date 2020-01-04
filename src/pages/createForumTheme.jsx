@@ -39,44 +39,55 @@ class CreateForumTheme extends React.Component {
             <div>
                 <Base/>
                 <div className="viewStyle">
-                    <Row form style={{marginTop:"3%"}}>
-                        <Col md={10}>
-                                    <Label for="title" sm={2}>Títol</Label>
-                                    <Col sm={10}>
-                                        <Input name="title" id="title" required value={this.props.title}
-                                               onChange={(event)=>this.props.changeCreateTopicFormProperty("title",event.target.value)}/>
-                                    </Col>
-                                    <Label for="description" sm={2}>Descripció</Label>
-                                    <Col sm={10}>
-                                        <Input type="textarea" name="description" id="description"
-                                               value={this.props.description}
-                                               onChange={(event)=>this.props.changeCreateTopicFormProperty("description",event.target.value)}/>
-                                    </Col>
-                                    <Label for="description" sm={2}>Grup</Label>
-                                    <Col sm={10}>
-                                        <InputGroupButtonDropdown color="#F2911B" addonType="append" isOpen={this.props.dropdownOpen} toggle={()=>this.props.changeDropDown()}>
-                                            <DropdownToggle caret value={this.props.group}>
-                                            </DropdownToggle>
-                                            <DropdownMenu>
-                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[0])}>{this.props.group_choices[0]}</DropdownItem>
-                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[1])}>{this.props.group_choices[1]}</DropdownItem>
-                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[2])}>{this.props.group_choices[2]}</DropdownItem>
-                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[3])}>{this.props.group_choices[3]}</DropdownItem>
-                                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[4])}>{this.props.group_choices[4]}</DropdownItem>
-                                            </DropdownMenu>
-                                            <p style={{marginLeft:"1%"}}>{this.props.group}</p>
-                                        </InputGroupButtonDropdown>
-                                        
-                                    </Col>
+                    <div className="div-form">
+                        <Label className="text-style" for="title" sm={2}>Títol</Label>
+                        <Input name="title" id="title" required value={this.props.title} style={{marginLeft: '2%'}}
+                                onChange={(event)=>this.props.changeCreateTopicFormProperty("title",event.target.value)}/>
+                        
+                        <Label className="text-style" for="description" sm={2}>Descripció</Label>
+                        <Input type="textarea" name="description" id="description" style={{marginLeft: '2%'}}
+                            value={this.props.description}
+                            onChange={(event)=>this.props.changeCreateTopicFormProperty("description",event.target.value)}/>
+                        
+                        <Label className="text-style" for="description" sm={2}>Grup</Label>
+                        <InputGroupButtonDropdown color="#014029" addonType="append" isOpen={this.props.dropdownOpen} 
+                                                    toggle={()=>this.props.changeDropDown()} style={{marginLeft: '2%'}}>
+                            <DropdownToggle caret value="{this.props.group}">
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[0])} 
+                                                className="text-grey-style">
+                                    {this.props.group_choices[0]}
+                                </DropdownItem>
+                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[1])}
+                                                className="text-grey-style">
+                                    {this.props.group_choices[1]}
+                                </DropdownItem>
+                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[2])}
+                                                className="text-grey-style">
+                                    {this.props.group_choices[2]}
+                                </DropdownItem>
+                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[3])}
+                                                className="text-grey-style">
+                                    {this.props.group_choices[3]}
+                                </DropdownItem>
+                                <DropdownItem onClick={this.selectDropDownOption.bind(this,this.props.group_choices[4])}
+                                                className="text-grey-style">
+                                    {this.props.group_choices[4]}
+                                </DropdownItem>
+                            </DropdownMenu>
+                            <p style={{marginLeft:"1%"}}className="text-grey-style">{this.props.group}</p>
+                        </InputGroupButtonDropdown>
+                    </div>
 
-                                    <Row style={{marginLeft:"16%"}}>
-                                        <Button color="link">
-                                            <Link style={{ textDecoration: 'none' }} to={"/forum"}>Cancel·lar</Link>
-                                        </Button>
-                                        <Button color="success" onClick={this.onPressAccept.bind(this)}>Crear</Button>
-                                    </Row>
-
-                        </Col>
+                    <Row style={{paddingLeft:"45%"}}>
+                        <Button color="link" className="text-grey-style">
+                            <Link style={{ textDecoration: 'none' }} to={"/forum"}>Cancel·lar</Link>
+                        </Button>
+                        <div style={{marginTop: '1%', marginLeft: '1%'}} className="comment-button" onClick={this.onPressAccept.bind(this)}>  
+                            <p className="text-white">Crear</p> 
+                        </div>
+                        
                     </Row>
                 </div>
             </div>
