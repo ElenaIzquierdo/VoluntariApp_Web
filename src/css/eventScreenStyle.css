@@ -94,6 +94,7 @@ h5 {
     font-style: light;
     font-family: 'Montserrat', sans-serif;
     color: #014029;
+    text-align: start !important;
 }
 
 .activity-div{

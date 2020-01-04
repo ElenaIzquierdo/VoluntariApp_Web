@@ -30,7 +30,7 @@ class week extends React.Component{
                 <Base/>
                 <div className="viewStyle">
                     <Row style={{margin:"2%", color:"#014029", justifyContent:"space-between"}}>
-                        <h4>Activitats {this.props.week.name}</h4>
+                        <h4>{this.props.week.name}</h4>
                         <Link className="buttonCreateStyle" style={{textDecoration: 'none'}} to='/createForumTheme'>
                             <Button color="success" >Nova Activitat</Button>
                         </Link>

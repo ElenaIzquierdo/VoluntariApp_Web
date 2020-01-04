@@ -24,45 +24,6 @@ const INITIAL_STATE ={
                 "total_rate": 3.5
             }
         },
-        {
-            "id": 2,
-            "creator": null,
-            "title": "Dimarts 15/01",
-            "group": "Petits",
-            "start_date": "2019-01-15T16:00:01.846839Z",
-            "end_date": "2019-01-15T20:30:01.846839Z",
-            "description": "Avui ens ho passarem genial!",
-            "attendance": 3,
-            "attending": false,
-            "attendanceControl": false,
-            "rate": null
-        },
-        {
-            "id": 3,
-            "creator": null,
-            "title": "Dimecres 16/01",
-            "group": "Petits",
-            "start_date": "2019-01-16T16:00:01.846839Z",
-            "end_date": "2019-01-16T20:30:01.846839Z",
-            "description": "Avui ens ho passarem genial!",
-            "attendance": 0,
-            "attending": false,
-            "attendanceControl": false,
-            "rate": null
-        },
-        {
-            "id": 4,
-            "creator": null,
-            "title": "Dijous 17/01",
-            "group": "Petits",
-            "start_date": "2019-01-17T16:00:01.846839Z",
-            "end_date": "2019-01-17T20:30:01.846839Z",
-            "description": "Avui ens ho passarem genial!",
-            "attendance": 0,
-            "attending": false,
-            "attendanceControl": true,
-            "rate": null
-        }
     ],
     rates:[
         

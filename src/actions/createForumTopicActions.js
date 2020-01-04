@@ -11,7 +11,7 @@ export const changeCreateTopicFormProperty=(propertyName, value) =>{
 export const createForumTopic=(topicInfo) =>{
     return (dispatch) => {
         const token = localStorage.getItem('token')
-        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum/new';
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/forum';
         fetch(baseUrl, {
             method: 'POST',
             headers: {

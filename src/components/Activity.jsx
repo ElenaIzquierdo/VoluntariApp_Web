@@ -7,11 +7,22 @@ import {Link} from "react-router-dom";
 
 
 class Activity extends React.Component {
+    renderAttenders(){
+        if(this.props.activity.attenders != null){
+            return this.props.activity.attenders.map((user)=>{
+                return(
+                    <p style={{marginLeft: '5%'}} className="text-grey-style">{user.username}</p>
+                )
+            })
+        }
+    }
+
     renderAttendance(){
         if(this.props.activity.attendanceControl){
             return(
                 <div style={{marginLeft: "6%"}}>
                     <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia: {this.props.activity.attendance}</p>
+                    {this.renderAttenders()}
                 </div>
             )
         }
@@ -19,7 +30,8 @@ class Activity extends React.Component {
             return(
                 <div style={{marginLeft: "6%"}}>
                     <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia esperada: {this.props.activity.attendance}</p>
-                    <Button>Passar llista</Button>
+                    {this.renderAttenders()}
+                    <Button style={{marginLeft: '5%'}}>Passar llista</Button>
                 </div>
                     
             )
@@ -46,8 +58,7 @@ class Activity extends React.Component {
         if(this.props.activity.rate === null){
             return(
                 <Row style={{marginLeft: "6%"}}>
-                    <h6 style={{color:"#014029"}}>Avaluació</h6>
-                    <p style={{ marginRight: "4%", marginLeft: "4%"}}>Encara no s'ha avaluat aquesta tarda</p>
+                    <p className="text-grey-style" style={{ marginRight: "4%"}}>Encara no s'ha avaluat aquesta tarda</p>
                     <Link style={{textDecoration: 'none'}} to='/createForumTheme'>
                         <p style={{ marginRight: "4%", marginLeft: "4%", marginTop:"1%"}}>Avaluar</p>
                     </Link>
@@ -57,31 +68,30 @@ class Activity extends React.Component {
         else{
             return(
                 <Row>
-                    <h6 style={{marginLeft: "6%",color:"#014029"}}>Avaluació ({this.props.activity.rate.total_rate})</h6>
                     <div sm="3" style={{borderWidth: 4,borderRadius:3, borderColor: "#014029", paddingLeft: "8%", paddingTop:"2%"}}>
                         <Row style={{justifyContent:"space-between"}}>
-                            <p>Berenar</p>
+                            <p className="text-grey-style">Berenar</p>
                             {this.renderIconForRate(this.props.activity.rate.snack_rate)}
                         </Row>
                         <Row style={{justifyContent:"space-between"}}>
-                            <p>Activitat</p>
+                            <p className="text-grey-style">Activitat</p>
                             {this.renderIconForRate(this.props.activity.rate.activity_rate)}
                         </Row>
                         <Row style={{justifyContent:"space-between"}}>
-                            <p>Files</p>
+                            <p className="text-grey-style">Files</p>
                             {this.renderIconForRate(this.props.activity.rate.line_rate)}
                         </Row>
                         <Row style={{justifyContent:"space-between"}}>
-                            <p>Respecte</p>
+                            <p className="text-grey-style">Respecte</p>
                             {this.renderIconForRate(this.props.activity.rate.respect_rate)}
                         </Row>
                         <Row style={{justifyContent:"space-between"}}>
-                            <p>Rotllana</p>
+                            <p className="text-grey-style">Rotllana</p>
                             {this.renderIconForRate(this.props.activity.rate.circle_rate)}
                         </Row>
                     </div>
                     <Col style={{borderWidth: 4,borderRadius:3, marginRight: "4%", marginLeft: "4%", marginTop: "2%"}}>
-                        <p>{this.props.activity.rate.comments}</p>
+                        <p className="text-grey-style">{this.props.activity.rate.comments}</p>
                     </Col>
                 </Row>
             )
@@ -109,6 +119,7 @@ class Activity extends React.Component {
                     </div>
                     <div className="column-description">
                         <p className="text-style">Valoracio</p>
+                        {this.renderRate()}
                     </div>
                 </Row>
                  
