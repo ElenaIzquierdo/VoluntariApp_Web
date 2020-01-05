@@ -12,7 +12,7 @@ const INITIAL_STATE ={
             "description": "Avui ens ho passarem genial!",
             "attendance": 0,
             "attending": false,
-            "attendanceControl": false,
+            "attendance_control": false,
             "rate":{
                 "id":0,
                 "comments": "Avui s'han portat molt malament i ha sigut molt complicat parlar amb ells per fer l'activitat, les files, etc.Avui s'han portat molt malament i ha sigut molt complicat parlar amb ells per fer l'activitat, les files, etc.Avui s'han portat molt malament i ha sigut molt complicat parlar amb ells per fer l'activitat, les files, etc.",
@@ -25,10 +25,7 @@ const INITIAL_STATE ={
             }
         },
     ],
-    rates:[
-        
-    ]
-    
+    modal: false
 }
 
 const weekReducer = (state = INITIAL_STATE,action) => {
@@ -43,6 +40,9 @@ const weekReducer = (state = INITIAL_STATE,action) => {
             return {...state, isFetching: true}
         case 'RECEIVE_ACTIVITIES_FROM_WEEK':
             return {...state, activities:action.data, isFetching: false}
+        case 'CHANGE_MODAL_ACTIVITY':
+            return {...state, modal: !state.modal}
+
 
         default: return state
     }

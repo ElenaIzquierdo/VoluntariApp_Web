@@ -1,12 +1,15 @@
 import React from "react";
 import {
-    Row, Col, Button
+    Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input
 } from 'reactstrap';
 import Moment from 'react-moment';
 import {Link} from "react-router-dom";
 
 
 class Activity extends React.Component {
+    constructor(props){
+        super(props)
+    }
     renderAttenders(){
         if(this.props.activity.attenders != null){
             return this.props.activity.attenders.map((user)=>{
@@ -18,7 +21,7 @@ class Activity extends React.Component {
     }
 
     renderAttendance(){
-        if(this.props.activity.attendanceControl){
+        if(this.props.activity.rate != null){
             return(
                 <div style={{marginLeft: "6%"}}>
                     <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia: {this.props.activity.attendance}</p>
@@ -31,7 +34,7 @@ class Activity extends React.Component {
                 <div style={{marginLeft: "6%"}}>
                     <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia esperada: {this.props.activity.attendance}</p>
                     {this.renderAttenders()}
-                    <Button style={{marginLeft: '5%'}}>Passar llista</Button>
+                    
                 </div>
                     
             )
@@ -59,9 +62,6 @@ class Activity extends React.Component {
             return(
                 <Row style={{marginLeft: "6%"}}>
                     <p className="text-grey-style" style={{ marginRight: "4%"}}>Encara no s'ha avaluat aquesta tarda</p>
-                    <Link style={{textDecoration: 'none'}} to='/createForumTheme'>
-                        <p style={{ marginRight: "4%", marginLeft: "4%", marginTop:"1%"}}>Avaluar</p>
-                    </Link>
                 </Row>
             )
         }
@@ -115,11 +115,17 @@ class Activity extends React.Component {
                         </p>
                     </div>
                     <div className="column-description">
+                    
                         {this.renderAttendance()}
                     </div>
                     <div className="column-description">
                         <p className="text-style">Valoracio</p>
                         {this.renderRate()}
+                    </div>
+                    <div>
+                        <Link style={{ textDecoration: 'none' }} to={`/avaluacio/${this.props.activity.id}`}>
+                            <Button style={{marginLeft: '5%'}}>Avaluar</Button>
+                        </Link>
                     </div>
                 </Row>
                  

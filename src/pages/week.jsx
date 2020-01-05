@@ -2,7 +2,7 @@ import React from "react";
 import Base from "../components/base";
 import Activity from "../components/Activity";
 import connect from "react-redux/es/connect/connect";
-import {fetchWeek, fetchActivitiesFromWeek} from "../actions/weekActions";
+import {fetchWeek, fetchActivitiesFromWeek, changeAttendanceControl, changeModal} from "../actions/weekActions";
 import '../css/viewforumStyle.css';
 import {
     Modal,
@@ -19,7 +19,8 @@ class week extends React.Component{
     renderActivities(){
         return this.props.activities.map((activity)=>{
             return(
-                <Activity activity={activity}/>
+                <Activity activity={activity} changeAttendanceControl={this.props.changeAttendanceControl}
+                    modal={this.props.modal} fetchWeek={this.props.fetchWeek} weekid={this.props.match.params.weekid}/>
             )
         })
     }
@@ -45,13 +46,16 @@ const mapStateToProps = (state) => {
     return {
         week: state.weekReducer.week,
         isFetching: state.weekReducer.week,
-        activities: state.weekReducer.activities
+        activities: state.weekReducer.activities,
+        modal: state.weekReducer.modal
     }
 };
 const  mapDispatchToProps = (dispatch)=>{
     return {
         fetchWeek: (id)=>dispatch(fetchWeek(id)),
-        fetchActivitiesFromWeek: (weekid)=>dispatch(fetchActivitiesFromWeek(weekid))
+        fetchActivitiesFromWeek: (weekid)=>dispatch(fetchActivitiesFromWeek(weekid)),
+        changeAttendanceControl: (eventattendeeId,eventattendeeInfo)=>dispatch(changeAttendanceControl(eventattendeeId,eventattendeeInfo)),
+        changeModal: ()=>dispatch(changeModal())
     }
 };
 

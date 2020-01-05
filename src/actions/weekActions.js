@@ -66,3 +66,33 @@ const receiveActivitiesFromWeek =(activities)=>{
         data: activities
     }
 }
+
+export const changeAttendanceControl = (eventattendeeId, eventattendeeInfo) => {
+    return (dispatch) => {
+        const token = localStorage.getItem('token')
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/eventattendee/';
+        const finalUrl = baseUrl + eventattendeeId
+        fetch(finalUrl, {
+            method: 'PATCH',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            },
+            body: JSON.stringify(eventattendeeInfo)
+        }).then((resp) =>{
+            if(resp.ok){
+                console.log("ok")
+            }
+            else{
+                console.log("Server responded with ", resp.code)
+            }
+        });
+    }
+}
+
+export const changeModal =()=>{
+    return{
+        type: 'CHANGE_MODAL_ACTIVITY'
+    }
+}

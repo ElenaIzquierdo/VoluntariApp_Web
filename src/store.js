@@ -10,6 +10,7 @@ import { createForumTopicReducer } from './reducers/createForumTopicReducer';
 import { weekReducer } from './reducers/weekReducer';
 import { loginReducer } from './reducers/loginReducer';
 import { createEventReducer } from './reducers/createEventReducer';
+import { avaluacioReducer } from './reducers/avaluacioReducer';
 
 const rootReducer = combineReducers({
     homeReducer: homeReducer,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     createForumTopicReducer: createForumTopicReducer,
     weekReducer: weekReducer,
     loginReducer: loginReducer,
-    createEventReducer: createEventReducer
+    createEventReducer: createEventReducer,
+    avaluacioReducer: avaluacioReducer
 });
 
 const store= createStore(

@@ -16,6 +16,7 @@ import centreInteres from './pages/centreInteres';
 import week from './pages/week';
 import login from './pages/login';
 import createEvent from './pages/createEvent';
+import avaluacio from './pages/avaluacio';
 
 class App extends Component {
   render(){
@@ -32,6 +33,7 @@ class App extends Component {
               <Route path="/centre-interes" component={centreInteres}/>
               <Route path="/week/:weekid" component={week}/>
               <Route path="/createevent" component={createEvent}/>
+              <Route path="/avaluacio/:eventid" component={avaluacio}/>
             </Router>
         </Provider>
     )
