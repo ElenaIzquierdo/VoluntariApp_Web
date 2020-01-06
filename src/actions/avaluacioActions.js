@@ -1,3 +1,4 @@
+import {request} from "../request";
 export const fetchEvent = (id) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
@@ -32,3 +33,49 @@ const receiveEvent =(event)=>{
     }
 }
 
+export const changeAttendanceControl = (id, eventattendeeInfo) => {
+    return () => {
+        request('/eventattendee/'+id, 'PATCH', eventattendeeInfo);
+    }
+}
+
+export const deleteEventAttendee = (id) => {
+    return () => {
+        request('/eventattendee/'+id, 'DELETE');
+    }
+}
+
+export const createRateEvent = (rateInfo) => {
+    return () => {
+        request('/rate', 'POST', rateInfo);
+    }
+}
+
+export const changeRateFormProperty=(propertyName, value) =>{
+    return {
+        type:'CHANGE_PROPERTY_RATE_FORM',
+        data:{
+            propertyName,
+            value
+        }
+    }
+};
+
+export const changeDropDown=(dropdown) =>{
+    return{
+        type: 'CHANGE_DROPDOWN_RATE',
+        data: dropdown
+    }
+}
+
+export const evaluationDone=() =>{
+    return{
+        type: 'EVALUATION_DONE',
+    }
+}
+
+export const rateDone=() =>{
+    return{
+        type: 'RATE_DONE',
+    }
+}

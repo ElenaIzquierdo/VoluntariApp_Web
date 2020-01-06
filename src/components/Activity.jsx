@@ -97,6 +97,17 @@ class Activity extends React.Component {
             )
         }
     }
+
+    renderButtonAvaluate(){
+        if(this.props.activity.rate === null){
+            return(
+                <Link style={{ textDecoration: 'none' }} to={`/avaluacio/${this.props.activity.id}`}>
+                    <Button style={{marginLeft: '5%'}}>Avaluar</Button>
+                </Link>
+            )
+        }
+    }
+
     render(){
         return(
             <div className="activity-div">
@@ -123,9 +134,7 @@ class Activity extends React.Component {
                         {this.renderRate()}
                     </div>
                     <div>
-                        <Link style={{ textDecoration: 'none' }} to={`/avaluacio/${this.props.activity.id}`}>
-                            <Button style={{marginLeft: '5%'}}>Avaluar</Button>
-                        </Link>
+                        {this.renderButtonAvaluate()}
                     </div>
                 </Row>
                  
