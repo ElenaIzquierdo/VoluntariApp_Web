@@ -17,7 +17,7 @@ class viewForumTheme extends React.Component{
         return this.props.comments.map((comment)=>{
                 return(
                     <Comment key={comment.id} user={comment.user} content={comment.content}
-                             created_date={comment.created_date}/>
+                             created_date={comment.created_date} owner={comment.owner}/>
                 );
             }
         );

@@ -1,6 +1,7 @@
 import React from "react";
 import {
-    Row
+    Row,
+    Button
 } from 'reactstrap';
 import Moment from 'react-moment';
 
@@ -15,7 +16,17 @@ class Comment extends React.Component {
                 <Row style={{marginLeft: "3%"}}>
                     <p className="text-grey-style">{this.props.content}</p>
                 </Row>
-                <Moment className="text-grey-style" style={{paddingLeft: "3%"}} format="DD/MM/YYYY HH:mm">{this.props.created_date}</Moment> 
+                <Row style={{marginLeft: "3%"}}>
+                    <Moment className="text-grey-style" format="DD/MM/YYYY HH:mm">
+                        {this.props.created_date}
+                    </Moment> 
+                    {this.props.owner?
+                        <Button style={{textAlign:'center', paddingTop: '0px', fontSize: '12px'}} color="link">
+                            Eliminar
+                        </Button>
+                    :null}
+                </Row>
+                
             </div>
         )
     }
