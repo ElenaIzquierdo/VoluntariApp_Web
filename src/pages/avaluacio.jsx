@@ -2,14 +2,14 @@ import React from "react";
 import Base from "../components/base";
 import connect from "react-redux/es/connect/connect";
 import {fetchEvent, changeAttendanceControl, deleteEventAttendee, 
-        createRateEvent, changeRateFormProperty, changeDropDown, evaluationDone, rateDone} from "../actions/avaluacioActions";
+        createRateEvent, changeRateFormProperty, changeDropDown, evaluationDone, 
+        rateDone, uploadFile, putFileEvent} from "../actions/avaluacioActions";
 import '../css/viewforumStyle.css';
 import {
     Row,
     Input,FormGroup, Label,Form, Button,
-    InputGroupButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem
+    InputGroupButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, 
 } from 'reactstrap';
-import {Link} from "react-router-dom";
 
 class avaluacio extends React.Component{
     componentWillMount(){
@@ -202,6 +202,18 @@ class avaluacio extends React.Component{
         }
     }
 
+    fileSelectHandler = (event) => {
+        this.props.uploadFile(event.target.value)
+    }
+
+    onSubmitFile(){
+        const activityInfo = {
+            activity_file: this.props.activity_file,
+        };
+        console.log(activityInfo)
+        this.props.putFileEvent(this.props.event.id, activityInfo)
+    }
+
     render(){
         return(
             <div>
@@ -227,6 +239,13 @@ class avaluacio extends React.Component{
                             
                         </div>
                     </Row>
+                    <Row style={{marginLeft:"13%", marginTop: '2%'}}>
+                        <FormGroup>
+                            <Label for="exampleFile">File</Label>
+                            <Input type="file" name="file" id="exampleFile" onChange={this.fileSelectHandler.bind(this)}/>
+                        </FormGroup>
+                        <Button onClick={this.onSubmitFile.bind(this)}>Submit file</Button>
+                    </Row>
                 </div>
             </div>
         )
@@ -240,7 +259,8 @@ const mapStateToProps = (state) => {
         rate: state.avaluacioReducer.rate,
         dropDowns_rate: state.avaluacioReducer.dropDowns_rate,
         rate_done: state.avaluacioReducer.rate_done,
-        evaluation_done: state.avaluacioReducer.evaluation_done
+        evaluation_done: state.avaluacioReducer.evaluation_done,
+        activity_file: state.avaluacioReducer.activity_file
     }
 };
 const  mapDispatchToProps = (dispatch)=>{
@@ -252,7 +272,9 @@ const  mapDispatchToProps = (dispatch)=>{
         changeRateFormProperty: (propertyName, value)=>dispatch(changeRateFormProperty(propertyName,value)),
         changeDropDown: (dropdown)=>dispatch(changeDropDown(dropdown)),
         evaluationDone: ()=>dispatch(evaluationDone()),
-        rateDone: ()=>dispatch(rateDone())
+        rateDone: ()=>dispatch(rateDone()),
+        uploadFile: (file)=>dispatch(uploadFile(file)),
+        putFileEvent: (id, info)=>dispatch(putFileEvent(id,info))
     }
 };
 

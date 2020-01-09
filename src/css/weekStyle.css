@@ -1,0 +1,15 @@
+.upload-file-button{
+    height: 25px;
+    width: 100px;
+    background-color: #F2C185;
+    border-radius: 6px;
+    margin-right: 2%;
+}
+
+.text-green{
+    color: #014029;
+    font-size: 16px;
+    font-weight: light;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}

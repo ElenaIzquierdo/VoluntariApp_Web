@@ -79,3 +79,32 @@ export const rateDone=() =>{
         type: 'RATE_DONE',
     }
 }
+
+export const uploadFile = (file) =>{
+    console.log("actions",file)
+    return{
+        type: 'UPLOAD_FILE',
+        data: file
+    }
+}
+
+export const putFileEvent = (id, eventInfo) =>{
+    const data = new FormData();
+    for ( var key in eventInfo ) {
+        data.append(key, eventInfo[key]);
+    }
+    return () => {
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/event/'+id+'/file';
+        fetch(baseUrl, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+            },
+            body: data
+        }).then((resp) =>{
+            if(resp){
+                console.log("file upload correctly")
+            }
+        })
+    }
+}
