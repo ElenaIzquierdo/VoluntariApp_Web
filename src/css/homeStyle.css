@@ -221,4 +221,14 @@ h2 {
     color: #014029 !important;
 }
 
+.login-tab{
+    margin-top: 5%;
+}
+
+.text-yellow-small-style{
+    color: #F2A71B;
+    font-size: 15px;
+    font-style: light;
+    font-family: 'Montserrat', sans-serif;
+}
 

@@ -9,6 +9,17 @@ import '../css/homeStyle.css'
 import logo from '../images/VoluntariApp_Logo.png';
 
 class Base extends React.Component{
+    renderLoginTab(){
+        if(localStorage.getItem('token') === null){
+            return(
+                <Nav className="ml-auto login-tab" navbar>
+                    <NavItem>
+                        <NavLink className="text-yellow-small-style" href="/login">Iniciar Sessió</NavLink>
+                    </NavItem>
+                </Nav>
+            )
+        }
+    }
     render(){
         return(
             <div className="navbar-style">
@@ -29,6 +40,7 @@ class Base extends React.Component{
                             <NavLink className="text-style" href="/centre-interes">CENTRE INTERES</NavLink>
                         </NavItem>
                     </Nav>
+                    {this.renderLoginTab()}
                 </Navbar>
             </div>
         )
