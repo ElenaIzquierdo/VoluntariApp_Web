@@ -6,10 +6,8 @@ import {fetchWeek, fetchActivitiesFromWeek, changeAttendanceControl,
         changeModal} from "../actions/weekActions";
 import '../css/viewforumStyle.css';
 import {
-    Button,
     Row
 } from 'reactstrap';
-import {Link} from "react-router-dom";
 
 class week extends React.Component{
     componentWillMount(){

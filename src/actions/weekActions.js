@@ -1,4 +1,3 @@
-import {request} from "../request";
 export const fetchWeek = (id) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')

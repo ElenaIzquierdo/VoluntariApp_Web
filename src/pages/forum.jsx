@@ -1,7 +1,7 @@
 import React from "react";
 import Base from "../components/base";
 import '../css/forumScreenStyle.css';
-import { Row, Button, Input, Col } from 'reactstrap';
+import { Row, Input, Col } from 'reactstrap';
 
 import ForumTheme from '../components/ForumTheme';
 import connect from "react-redux/es/connect/connect";

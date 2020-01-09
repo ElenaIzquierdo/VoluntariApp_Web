@@ -3,7 +3,6 @@ import {
     Table,
     Row
 } from 'reactstrap';
-import Moment from 'react-moment';
 import { Link} from "react-router-dom";
 
 class WeeksTable extends React.Component{

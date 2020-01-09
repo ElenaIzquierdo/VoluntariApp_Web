@@ -1,6 +1,6 @@
 import React from "react";
 import Base from "../components/base";
-import {Button, Col, Label, Input, Row,
+import {Button, Label, Input, Row,
         InputGroupButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 import {Link, Redirect} from "react-router-dom";
 

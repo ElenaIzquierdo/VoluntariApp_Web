@@ -30,7 +30,8 @@ const INITIAL_STATE ={
         activity: false
     },
     evaluation_done: false,
-    rate_done: false
+    rate_done: false,
+    activity_file: null
 }
 
 const avaluacioReducer = (state = INITIAL_STATE,action) => {
@@ -42,18 +43,20 @@ const avaluacioReducer = (state = INITIAL_STATE,action) => {
         case 'CHANGE_PROPERTY_RATE_FORM':
             const rate_new = {...state.rate}
             rate_new[action.data.propertyName]=action.data.value
-            return {... state, rate:rate_new }
+            return {...state, rate:rate_new}
         case 'CHANGE_DROPDOWN_RATE':
             const dropDowns_rate_new = {...state.dropDowns_rate}
             if(dropDowns_rate_new[action.data]){
                 dropDowns_rate_new[action.data] = false
             }
-            else dropDowns_rate_new [action.data] = true
+            else dropDowns_rate_new[action.data] = true
             return {...state, dropDowns_rate:dropDowns_rate_new}
         case 'EVALUATION_DONE':
             return {...state, evaluation_done: true}
         case 'RATE_DONE':
             return {...state, rate_done: true}
+        case 'UPLOAD_FILE':
+            return {...state, activity_file:action.data}
         default: return state
     }
 };
