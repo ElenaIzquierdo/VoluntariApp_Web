@@ -2,10 +2,11 @@ import React from "react";
 import Base from "../components/base";
 import Activity from "../components/Activity";
 import connect from "react-redux/es/connect/connect";
-import {fetchWeek, fetchActivitiesFromWeek, changeAttendanceControl, changeModal} from "../actions/weekActions";
+import {fetchWeek, fetchActivitiesFromWeek, changeAttendanceControl, 
+        changeModal} from "../actions/weekActions";
 import '../css/viewforumStyle.css';
 import {
-    Modal,
+    Button,
     Row
 } from 'reactstrap';
 import {Link} from "react-router-dom";
@@ -19,7 +20,7 @@ class week extends React.Component{
     renderActivities(){
         return this.props.activities.map((activity)=>{
             return(
-                <Activity activity={activity} changeAttendanceControl={this.props.changeAttendanceControl}
+                <Activity key={activity.id} activity={activity} changeAttendanceControl={this.props.changeAttendanceControl}
                     modal={this.props.modal} fetchWeek={this.props.fetchWeek} weekid={this.props.match.params.weekid}/>
             )
         })
@@ -31,7 +32,7 @@ class week extends React.Component{
                 <Base/>
                 <div className="viewStyle">
                     <Row style={{margin:"2%", color:"#014029", justifyContent:"space-between"}}>
-                        <h4>{this.props.week.name}</h4>
+                        <h4>{this.props.week.name}</h4>                                                                                                                                                                                                                                  
                     </Row>
                     <div>
                         {this.renderActivities()}
@@ -55,7 +56,7 @@ const  mapDispatchToProps = (dispatch)=>{
         fetchWeek: (id)=>dispatch(fetchWeek(id)),
         fetchActivitiesFromWeek: (weekid)=>dispatch(fetchActivitiesFromWeek(weekid)),
         changeAttendanceControl: (eventattendeeId,eventattendeeInfo)=>dispatch(changeAttendanceControl(eventattendeeId,eventattendeeInfo)),
-        changeModal: ()=>dispatch(changeModal())
+        changeModal: ()=>dispatch(changeModal()),
     }
 };
 

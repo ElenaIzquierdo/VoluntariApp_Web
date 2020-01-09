@@ -1,3 +1,4 @@
+import {request} from "../request";
 export const fetchWeek = (id) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
@@ -60,7 +61,6 @@ const requestActivitiesFromWeek = () =>{
 }
 
 const receiveActivitiesFromWeek =(activities)=>{
-    console.log(activities)
     return {
         type: 'RECEIVE_ACTIVITIES_FROM_WEEK',
         data: activities

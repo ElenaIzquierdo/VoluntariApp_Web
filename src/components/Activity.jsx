@@ -1,15 +1,12 @@
 import React from "react";
 import {
-    Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Input
+    Row, Col, Button
 } from 'reactstrap';
 import Moment from 'react-moment';
 import {Link} from "react-router-dom";
 
 
 class Activity extends React.Component {
-    constructor(props){
-        super(props)
-    }
     renderAttenders(){
         if(this.props.activity.attenders != null){
             return this.props.activity.attenders.map((user)=>{
@@ -108,16 +105,33 @@ class Activity extends React.Component {
         }
     }
 
+    renderFile(){
+        if(this.props.activity.activity_file != null){
+            const url = "http://165.22.76.147:8080/voluntariapp/event/"+this.props.activity.id+"/file"
+            return(
+                <a style={{paddingLeft: "1%", paddingRight: "1%"}} className="subtitle-grey-style" href={url} target="_blank">Descarregar fitxa</a>
+            )
+        }
+        else{
+            return(
+                <p style={{paddingLeft: "1%", paddingRight: "1%"}} className="subtitle-grey-style">Encara no hi ha fitxa per aquesta activitat</p>
+            )
+        }
+    }
+
     render(){
         return(
             <div className="activity-div">
-                <h5 className="title-activity"> {this.props.activity.title}</h5>
+                <Row style={{justifyContent: 'space-between', marginLeft: '1%'}}>
+                    <h5 className="title-activity"> {this.props.activity.title}</h5>
+                </Row>
                 <Moment className="text-style" style={{paddingLeft: "1%"}} format="DD/MM/YYYY HH:mm">
                     {this.props.activity.start_date}
                 </Moment> - <Moment className="text-style" format="DD/MM/YYYY HH:mm">{this.props.activity.end_date}</Moment>
                 <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>
                     Grup {this.props.activity.group}
                 </p>
+                {this.renderFile()}
                 
                 <Row style={{marginLeft: '1%'}}>
                     <div className="column-description">
