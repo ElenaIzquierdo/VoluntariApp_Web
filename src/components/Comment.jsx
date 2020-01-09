@@ -7,6 +7,10 @@ import Moment from 'react-moment';
 
 
 class Comment extends React.Component {
+    deleteComment(){
+        this.props.delete_method(this.props.id);
+        this.props.refresh_comments(this.props.topic_id);
+    }
     render(){
         return(
             <div className="div-comment">
@@ -21,7 +25,8 @@ class Comment extends React.Component {
                         {this.props.created_date}
                     </Moment> 
                     {this.props.owner?
-                        <Button style={{textAlign:'center', paddingTop: '0px', fontSize: '12px'}} color="link">
+                        <Button style={{textAlign:'center', paddingTop: '0px', fontSize: '12px'}} color="link"
+                                onClick={this.deleteComment.bind(this)}>
                             Eliminar
                         </Button>
                     :null}

@@ -1,7 +1,8 @@
 import React from "react";
 import Base from "../components/base";
 import connect from "react-redux/es/connect/connect";
-import {fetchForumTopic, fetchForumTopicComments, changeNewComment, publishNewComment, closeForumTopic} from "../actions/viewforumthemeActions";
+import {fetchForumTopic, fetchForumTopicComments, changeNewComment, 
+        publishNewComment, closeForumTopic, deleteComment} from "../actions/viewforumthemeActions";
 import {Row, Button, Form, FormGroup, Input} from "reactstrap";
 import Comment from "../components/Comment";
 import '../css/viewforumStyle.css';
@@ -17,7 +18,10 @@ class viewForumTheme extends React.Component{
         return this.props.comments.map((comment)=>{
                 return(
                     <Comment key={comment.id} user={comment.user} content={comment.content}
-                             created_date={comment.created_date} owner={comment.owner}/>
+                             created_date={comment.created_date} owner={comment.owner} id={comment.id}
+                             delete_method={this.props.deleteComment} 
+                             refresh_comments={this.props.fetchForumTopicComments}
+                             topic_id={this.props.match.params.forumthemeid}/>
                 );
             }
         );
@@ -147,7 +151,8 @@ const  mapDispatchToProps = (dispatch)=>{
         fetchForumTopicComments: (id) => dispatch(fetchForumTopicComments(id)),
         changeNewComment: (text) => dispatch(changeNewComment(text)),
         publishNewComment: (commentInfo) => dispatch(publishNewComment(commentInfo)),
-        closeForumTopic: (id, forumTopicInfo) => dispatch(closeForumTopic(id, forumTopicInfo))
+        closeForumTopic: (id, forumTopicInfo) => dispatch(closeForumTopic(id, forumTopicInfo)),
+        deleteComment: (id) => dispatch(deleteComment(id))
     }
 };
 

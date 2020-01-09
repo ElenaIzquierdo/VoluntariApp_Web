@@ -78,3 +78,9 @@ export const publishNewComment =(commentInfo) =>{
         request('/comment', 'POST', commentInfo);
     } 
 }
+
+export const deleteComment = (id) =>{
+    return () => {
+        request('/comment/'+id, 'DELETE');
+    } 
+}
