@@ -36,6 +36,7 @@ const receiveTopic =(topic)=>{
 export const fetchForumTopicComments = (id) => {
     return (dispatch) => {
         const token = localStorage.getItem('token')
+        dispatch(requestTopic());
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/comment/forum/';
         const finalPath = baseUrl + id;
         fetch(finalPath, {

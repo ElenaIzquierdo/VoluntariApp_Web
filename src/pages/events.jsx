@@ -11,6 +11,8 @@ import {fetchWeeksForQuarter, nextQuarter, previousQuarter, fetchWeeksForQuarter
 import WeeksTable from "../components/WeeksTable";
 import {Redirect} from "react-router-dom";
 import 'react-activity/dist/react-activity.css';
+import { Spinner } from 'react-activity';
+import 'react-activity/dist/react-activity.css';
 
 class Events extends React.Component{
 
@@ -34,6 +36,13 @@ class Events extends React.Component{
     render(){
         if(localStorage.getItem('token') === null){
             return <Redirect to={`/login`}/>
+        }
+        else if(this.props.isFetching){
+            return(
+                <div className="viewStyle content-center">
+                    <Spinner size={35} color='#F2A71B'/>
+                </div>
+            )
         }
         else{
             return(

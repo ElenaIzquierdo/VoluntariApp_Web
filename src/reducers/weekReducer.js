@@ -33,12 +33,16 @@ const weekReducer = (state = INITIAL_STATE,action) => {
         case 'FETCH_THEME':
             return state;
         case 'REQUEST_WEEK':
+            console.log("request week")
             return {...state, isFetching: true}
         case 'RECEIVE_WEEK':
+            console.log("receive week")
             return {...state, week:action.data, isFetching: false}
         case 'REQUEST_ACTIVITIES_FROM_WEEK':
+            console.log("request activities")
             return {...state, isFetching: true}
         case 'RECEIVE_ACTIVITIES_FROM_WEEK':
+            console.log("receive activities")
             return {...state, activities:action.data, isFetching: false}
         case 'CHANGE_MODAL_ACTIVITY':
             return {...state, modal: !state.modal}

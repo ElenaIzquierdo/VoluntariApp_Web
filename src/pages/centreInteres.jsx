@@ -8,7 +8,8 @@ import { Row} from "reactstrap";
 import Objectius from "../components/Objectius";
 import Explicacions from "../components/Explicacions";
 import {Redirect} from "react-router-dom";
-
+import { Spinner } from 'react-activity';
+import 'react-activity/dist/react-activity.css';
 class CentreInteres extends React.Component{
     constructor(props){
         super(props)
@@ -28,6 +29,13 @@ class CentreInteres extends React.Component{
     render(){
         if(localStorage.getItem('token') === null){
             return <Redirect to={`/login`}/>
+        }
+        else if(this.props.isFetching){
+            return(
+                <div className="viewStyle content-center">
+                    <Spinner size={35} color='#F2A71B'/>
+                </div>
+            )
         }
         else{
             return(
@@ -50,6 +58,7 @@ const mapStateToProps = (state) => {
         estat_actual: state.centreInteresReducer.estat_actual,
         explicacions: state.centreInteresReducer.explicacions,
         centreInteres: state.centreInteresReducer.centreInteres,
+        isFetching: state.centreInteresReducer.isFetching
     }
 };
 

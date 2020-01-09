@@ -8,6 +8,9 @@ import connect from "react-redux/es/connect/connect";
 import {changeDropDown, fetchClosedForumTopics, fetchOpenedForumTopics, changeFilterProperty} from "../actions/forumActions";
 import {Link, Redirect} from "react-router-dom";
 
+import { Spinner } from 'react-activity';
+import 'react-activity/dist/react-activity.css';
+
 class Forum extends React.Component{
     constructor(props) {
         super(props);
@@ -64,6 +67,13 @@ class Forum extends React.Component{
     render(){
         if(localStorage.getItem('token') === null){
             return <Redirect to={`/login`}/>
+        }
+        else if(this.props.isFetching){
+            return(
+                <div className="viewStyle content-center">
+                    <Spinner size={35} color='#F2A71B'/>
+                </div>
+            )
         }
         else{
             return(

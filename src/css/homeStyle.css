@@ -232,3 +232,13 @@ h2 {
     font-family: 'Montserrat', sans-serif;
 }
 
+.content-center{
+    justify-content: center;
+    align-content: center;
+    padding-left: 50%;
+    padding-right: 50%;
+    padding-top: 25%;
+    padding-bottom: 25%;
+}
+
+

@@ -7,6 +7,9 @@ import {Row, Button, Form, FormGroup, Input} from "reactstrap";
 import Comment from "../components/Comment";
 import '../css/viewforumStyle.css';
 import Moment from 'react-moment';
+import { Spinner } from 'react-activity';
+import 'react-activity/dist/react-activity.css';
+import {Link} from "react-router-dom";
 
 class viewForumTheme extends React.Component{
     componentWillMount(){
@@ -104,36 +107,46 @@ class viewForumTheme extends React.Component{
     }
 
     render(){
-        return(
-            <div>
-                <Base/>
-                <div className="viewStyle">
-                    {this.pintarHeader()}
-                    <hr style={{marginLeft: '10%', marginRight: '11%'}}></hr>
-                    <div style={{paddingLeft: '13%', paddingTop: '1%', paddingRight: '11%'}}>
-                        <Row>
-                            <h4 className="title2ScreenStyle">Comentaris ({this.props.comments.length})</h4>
-                        </Row>
-                        {this.props.theme.finished ? null:
-                            <div style={{flexDirection: 'row'}}>
-                            <Form style={{width: '65%'}}>
-                                <FormGroup>
-                                    <Input type="textarea" name="text" id="exampleText" value={this.props.new_comment}
-                                    onChange={(event)=>this.props.changeNewComment(event.target.value)} />
-                                </FormGroup>
-                            </Form>
-                            <div className="comment-button" onClick={this.publishComment.bind(this)}>  
-                                <p className="text-white">Comentar</p> 
-                            </div>
-                        </div>
-                        }
-                        
-                        {this.pintarComments()}
-                    </div>
-                    
+        if(this.props.isFetching){
+            return(
+                <div className="viewStyle content-center">
+                    <Spinner size={35} color='#F2A71B'/>
                 </div>
-            </div>
-        )
+            )
+        }
+        else{
+            return(
+                <div>
+                    <Base/>
+                    <div className="viewStyle">
+                        {this.pintarHeader()}
+                        <hr style={{marginLeft: '10%', marginRight: '11%'}}></hr>
+                        <div style={{paddingLeft: '13%', paddingTop: '1%', paddingRight: '11%'}}>
+                            <Row>
+                                <h4 className="title2ScreenStyle">Comentaris ({this.props.comments.length})</h4>
+                            </Row>
+                            {this.props.theme.finished ? null:
+                                <div style={{flexDirection: 'row'}}>
+                                <Form style={{width: '65%'}}>
+                                    <FormGroup>
+                                        <Input type="textarea" name="text" id="exampleText" value={this.props.new_comment}
+                                        onChange={(event)=>this.props.changeNewComment(event.target.value)} />
+                                    </FormGroup>
+                                </Form>
+                                <Link className="buttonCreateStyle" style={{textDecoration: 'none'}}>
+                                    <div className="comment-button" onClick={this.publishComment.bind(this)}>  
+                                        <p className="text-white">Comentar</p> 
+                                    </div>
+                                </Link>
+                            </div>
+                            }
+                            {this.pintarComments()}
+                        </div>
+                        
+                    </div>
+                </div>
+            )
+        }
     }
 }
 

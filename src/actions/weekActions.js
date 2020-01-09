@@ -67,7 +67,7 @@ const receiveActivitiesFromWeek =(activities)=>{
 }
 
 export const changeAttendanceControl = (eventattendeeId, eventattendeeInfo) => {
-    return (dispatch) => {
+    return () => {
         const token = localStorage.getItem('token')
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/eventattendee/';
         const finalUrl = baseUrl + eventattendeeId

@@ -12,7 +12,7 @@ const viewforumthemeReducer = (state = INITIAL_STATE,action) => {
         case 'REQUEST_TOPIC':
             return {...state, isFetching: true}
         case 'RECEIVE_TOPIC':
-            return {...state, theme:action.data}
+            return {...state, theme:action.data, isFetching: false}
         case 'RECEIVE_TOPIC_COMMENTS':
                 return {...state, comments:action.data, isFetching:false}
         case 'CHANGE_NEW_COMMENT':

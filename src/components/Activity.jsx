@@ -125,9 +125,11 @@ class Activity extends React.Component {
             <div className="activity-div">
                 <Row style={{justifyContent: 'space-between', marginLeft: '1%'}}>
                     <h5 className="title-activity"> {this.props.activity.title}</h5>
-                    <div className="upload-file-button">  
-                        <p className="text-white">Afegir fitxa</p> 
-                    </div>
+                    <Link className="upload-file-button" style={{textDecoration: 'none'}}>
+                        <div className="upload-file-button">  
+                            <p className="text-white">Afegir fitxa</p> 
+                        </div>
+                    </Link>
                 </Row>
                 <Moment className="text-style" style={{paddingLeft: "1%"}} format="DD/MM/YYYY HH:mm">
                     {this.props.activity.start_date}
