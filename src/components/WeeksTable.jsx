@@ -14,7 +14,6 @@ class WeeksTable extends React.Component{
                         <td className="title-center">{activity.name}</td>
                     </Link>
                     <td>{activity.rate_avg}</td>
-                    <td>{activity.attendance_avg}</td>
                 </tr>
             )
         })
@@ -34,16 +33,24 @@ class WeeksTable extends React.Component{
                     <thead>
                         <th>SETMANA</th>
                         <th>VALORACIÓ MITJANA</th>
-                        <th>ASSISTÈNCIA MITJANA</th>
                     </thead>
                     <tbody>
                         {this.renderActivities()}
                     </tbody>
                 </Table>
                 <Row style={{justifyContent: 'space-between'}}>
-                    <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} onClick={()=>this.props.fetchWeeksForQuarterWithURL(this.props.activities.previous)}></i>
+                    {this.props.activities.previous ? 
+                        <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} 
+                            onClick={()=>this.props.fetchWeeksForQuarterWithURL(this.props.activities.previous)}></i>:
+                            <i style={{color: "#014029", marginLeft: "5%"}} ></i>
+                    }
                     <h5 className="titleCardStyle">Pàgina {this.props.activities.current}</h5>
-                    <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} onClick={()=>this.props.fetchWeeksForQuarterWithURL(this.props.activities.next)}></i>
+                    {this.props.activities.next ? 
+                        <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} 
+                            onClick={()=>this.props.fetchWeeksForQuarterWithURL(this.props.activities.next)}></i>:
+                        <i style={{color: "#014029", marginRight: "5%"}} ></i>
+                    }
+                    
                 </Row>
             </div>
         )

@@ -29,9 +29,18 @@ class Objectius extends React.Component{
                 </Table>
 
                 <Row style={{justifyContent: 'space-between'}}>
-                    <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} onClick={()=>this.props.fetchObjectiusWithURL(this.props.objectius.previous)}></i>
+                    {this.props.objectius.previous ? 
+                        <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} 
+                            onClick={()=>this.props.fetchObjectiusWithURL(this.props.objectius.previous)}></i>:
+                            <i style={{color: "#014029", marginLeft: "5%"}} ></i>
+                    }
                     <h5 className="titleCardStyle">Pàgina {this.props.objectius.current}</h5>
-                    <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} onClick={()=>this.props.fetchObjectiusWithURL(this.props.objectius.next)}></i>
+                    {this.props.objectius.next ? 
+                        <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} 
+                            onClick={()=>this.props.fetchObjectiusWithURL(this.props.objectius.next)}></i>:
+                            <i style={{color: "#014029", marginLeft: "5%"}} ></i>
+                    }
+                    
                 </Row>
             </div>
         )

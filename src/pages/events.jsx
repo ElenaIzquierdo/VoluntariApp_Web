@@ -67,24 +67,6 @@ class Events extends React.Component{
                                     <div>
                                         <p className="text-style">És la mitjana de les valoracions de tota la setmana</p>
                                     </div>
-    
-                                    <Row className="rowIconStyle">
-                                        <p className="text-style">ASSISTÈNCIA MITJANA</p>
-                                    </Row>
-                                    <div>
-                                            <Row className="rowIconStyle">
-                                                <i className="fa fa-angle-double-up assaltaStyle"/>
-                                                <p className="text-style">Alta</p>
-                                            </Row>
-                                            <Row className="rowIconStyle">
-                                                <i className="fa fa-angle-up assmitjaStyle"/>
-                                                <p className="text-style">Mitja</p>
-                                            </Row>
-                                            <Row className="rowIconStyle">
-                                                <i className="fa fa-angle-double-down assbaixaStyle"/>
-                                                <p className="text-style">Baixa</p>
-                                            </Row>
-                                    </div>
                                 </div>
                             </Col>
                         </Row>

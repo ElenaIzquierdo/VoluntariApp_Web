@@ -31,9 +31,18 @@ class Explicacions extends React.Component {
                     </tbody>
                 </Table>
                 <Row style={{justifyContent: 'space-between'}}>
-                    <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} onClick={()=>this.props.fetchExplicacionsWithURL(this.props.explicacions.previous)}></i>
+                    {this.props.explicacions.previous ? 
+                        <i className="fa fa-arrow-left" style={{color: "#014029", marginLeft: "5%"}} 
+                            onClick={()=>this.props.fetchExplicacionsWithURL(this.props.explicacions.previous)}></i>:
+                        <i style={{color: "#014029", marginLeft: "5%"}} ></i>
+                    }   
                     <h5 className="titleCardStyle">Pàgina {this.props.explicacions.current}</h5>
-                    <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} onClick={()=>this.props.fetchExplicacionsWithURL(this.props.explicacions.next)}></i>
+                    {this.props.explicacions.next ? 
+                        <i className="fa fa-arrow-right" style={{color: "#014029", marginRight: "5%"}} 
+                        onClick={()=>this.props.fetchExplicacionsWithURL(this.props.explicacions.next)}></i>:
+                        <i style={{color: "#014029", marginLeft: "5%"}} ></i>
+                    }
+                    
                 </Row>
             </div>
         )
