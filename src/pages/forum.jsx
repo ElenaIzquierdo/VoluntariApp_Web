@@ -6,7 +6,7 @@ import { Row, Input, Col } from 'reactstrap';
 import ForumTheme from '../components/ForumTheme';
 import connect from "react-redux/es/connect/connect";
 import {changeDropDown, fetchClosedForumTopics, fetchOpenedForumTopics, changeFilterProperty} from "../actions/forumActions";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Forum extends React.Component{
     constructor(props) {
@@ -62,52 +62,57 @@ class Forum extends React.Component{
     }
 
     render(){
-        return(
-            <div>
-                <Base/>
-                <div className="viewStyle">
-                    <Row className="rowBotons">
-                        <Col sm="1">
-                            <p className="filtresStyle text-style">Filtrar per:</p>
-                            <p className="filtresStyle text-style">Ordenar per:</p>
-                        </Col>
-                        <Col sm="2">
-                            <Row>
-                                <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["opened"]}
-                                        onChange={()=>this.props.changeFilterProperty("opened")}/>
-                                <p className="text-style">Temes oberts</p>
-                            </Row>
-                            <Row>
-                                <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["order_by_date"]}
-                                        onChange={this.changeFiltersAndFetchFilteredTopics.bind(this,"order_by_date")}/>
-                                <p className="text-style">Data</p>
-                            </Row>
-                        </Col>
-                        <Col sm="1">
-                            <Row>
-                                <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["closed"]}
-                                        onChange={()=>this.props.changeFilterProperty("closed")}/>
-                                <p className="text-style">Temes tancats</p>
-                            </Row>
-                            <Row>
-                                <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["order_by_name"]}
-                                        onChange={this.changeFiltersAndFetchFilteredTopics.bind(this,"order_by_name")}/>
-                                <p className="text-style">Títol</p>
-                            </Row>
-                        </Col>
-                        <Col>
-                            <Link className="buttonCreateStyle" style={{textDecoration: 'none'}} to='/createForumTheme'>
-                                <div className="buttonCreateStyle">  
-                                    <p className="text-white">Nou Tema</p> 
-                                </div>
-                            </Link>
-                        </Col>
-                    </Row>
-                    {this.renderOpenedTopics()}
-                    {this.renderClosedTopics()}
+        if(localStorage.getItem('token') === null){
+            return <Redirect to={`/login`}/>
+        }
+        else{
+            return(
+                <div>
+                    <Base/>
+                    <div className="viewStyle">
+                        <Row className="rowBotons">
+                            <Col sm="1">
+                                <p className="filtresStyle text-style">Filtrar per:</p>
+                                <p className="filtresStyle text-style">Ordenar per:</p>
+                            </Col>
+                            <Col sm="2">
+                                <Row>
+                                    <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["opened"]}
+                                            onChange={()=>this.props.changeFilterProperty("opened")}/>
+                                    <p className="text-style">Temes oberts</p>
+                                </Row>
+                                <Row>
+                                    <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["order_by_date"]}
+                                            onChange={this.changeFiltersAndFetchFilteredTopics.bind(this,"order_by_date")}/>
+                                    <p className="text-style">Data</p>
+                                </Row>
+                            </Col>
+                            <Col sm="1">
+                                <Row>
+                                    <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["closed"]}
+                                            onChange={()=>this.props.changeFilterProperty("closed")}/>
+                                    <p className="text-style">Temes tancats</p>
+                                </Row>
+                                <Row>
+                                    <Input addon type="checkbox" className="checkBoxButton" checked={this.props.filters["order_by_name"]}
+                                            onChange={this.changeFiltersAndFetchFilteredTopics.bind(this,"order_by_name")}/>
+                                    <p className="text-style">Títol</p>
+                                </Row>
+                            </Col>
+                            <Col>
+                                <Link className="buttonCreateStyle" style={{textDecoration: 'none'}} to='/createForumTheme'>
+                                    <div className="buttonCreateStyle">  
+                                        <p className="text-white">Nou Tema</p> 
+                                    </div>
+                                </Link>
+                            </Col>
+                        </Row>
+                        {this.renderOpenedTopics()}
+                        {this.renderClosedTopics()}
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 const mapStateToProps = (state) => {

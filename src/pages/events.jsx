@@ -9,7 +9,7 @@ import {
 import connect from "react-redux/es/connect/connect";
 import {fetchWeeksForQuarter, nextQuarter, previousQuarter, fetchWeeksForQuarterWithURL, getQuartersFromCours} from "../actions/eventsActions";
 import WeeksTable from "../components/WeeksTable";
-
+import {Redirect} from "react-router-dom";
 import 'react-activity/dist/react-activity.css';
 
 class Events extends React.Component{
@@ -32,6 +32,10 @@ class Events extends React.Component{
     }
 
     render(){
+        if(localStorage.getItem('token') === null){
+            return <Redirect to={`/login`}/>
+        }
+        else{
             return(
                 <div>
                     <Base/>
@@ -79,6 +83,7 @@ class Events extends React.Component{
                     </div>
                 </div>
             )
+        }    
     }
 }
 

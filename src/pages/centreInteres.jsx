@@ -7,6 +7,7 @@ import {fetchExplicacions, fetchObjectius, fetchObjectiusWithURL, fetchExplicaci
 import { Row} from "reactstrap";
 import Objectius from "../components/Objectius";
 import Explicacions from "../components/Explicacions";
+import {Redirect} from "react-router-dom";
 
 class CentreInteres extends React.Component{
     constructor(props){
@@ -25,16 +26,21 @@ class CentreInteres extends React.Component{
     }
 
     render(){
-        return(
-            <div>
-                <Base/>
-                <h4 className="titleCentreInteres"> {this.props.centreInteres.name}</h4>
-                <Row>
-                    <Objectius objectius={this.props.objectius} fetchObjectiusWithURL={this.props.fetchObjectiusWithURL}/>
-                    <Explicacions explicacions={this.props.explicacions} fetchExplicacionsWithURL={this.props.fetchExplicacionsWithURL}/>
-                </Row>
-            </div>
-        )
+        if(localStorage.getItem('token') === null){
+            return <Redirect to={`/login`}/>
+        }
+        else{
+            return(
+                <div>
+                    <Base/>
+                    <h4 className="titleCentreInteres"> {this.props.centreInteres.name}</h4>
+                    <Row>
+                        <Objectius objectius={this.props.objectius} fetchObjectiusWithURL={this.props.fetchObjectiusWithURL}/>
+                        <Explicacions explicacions={this.props.explicacions} fetchExplicacionsWithURL={this.props.fetchExplicacionsWithURL}/>
+                    </Row>
+                </div>
+            )
+        }
     }
 }
 
