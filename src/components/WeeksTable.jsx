@@ -6,6 +6,50 @@ import {
 import { Link} from "react-router-dom";
 
 class WeeksTable extends React.Component{
+    renderRate(rate_avg, rate_percentage){
+        console.log(rate_avg)
+        if(rate_avg === 0){
+            return <td> - ({rate_percentage}%)</td>
+        }
+        else{
+            if(rate_avg === 1){
+                return <td> <i className="fa fa-star iconStarStyle"></i>
+                            ({rate_percentage}%)
+                        </td>
+            }
+            else if(rate_avg === 2){
+                return <td> <i className="fa fa-star iconStarStyle"></i>
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        ({rate_percentage}%)
+                    </td>
+            }
+            else if(rate_avg === 3){
+                return <td> <i className="fa fa-star iconStarStyle"></i>
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        ({rate_percentage}%)
+                    </td>
+            }
+            else if(rate_avg === 4){
+                return <td> <i className="fa fa-star iconStarStyle"></i>
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        <i className="fa fa-star iconStarStyle"></i>
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        ({rate_percentage}%)
+                    </td>
+            }
+            else if(rate_avg === 5){
+                return <td> <i className="fa fa-star iconStarStyle"></i>
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        <i className="fa fa-star iconStarStyle"></i>
+                        <i className="fa fa-star iconStarStyle"></i> 
+                        <i className="fa fa-star iconStarStyle"></i>
+                        ({rate_percentage}%)
+                    </td>
+            }
+            
+        }
+    }
     renderActivities(){
         return this.props.activities.results.map((activity)=>{
             return(
@@ -13,7 +57,7 @@ class WeeksTable extends React.Component{
                     <Link style={{ textDecoration: 'none' }} to={`week/${activity.id}`}>
                         <td className="title-center">{activity.name}</td>
                     </Link>
-                    <td>{activity.rate_avg}</td>
+                    {this.renderRate(activity.rate_avg, activity.rate_percentage)}   
                 </tr>
             )
         })

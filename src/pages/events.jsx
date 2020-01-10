@@ -66,6 +66,7 @@ class Events extends React.Component{
                                     </Row>
                                     <div>
                                         <p className="text-style">És la mitjana de les valoracions de tota la setmana</p>
+                                        <p className="text-style">Entre parèntesis hi ha el percentatge d'activitats valorades</p>
                                     </div>
                                 </div>
                             </Col>
