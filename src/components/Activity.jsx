@@ -21,16 +21,16 @@ class Activity extends React.Component {
     renderAttendance(){
         if(this.props.activity.rate != null){
             return(
-                <div style={{marginLeft: "6%"}}>
-                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistència: {this.props.activity.attendance}</p>
+                <div style={{marginLeft: "1%"}}>
+                    <p className="text-style" style={{paddingRight: "1%"}}>Assistència: {this.props.activity.attendance}</p>
                     {this.renderAttenders()}
                 </div>
             )
         }
         else{
             return(
-                <div style={{marginLeft: "6%"}}>
-                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistència esperada: {this.props.activity.attendance}</p>
+                <div style={{marginLeft: "1%"}}>
+                    <p className="text-style" style={{paddingRight: "1%"}}>Assistència esperada: {this.props.activity.attendance}</p>
                     {this.renderAttenders()}
                     
                 </div>
@@ -58,7 +58,7 @@ class Activity extends React.Component {
     renderRate(){
         if(this.props.activity.rate === null){
             return(
-                <Row style={{marginLeft: "6%"}}>
+                <Row style={{marginLeft: "4%"}}>
                     <p className="text-grey-style" style={{ marginRight: "4%"}}>Encara no s'ha avaluat aquesta tarda</p>
                 </Row>
             )
@@ -109,7 +109,9 @@ class Activity extends React.Component {
         if(this.props.activity.rate === null){
             return(
                 <Link style={{ textDecoration: 'none' }} to={`/avaluacio/${this.props.activity.id}`}>
-                    <Button style={{marginLeft: '5%'}}>Avaluar</Button>
+                    <div className="buttonCreateStyle">  
+                        <p className="text-white">Avaluar</p> 
+                    </div>
                 </Link>
             )
         }
@@ -155,7 +157,6 @@ class Activity extends React.Component {
                         </p>
                     </div>
                     <div className="column-description">
-                    
                         {this.renderAttendance()}
                     </div>
                     <div className="column-description">
