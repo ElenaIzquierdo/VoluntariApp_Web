@@ -25,7 +25,6 @@ class Objectius extends React.Component{
                     <tbody>
                         {this.renderGoals()}
                     </tbody>
-                    
                 </Table>
 
                 <Row style={{justifyContent: 'space-between'}}>

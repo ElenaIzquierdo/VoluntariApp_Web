@@ -22,7 +22,7 @@ class Activity extends React.Component {
         if(this.props.activity.rate != null){
             return(
                 <div style={{marginLeft: "6%"}}>
-                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia: {this.props.activity.attendance}</p>
+                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistència: {this.props.activity.attendance}</p>
                     {this.renderAttenders()}
                 </div>
             )
@@ -30,7 +30,7 @@ class Activity extends React.Component {
         else{
             return(
                 <div style={{marginLeft: "6%"}}>
-                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistencia esperada: {this.props.activity.attendance}</p>
+                    <p className="text-style" style={{paddingLeft: "1%", paddingRight: "1%"}}>Assistència esperada: {this.props.activity.attendance}</p>
                     {this.renderAttenders()}
                     
                 </div>
@@ -41,17 +41,17 @@ class Activity extends React.Component {
     renderIconForRate(rate){
         if(rate === 2){
             return(
-                <i className="fa fa-check"/>
+                <i className="fa fa-check icon-valoration"/>
             )
         }
         if(rate === 1){
             return(
-                <i className="fa fa-minus"/>
+                <i className="fa fa-minus icon-valoration"/>
             )
         }
         if(rate === 0){
             return(
-                <i className="fa fa-times"/>
+                <i className="fa fa-times icon-valoration"/>
             )
         }
     }
@@ -65,33 +65,42 @@ class Activity extends React.Component {
         }
         else{
             return(
-                <Row>
+                <div>
                     <div sm="3" style={{borderWidth: 4,borderRadius:3, borderColor: "#014029", paddingLeft: "8%", paddingTop:"2%"}}>
-                        <Row style={{justifyContent:"space-between"}}>
-                            <p className="text-grey-style">Berenar</p>
-                            {this.renderIconForRate(this.props.activity.rate.snack_rate)}
-                        </Row>
-                        <Row style={{justifyContent:"space-between"}}>
-                            <p className="text-grey-style">Activitat</p>
-                            {this.renderIconForRate(this.props.activity.rate.activity_rate)}
-                        </Row>
-                        <Row style={{justifyContent:"space-between"}}>
-                            <p className="text-grey-style">Files</p>
-                            {this.renderIconForRate(this.props.activity.rate.line_rate)}
-                        </Row>
-                        <Row style={{justifyContent:"space-between"}}>
-                            <p className="text-grey-style">Respecte</p>
-                            {this.renderIconForRate(this.props.activity.rate.respect_rate)}
-                        </Row>
-                        <Row style={{justifyContent:"space-between"}}>
-                            <p className="text-grey-style">Rotllana</p>
-                            {this.renderIconForRate(this.props.activity.rate.circle_rate)}
+                        <Row>
+                            <Col>
+                                <Row>
+                                    <p className="text-grey-style">Berenar</p>
+                                    {this.renderIconForRate(this.props.activity.rate.snack_rate)}
+                                </Row>
+                                <Row>
+                                    <p className="text-grey-style">Respecte</p>
+                                    {this.renderIconForRate(this.props.activity.rate.respect_rate)}
+                                </Row>
+                            </Col>
+                            <Col>
+                                <Row>
+                                    <p className="text-grey-style">Activitat</p>
+                                    {this.renderIconForRate(this.props.activity.rate.activity_rate)}
+                                </Row>
+                                <Row>
+                                    <p className="text-grey-style">Rotllana</p>
+                                    {this.renderIconForRate(this.props.activity.rate.circle_rate)}
+                                </Row>
+                            </Col>
+
+                            <Col>
+                                <Row>
+                                    <p className="text-grey-style">Files</p>
+                                    {this.renderIconForRate(this.props.activity.rate.line_rate)}
+                                </Row>
+                            </Col>
                         </Row>
                     </div>
-                    <Col style={{borderWidth: 4,borderRadius:3, marginRight: "4%", marginLeft: "4%", marginTop: "2%"}}>
+                    <div style={{borderWidth: 4,borderRadius:3, marginRight: "4%", marginLeft: "4%", marginTop: "2%"}}>
                         <p className="text-grey-style">{this.props.activity.rate.comments}</p>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             )
         }
     }
@@ -150,7 +159,7 @@ class Activity extends React.Component {
                         {this.renderAttendance()}
                     </div>
                     <div className="column-description">
-                        <p className="text-style">Valoracio</p>
+                        <p className="text-style">Valoració</p>
                         {this.renderRate()}
                     </div>
                     <div>
