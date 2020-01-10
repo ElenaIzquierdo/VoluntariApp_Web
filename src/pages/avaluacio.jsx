@@ -34,13 +34,16 @@ class avaluacio extends React.Component{
             }
         }
         this.props.evaluationDone();
+        if(this.props.rate_done){
+            return <Redirect to={`week/${this.props.event.week}`}/>
+        }
     }
 
     renderAttenders(){
         if(!this.props.isFetching){
             return this.props.event.attenders.map((user)=>{
                 return(
-                    <Row style={{paddingLeft: '13%'}}>
+                    <Row style={{paddingLeft: '13%', paddingTop: '1%'}}>
                         <p className="text-grey-style">{user.username}</p>
                         <Input addon type="checkbox" className="checkBoxButton" checked={user.attendance_control}
                             onChange={this.checkOrUncheckControl.bind(this,user.id, user.attendance_control)}/>
@@ -50,6 +53,10 @@ class avaluacio extends React.Component{
         }
         
     }
+
+    renderRedirect = () => {
+        return (<Redirect to='/forum' />);
+      }
 
     avaluateEvent(){
         const mapRate = {
@@ -70,124 +77,133 @@ class avaluacio extends React.Component{
         this.props.rateDone();
     }
 
+    handleOptionChange = (changeEvent) =>{
+        console.log(changeEvent)
+    }
+
     renderAvaluacio(){
         if(!this.props.isFetching){
             return(
                 <div style={{paddingLeft: '3%'}}>
                     <Row>
                         <p className="text-grey-style">Berenar</p>
-                        <InputGroupButtonDropdown isOpen={this.props.dropDowns_rate.snack} 
-                                                    toggle={()=>this.props.changeDropDown("snack")} style={{marginLeft: '2%'}}>
-                            <DropdownToggle caret value={this.props.rate.snack_rate}>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("snack_rate","Baixa")}
-                                                className="text-grey-style">
-                                    Baixa
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("snack_rate","Mitja")}
-                                                className="text-grey-style">
-                                    Mitja
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("snack_rate","Alta")}
-                                                className="text-grey-style">
-                                    Alta
-                                </DropdownItem>
-                            </DropdownMenu>
-                            <p style={{marginLeft:"1%"}}className="text-grey-style">{this.props.rate.snack_rate}</p>
-                        </InputGroupButtonDropdown>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="snack_rate" value="Alta" 
+                                    onClick={()=>this.props.changeRateFormProperty("snack_rate","Alta")}/>{' '}
+                               Alta
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="snack_rate" value="Mitja"
+                                    onClick={()=>this.props.changeRateFormProperty("snack_rate","Mitja")}/>{' '}
+                               Mitja
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="snack_rate" value="Baixa" 
+                                    onClick={()=>this.props.changeRateFormProperty("snack_rate","Baixa")}/>{' '}
+                               Baixa
+                            </Label>
+                        </FormGroup>
                     </Row>
                     <Row>
                         <p className="text-grey-style">Files</p>
-                        <InputGroupButtonDropdown isOpen={this.props.dropDowns_rate.line} 
-                                                    toggle={()=>this.props.changeDropDown("line")} style={{marginLeft: '2%'}}>
-                            <DropdownToggle caret value={this.props.rate.line_rate}>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("line_rate","Baixa")}
-                                                className="text-grey-style">
-                                    Baixa
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("line_rate","Mitja")}
-                                                className="text-grey-style">
-                                    Mitja
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("line_rate","Alta")}
-                                                className="text-grey-style">
-                                    Alta
-                                </DropdownItem>
-                            </DropdownMenu>
-                            <p style={{marginLeft:"1%"}}className="text-grey-style">{this.props.rate.line_rate}</p>
-                        </InputGroupButtonDropdown>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="line_rate" value="Alta" 
+                                    onClick={()=>this.props.changeRateFormProperty("line_rate","Alta")}/>{' '}
+                               Alta
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="line_rate" value="Mitja"
+                                    onClick={()=>this.props.changeRateFormProperty("line_rate","Mitja")}/>{' '}
+                               Mitja
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="line_rate" value="Baixa" 
+                                    onClick={()=>this.props.changeRateFormProperty("line_rate","Baixa")}/>{' '}
+                               Baixa
+                            </Label>
+                        </FormGroup>
                     </Row>
                     <Row>
                         <p className="text-grey-style">Respecte</p>
-                        <InputGroupButtonDropdown isOpen={this.props.dropDowns_rate.respect} 
-                                                    toggle={()=>this.props.changeDropDown("respect")} style={{marginLeft: '2%'}}>
-                            <DropdownToggle caret value={this.props.rate.respect_rate}>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("respect_rate","Baixa")}
-                                                className="text-grey-style">
-                                    Baixa
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("respect_rate","Mitja")}
-                                                className="text-grey-style">
-                                    Mitja
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("respect_rate","Alta")}
-                                                className="text-grey-style">
-                                    Alta
-                                </DropdownItem>
-                            </DropdownMenu>
-                            <p style={{marginLeft:"1%"}}className="text-grey-style">{this.props.rate.respect_rate}</p>
-                        </InputGroupButtonDropdown>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="respect_rate" value="Alta" 
+                                    onClick={()=>this.props.changeRateFormProperty("respect_rate","Alta")}/>{' '}
+                               Alta
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="respect_rate" value="Mitja"
+                                    onClick={()=>this.props.changeRateFormProperty("respect_rate","Mitja")}/>{' '}
+                               Mitja
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="respect_rate" value="Baixa" 
+                                    onClick={()=>this.props.changeRateFormProperty("respect_rate","Baixa")}/>{' '}
+                               Baixa
+                            </Label>
+                        </FormGroup>
                     </Row>
                     <Row>
                         <p className="text-grey-style">Activitat</p>
-                        <InputGroupButtonDropdown isOpen={this.props.dropDowns_rate.activity} 
-                                                    toggle={()=>this.props.changeDropDown("activity")} style={{marginLeft: '2%'}}>
-                            <DropdownToggle caret value={this.props.rate.circle_rate}>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("activity_rate","Baixa")}
-                                                className="text-grey-style">
-                                    Baixa
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("activity_rate","Mitja")}
-                                                className="text-grey-style">
-                                    Mitja
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("activity_rate","Alta")}
-                                                className="text-grey-style">
-                                    Alta
-                                </DropdownItem>
-                            </DropdownMenu>
-                            <p style={{marginLeft:"1%"}}className="text-grey-style">{this.props.rate.activity_rate}</p>
-                        </InputGroupButtonDropdown>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="activity_rate" value="Alta" 
+                                    onClick={()=>this.props.changeRateFormProperty("activity_rate","Alta")}/>{' '}
+                               Alta
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="activity_rate" value="Mitja"
+                                    onClick={()=>this.props.changeRateFormProperty("activity_rate","Mitja")}/>{' '}
+                               Mitja
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="activity_rate" value="Baixa" 
+                                    onClick={()=>this.props.changeRateFormProperty("activity_rate","Baixa")}/>{' '}
+                               Baixa
+                            </Label>
+                        </FormGroup>
                     </Row>
                     <Row>
                         <p className="text-grey-style">Rotllana</p>
-                            <InputGroupButtonDropdown isOpen={this.props.dropDowns_rate.circle} 
-                                                    toggle={()=>this.props.changeDropDown("circle")} style={{marginLeft: '2%'}}>
-                            <DropdownToggle caret value={this.props.rate.circle_rate}>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("circle_rate","Baixa")}
-                                                className="text-grey-style">
-                                    Baixa
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("circle_rate","Mitja")}
-                                                className="text-grey-style">
-                                    Mitja
-                                </DropdownItem>
-                                <DropdownItem onClick={()=>this.props.changeRateFormProperty("circle_rate","Alta")}
-                                                className="text-grey-style">
-                                    Alta
-                                </DropdownItem>
-                            </DropdownMenu>
-                            <p style={{marginLeft:"1%"}}className="text-grey-style">{this.props.rate.circle_rate}</p>
-                        </InputGroupButtonDropdown>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="circle_rate" value="Alta" 
+                                    onClick={()=>this.props.changeRateFormProperty("circle_rate","Alta")}/>{' '}
+                               Alta
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="circle_rate" value="Mitja"
+                                    onClick={()=>this.props.changeRateFormProperty("circle_rate","Mitja")}/>{' '}
+                               Mitja
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check className="text-grey-style">
+                                <Input type="radio" name="circle_rate" value="Baixa" 
+                                    onClick={()=>this.props.changeRateFormProperty("circle_rate","Baixa")}/>{' '}
+                               Baixa
+                            </Label>
+                        </FormGroup>
                     </Row>
                     <div>
                         <p className="text-grey-style">Comentaris diari de sortida</p>
@@ -225,8 +241,10 @@ class avaluacio extends React.Component{
                     </Row>
                     <Row style={{marginLeft:"13%", marginTop: '2%'}}>
                         <div className="column-avaluation">
-                            <h5 className="text-style">Control d'assistencia</h5>
-                            {this.renderAttenders()}
+                            <h5 className="text-style">Control d'assistència</h5>
+                            <div style={{paddingTop:'2%', height: '295px'}}>
+                                {this.renderAttenders()}
+                            </div>
                                 
                             {this.props.evaluation_done ? 
                                 null:
@@ -240,8 +258,9 @@ class avaluacio extends React.Component{
                         </div>
                         <div className="column-avaluation">
                             <h5 className="text-style">Avaluar activitat</h5>
-                            {this.renderAvaluacio()}
-                            
+                            <div style={{paddingTop:'2%', height: '295px'}}>
+                                {this.renderAvaluacio()}
+                            </div>
                             {this.props.rate_done ? 
                                 null:
                                 <Link className="buttonCreateStyle" style={{textDecoration: 'none'}}>
@@ -249,7 +268,14 @@ class avaluacio extends React.Component{
                                         <p className="text-white">Avaluar</p> 
                                     </div>
                                 </Link>
-                            }    
+                            }  
+                            {this.props.rate_done && this.props.evaluation_done ? 
+                                <Link className="buttonCreateStyle" style={{textDecoration: 'none'}} to={`/week/${this.props.event.week}`}>
+                                    <div className="buttonCreateStyle">  
+                                        <p className="text-white">Finalitzar</p> 
+                                    </div>
+                                </Link>:null
+                            }  
                         </div>
                     </Row>
                 </div>
