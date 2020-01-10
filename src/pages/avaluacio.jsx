@@ -10,6 +10,7 @@ import {
     Input,FormGroup, Label,Form, Button,
     InputGroupButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, 
 } from 'reactstrap';
+import {Link, Redirect} from "react-router-dom";
 
 class avaluacio extends React.Component{
     componentWillMount(){
@@ -226,25 +227,30 @@ class avaluacio extends React.Component{
                         <div className="column-avaluation">
                             <h5 className="text-style">Control d'assistencia</h5>
                             {this.renderAttenders()}
+                                
                             {this.props.evaluation_done ? 
-                                null:<Button outline onClick={this.acceptAttendance.bind(this)}>Passar llista</Button>}
+                                null:
+                                <Link className="buttonCreateStyle" style={{textDecoration: 'none'}}>
+                                    <div className="buttonCreateStyle" onClick={this.acceptAttendance.bind(this)}>  
+                                        <p className="text-white">Passar llista</p> 
+                                    </div>
+                                </Link>
+                            }
                             
                         </div>
                         <div className="column-avaluation">
                             <h5 className="text-style">Avaluar activitat</h5>
                             {this.renderAvaluacio()}
+                            
                             {this.props.rate_done ? 
-                                null:<Button outline onClick={this.avaluateEvent.bind(this)}>Avaluar</Button>}
-                            
-                            
+                                null:
+                                <Link className="buttonCreateStyle" style={{textDecoration: 'none'}}>
+                                    <div className="buttonCreateStyle" onClick={this.avaluateEvent.bind(this)}>  
+                                        <p className="text-white">Avaluar</p> 
+                                    </div>
+                                </Link>
+                            }    
                         </div>
-                    </Row>
-                    <Row style={{marginLeft:"13%", marginTop: '2%'}}>
-                        <FormGroup>
-                            <Label for="exampleFile">File</Label>
-                            <Input type="file" name="file" id="exampleFile" onChange={this.fileSelectHandler.bind(this)}/>
-                        </FormGroup>
-                        <Button onClick={this.onSubmitFile.bind(this)}>Submit file</Button>
                     </Row>
                 </div>
             </div>
