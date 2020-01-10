@@ -84,9 +84,12 @@ class CreateForumTheme extends React.Component {
                         <Button color="link" className="text-grey-style">
                             <Link style={{ textDecoration: 'none' }} to={"/forum"}>Cancel·lar</Link>
                         </Button>
-                        <div style={{marginTop: '1%', marginLeft: '1%'}} className="comment-button" onClick={this.onPressAccept.bind(this)}>  
-                            <p className="text-white">Crear</p> 
-                        </div>
+
+                        <Link style={{textDecoration: 'none'}}>
+                            <div style={{marginTop: '1%', marginLeft: '1%'}} className="comment-button" onClick={this.onPressAccept.bind(this)}>  
+                                <p className="text-white">Crear</p> 
+                            </div>
+                        </Link>
                         
                     </Row>
                 </div>
