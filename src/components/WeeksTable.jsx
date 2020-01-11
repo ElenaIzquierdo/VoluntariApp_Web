@@ -9,29 +9,29 @@ class WeeksTable extends React.Component{
     renderRate(rate_avg, rate_percentage){
         console.log(rate_avg)
         if(rate_avg === 0){
-            return <td> - ({rate_percentage}%)</td>
+            return <td className="text-table-rows-style"> - ({rate_percentage}%)</td>
         }
         else{
             if(rate_avg === 1){
-                return <td> <i className="fa fa-star iconStarStyle"></i>
+                return <td className="text-table-rows-style"> <i className="fa fa-star iconStarStyle"></i>
                             ({rate_percentage}%)
                         </td>
             }
             else if(rate_avg === 2){
-                return <td> <i className="fa fa-star iconStarStyle"></i>
+                return <td className="text-table-rows-style"> <i className="fa fa-star iconStarStyle"></i>
                         <i className="fa fa-star iconStarStyle"></i> 
                         ({rate_percentage}%)
                     </td>
             }
             else if(rate_avg === 3){
-                return <td> <i className="fa fa-star iconStarStyle"></i>
+                return <td className="text-table-rows-style"> <i className="fa fa-star iconStarStyle"></i>
                         <i className="fa fa-star iconStarStyle"></i> 
                         <i className="fa fa-star iconStarStyle"></i> 
                         ({rate_percentage}%)
                     </td>
             }
             else if(rate_avg === 4){
-                return <td> <i className="fa fa-star iconStarStyle"></i>
+                return <td className="text-table-rows-style"> <i className="fa fa-star iconStarStyle"></i>
                         <i className="fa fa-star iconStarStyle"></i> 
                         <i className="fa fa-star iconStarStyle"></i>
                         <i className="fa fa-star iconStarStyle"></i> 
@@ -39,7 +39,7 @@ class WeeksTable extends React.Component{
                     </td>
             }
             else if(rate_avg === 5){
-                return <td> <i className="fa fa-star iconStarStyle"></i>
+                return <td className="text-table-rows-style"> <i className="fa fa-star iconStarStyle"></i>
                         <i className="fa fa-star iconStarStyle"></i> 
                         <i className="fa fa-star iconStarStyle"></i>
                         <i className="fa fa-star iconStarStyle"></i> 
@@ -54,8 +54,8 @@ class WeeksTable extends React.Component{
         return this.props.activities.results.map((activity)=>{
             return(
                 <tr key={activity}>   
-                    <Link style={{ textDecoration: 'none' }} to={`week/${activity.id}`}>
-                        <td className="title-center">{activity.name}</td>
+                    <Link className="text-table-rows-style-center" style={{ textDecoration: 'none' }} to={`week/${activity.id}`}>
+                        <td className="text-table-rows-style-center">{activity.name}</td>
                     </Link>
                     {this.renderRate(activity.rate_avg, activity.rate_percentage)}   
                 </tr>

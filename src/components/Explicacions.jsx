@@ -10,13 +10,13 @@ class Explicacions extends React.Component {
         return this.props.explicacions.results.map((explicacio)=>{
             return(
                 <tr key={explicacio.id}>
-                    <td>
+                    <td className="text-table-rows-style">
                         <Moment className="dateExplicacio" format="DD/MM/YYYY">{explicacio.date}</Moment>   
                     </td>
-                    <td>
+                    <td className="text-table-rows-style">
                         <i className="fa fa-angle-right assaltaStyle"></i>
                     </td>    
-                    <td>{explicacio.description}</td>
+                    <td className="text-table-rows-style">{explicacio.description}</td>
                 </tr>
             )
         })

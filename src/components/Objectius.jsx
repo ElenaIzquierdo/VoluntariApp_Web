@@ -9,10 +9,10 @@ class Objectius extends React.Component{
         return this.props.objectius.results.map((objectiu)=>{
             return(
                 <tr key={objectiu}>
-                    <td>
+                    <td className="text-table-rows-style">
                         <i className="fa fa-angle-right assaltaStyle"></i>
                     </td>    
-                    <td>{objectiu.description}</td>
+                    <td className="text-table-rows-style">{objectiu.description}</td>
                 </tr>
             )
         })
