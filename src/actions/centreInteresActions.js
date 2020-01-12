@@ -109,3 +109,38 @@ export const fetchExplicacionsWithURL = (url) => {
           
     }
 }
+
+export const fetchCentreInteres = (centreInteresId) => {
+    return (dispatch) => {
+        const token = localStorage.getItem('token')
+        dispatch(requestCentreInteres());
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/centreinteres/';
+        fetch(baseUrl+centreInteresId, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            },
+            dataType: 'json',
+        }).then((resp) =>
+            resp.json().then((body) =>
+                dispatch(receiveCentreInteres(body)))
+            );
+          
+    }
+}
+
+const requestCentreInteres = () =>{
+    return{
+        type: 'REQUEST_CENTRE_INTERES'
+    }
+}
+
+const receiveCentreInteres =(centreInteres)=>{
+    return {
+        type: 'RECEIVE_CENTRE_INTERES',
+        data: centreInteres
+    }
+}
+

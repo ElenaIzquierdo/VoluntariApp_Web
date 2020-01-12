@@ -14,8 +14,10 @@ const INITIAL_STATE ={
 
 const centreInteresReducer = (state = INITIAL_STATE,action) => {
     switch(action.type) {
-        case 'FETCH_EVENT':
-            return state;
+        case 'REQUEST_CENTRE_INTERES':
+            return {...state, isFetching: true}
+        case 'RECEIVE_CENTRE_INTERES':
+            return {...state, centreInteres: action.data, isFetching: false}
         case 'REQUEST_EXPLICACIONS':
             return {...state, isFetching: true}
         case 'RECEIVE_EXPLICACIONS':

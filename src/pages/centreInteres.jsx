@@ -3,7 +3,8 @@ import Base from "../components/base";
 import '../css/tutoriesScreenStyle.css';
 import '../css/centreInteresStyle.css';
 import connect from "react-redux/es/connect/connect";
-import {fetchExplicacions, fetchObjectius, fetchObjectiusWithURL, fetchExplicacionsWithURL} from "../actions/centreInteresActions";
+import {fetchExplicacions, fetchObjectius, fetchObjectiusWithURL, 
+        fetchExplicacionsWithURL, fetchCentreInteres} from "../actions/centreInteresActions";
 import { Row} from "reactstrap";
 import Objectius from "../components/Objectius";
 import Explicacions from "../components/Explicacions";
@@ -15,6 +16,7 @@ class CentreInteres extends React.Component{
         super(props)
         this.props.fetchExplicacions(1);
         this.props.fetchObjectius(1);
+        this.props.fetchCentreInteres(1);
     }
     renderObjectius(){
         return this.props.objectius.map((objectiu)=>{
@@ -67,7 +69,8 @@ const  mapDispatchToProps = (dispatch)=>{
         fetchExplicacions: (centreInteres_id) => dispatch(fetchExplicacions(centreInteres_id)),
         fetchObjectius: (centreInteres_id) => dispatch(fetchObjectius(centreInteres_id)),
         fetchObjectiusWithURL: (url)=>dispatch(fetchObjectiusWithURL(url)),
-        fetchExplicacionsWithURL: (url)=>dispatch(fetchExplicacionsWithURL(url))
+        fetchExplicacionsWithURL: (url)=>dispatch(fetchExplicacionsWithURL(url)),
+        fetchCentreInteres: (centreInteres_id) => dispatch(fetchCentreInteres(centreInteres_id))
     }
 };
 
