@@ -34,10 +34,10 @@ class Base extends React.Component{
                             <NavLink className="text-style" href="/events">ESDEVENIMENTS</NavLink>
                         </NavItem>
                         <NavItem className="navbar-item-style">
-                            <NavLink className="text-style" href="/forum">FORUM</NavLink>
+                            <NavLink className="text-style" href="/forum">FÒRUM</NavLink>
                         </NavItem>
                         <NavItem className="navbar-item-style">
-                            <NavLink className="text-style" href="/centre-interes">CENTRE INTERES</NavLink>
+                            <NavLink className="text-style" href="/centre-interes">CENTRE INTERÈS</NavLink>
                         </NavItem>
                     </Nav>
                     {this.renderLoginTab()}
