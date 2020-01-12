@@ -22,8 +22,8 @@ class Home extends React.Component{
                             <p className="titleCardStyle">Esdeveniments</p>
                             <p className="text-style">A la pestanya Esdeveniments pots veure tota la informació sobre les setmanes de cada trimestre.</p> 
                             <p className="text-style">  
-                                Per cada setmana pots crear les activitats que estiguin programades perquè els monitors del 
-                                teu grup puguin veure tota la informació.</p>
+                                Per cada setmana pots veure totes les activitats que estiguin programades. I per cada activitat pots veure l'horari, el dia, 
+                                i es pot penjar i descarregar la fitxa associada.</p>
                             <p className="text-style">Per les activitats que ja s’han realitzat pots passar llista dels monitors que han assistit i 
                                 afegir la valoració que s’ha fet amb els infants i durant el diari de sortida. </p>
                         </div>
@@ -33,7 +33,8 @@ class Home extends React.Component{
                                 A la pestanya de Fòrum pots veure tots els temes que s’estan parlant i dels que s’han parlat. 
                             </p>
                             <p className="text-style">
-                                Pots filtrar-los i ordenar-los segons les teves necessitats amb els filtres que estan a la part superior. 
+                                Pots filtrar-los i ordenar-los amb els filtres que estan a la part superior.
+                                I si cliques en un tema pots veure els detalls d'aquest, també pots obrir-los i tancar-los. 
                             </p>
                             <p className="text-style">
                                 Aquests temes els pots crear tu i també els poden crear els monitors, 
@@ -42,11 +43,11 @@ class Home extends React.Component{
                         </div>
                         <div className="column column-right">
                             <p className="titleCardStyle">Centre d'interes</p>
-                            <p className="text-style">A la pestanya Centre Interes podràs crear el centre d’interès associat a un curs, 
-                                posant-li un nom i una breu descripció. </p>
-                            <p className="text-style">Podràs afegir tots els objectius que es volen assolir i la programació per fer-lo possible.</p>
-                            <p className="text-style">Tota aquesta informació la podrà veure tots els que formen part del teu grup, 
-                                d’aquesta manera tothom està al dia.</p>
+                            <p className="text-style">A la pestanya Centre Interes podràs veure tota la informació associada al Centre d'interès d'aquest curs </p>
+                            <p className="text-style">Podràs veure una llista amb tots els objectius que es pretenen assolir. També veuràs una llista amb el que 
+                                                        es planeja fer cada dia per assolir-los.</p>
+                            <p className="text-style">Tota aquesta informació la podràn veure tots els que formen part del teu grup, 
+                                d’aquesta manera tothom està al dia sense necessitat de notificar tots els canvis en persona.</p>
                         </div>
                     </Row>
                 </div>
