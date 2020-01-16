@@ -8,8 +8,8 @@ import Moment from 'react-moment';
 
 class Comment extends React.Component {
     deleteComment(){
-        this.props.delete_method(this.props.id);
-        this.props.refresh_comments(this.props.topic_id);
+        this.props.delete_method(this.props.id, this.props.topic_id);
+        //this.props.refresh_comments(this.props.topic_id);
     }
     render(){
         return(

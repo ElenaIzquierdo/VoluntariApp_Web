@@ -17,6 +17,12 @@ class viewForumTheme extends React.Component{
         this.props.fetchForumTopicComments(this.props.match.params.forumthemeid)
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.comments.length !== this.props.comments.length) {
+            this.props.fetchForumTopicComments(this.props.match.params.forumthemeid);
+        }
+    }
+
     pintarComments(){
         return this.props.comments.map((comment)=>{
                 return(
@@ -81,13 +87,15 @@ class viewForumTheme extends React.Component{
     }
 
     publishComment(){
-        const commentInfo = {
-            content: this.props.new_comment,
-            forumtheme: this.props.match.params.forumthemeid
-        };
-        this.props.publishNewComment(commentInfo);
-        this.props.changeNewComment("");
-        this.props.fetchForumTopicComments(this.props.match.params.forumthemeid);
+        if(this.props.new_comment != ""){
+            const commentInfo = {
+                content: this.props.new_comment,
+                forumtheme: this.props.match.params.forumthemeid
+            };
+            this.props.publishNewComment(commentInfo);
+            this.props.changeNewComment("");
+            this.props.fetchForumTopicComments(this.props.match.params.forumthemeid);
+        }
     }
 
     oncloseForumTopic(){
@@ -165,7 +173,7 @@ const  mapDispatchToProps = (dispatch)=>{
         changeNewComment: (text) => dispatch(changeNewComment(text)),
         publishNewComment: (commentInfo) => dispatch(publishNewComment(commentInfo)),
         closeForumTopic: (id, forumTopicInfo) => dispatch(closeForumTopic(id, forumTopicInfo)),
-        deleteComment: (id) => dispatch(deleteComment(id))
+        deleteComment: (id, idTopic) => dispatch(deleteComment(id, idTopic))
     }
 };
 

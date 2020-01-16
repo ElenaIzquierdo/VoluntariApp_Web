@@ -80,8 +80,23 @@ export const publishNewComment =(commentInfo) =>{
     } 
 }
 
-export const deleteComment = (id) =>{
-    return () => {
-        request('/comment/'+id, 'DELETE');
-    } 
+export const deleteComment = (id, idTopic) =>{
+    return (dispatch) => {
+        const token = localStorage.getItem('token')
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/comment/';
+        const finalPath = baseUrl + id;
+        fetch(finalPath, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            },
+            dataType: 'json',
+        }).then((resp) =>{
+            if(resp.ok){
+                dispatch(fetchForumTopicComments(idTopic))
+            }
+        })    
+    }
 }
