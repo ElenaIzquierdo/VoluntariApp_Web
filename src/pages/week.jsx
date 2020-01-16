@@ -3,7 +3,7 @@ import Base from "../components/base";
 import Activity from "../components/Activity";
 import connect from "react-redux/es/connect/connect";
 import {fetchWeek, fetchActivitiesFromWeek, changeAttendanceControl, 
-        changeModal} from "../actions/weekActions";
+        changeModal, uploadFile} from "../actions/weekActions";
 import '../css/viewforumStyle.css';
 import {
     Row
@@ -19,7 +19,8 @@ class week extends React.Component{
         return this.props.activities.map((activity)=>{
             return(
                 <Activity key={activity.id} activity={activity} changeAttendanceControl={this.props.changeAttendanceControl}
-                    modal={this.props.modal} fetchWeek={this.props.fetchWeek} weekid={this.props.match.params.weekid}/>
+                    modal={this.props.modal} fetchWeek={this.props.fetchWeek} weekid={this.props.match.params.weekid}
+                    uploadFile={this.props.uploadFile}/>
             )
         })
     }
@@ -55,6 +56,7 @@ const  mapDispatchToProps = (dispatch)=>{
         fetchActivitiesFromWeek: (weekid)=>dispatch(fetchActivitiesFromWeek(weekid)),
         changeAttendanceControl: (eventattendeeId,eventattendeeInfo)=>dispatch(changeAttendanceControl(eventattendeeId,eventattendeeInfo)),
         changeModal: ()=>dispatch(changeModal()),
+        uploadFile: (id,body) => dispatch(uploadFile(id,body))
     }
 };
 

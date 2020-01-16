@@ -95,3 +95,24 @@ export const changeModal =()=>{
         type: 'CHANGE_MODAL_ACTIVITY'
     }
 }
+
+export const uploadFile = (eventId, body) => {
+    return () => {
+        const baseUrl = 'http://165.22.76.147:8080/voluntariapp/event/'+eventId+'/file';
+        fetch(baseUrl, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: body
+        }).then((resp) =>{
+            if(resp.ok){
+                console.log("ok")
+            }
+            else{
+                console.log("Server responded with ", resp.code)
+            }
+        });
+    }
+}

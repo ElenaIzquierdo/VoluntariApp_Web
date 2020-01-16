@@ -1,6 +1,8 @@
 import React from "react";
 import {
-    Row, Col, Button
+    Row, Col, Button,
+    Modal, ModalHeader, ModalBody, ModalFooter,
+    FormGroup, Label, Input, FormText
 } from 'reactstrap';
 import Moment from 'react-moment';
 import {Link} from "react-router-dom";
@@ -8,6 +10,11 @@ import '../css/weekStyle.css';
 
 
 class Activity extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {isOpen: false, file: null, filename: ""};
+      }
+
     renderAttenders(){
         if(this.props.activity.attenders != null){
             return this.props.activity.attenders.map((user)=>{
@@ -130,6 +137,15 @@ class Activity extends React.Component {
             )
         }
     }
+    toggle = () => this.setState({isOpen: !this.state.isOpen});
+
+    uploadFile(){
+        const uploadData = new FormData();
+        uploadData.append('activity_file', this.state.file, this.state.file.name);
+
+        this.props.uploadFile(this.props.activity.id, uploadData)
+        this.toggle()
+    }
 
     render(){
         return(
@@ -137,10 +153,24 @@ class Activity extends React.Component {
                 <Row style={{justifyContent: 'space-between', marginLeft: '1%'}}>
                     <h5 className="title-activity"> {this.props.activity.title}</h5>
                     <Link className="upload-file-button" style={{textDecoration: 'none'}}>
-                        <div className="upload-file-button">  
+                        <div className="upload-file-button" onClick={this.toggle}>  
                             <p className="text-white">Afegir fitxa</p> 
                         </div>
                     </Link>
+                    <Modal isOpen={this.state.isOpen} toggle={this.toggle}>
+                        <ModalHeader toggle={this.toggle}>Afegir fitxa</ModalHeader>
+                            <ModalBody>
+                                <FormGroup>
+                                    <Label for="exampleFile" className="text-style">Fitxa</Label>
+                                    <Input type="file" name="file" id="exampleFile" className="text-style"
+                                    onChange={(evt) => this.setState({file: evt.target.files[0]})}/>
+                                </FormGroup>
+                            </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" onClick={this.uploadFile.bind(this)}>Pujar fitxer</Button>{' '}
+                            <Button color="secondary" onClick={this.toggle}>Cancel·lar</Button>
+                        </ModalFooter>
+                    </Modal>
                 </Row>
                 <Moment className="text-style" style={{paddingLeft: "1%"}} format="DD/MM/YYYY HH:mm">
                     {this.props.activity.start_date}
