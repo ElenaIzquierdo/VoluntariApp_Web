@@ -98,12 +98,14 @@ export const changeModal =()=>{
 
 export const uploadFile = (eventId, body) => {
     return () => {
+        const token = localStorage.getItem('token')
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/event/'+eventId+'/file';
         fetch(baseUrl, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'multipart/form-data; boundary=---------------------------835520831204766226565879',
+                Authorization: 'Bearer ' + token
             },
             body: body
         }).then((resp) =>{
