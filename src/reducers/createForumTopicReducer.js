@@ -4,7 +4,8 @@ const INITIAL_STATE ={
     group: "",
     group_choices: ["Casalet", "Petits", "Mitjans", "Grans", "Adolescents"],
     dropdownOpen: false,
-    new_topic: false
+    new_topic: false,
+    error_value: false
 };
 
 const createForumTopicReducer = (state = INITIAL_STATE,action) => {
@@ -17,6 +18,10 @@ const createForumTopicReducer = (state = INITIAL_STATE,action) => {
             return {...state, dropdownOpen: !state.dropdownOpen}
         case 'CHANGE_NEW_TOPIC':
             return {...state, new_topic: true}
+        case 'CHANGE_ERROR_VALUE':
+            return {...state, error_value: action.data}
+        case 'RESET_VALUES':
+            return {...state, title: "", description: "", group: "", error_value: false, new_topic: false}
 
         default: return state
     }

@@ -5,11 +5,11 @@ import {Button, Label, Input, Row,
 import {Link, Redirect} from "react-router-dom";
 
 
-import {changeCreateTopicFormProperty, createForumTopic, changeDropDown} from "../actions/createForumTopicActions";
+import {changeCreateTopicFormProperty, createForumTopic, 
+        changeDropDown, changeErrorValue, resetValues} from "../actions/createForumTopicActions";
 import connect from "react-redux/es/connect/connect";
 
 class CreateForumTheme extends React.Component {
-    
     onPressAccept(){
         if(this.props.title !== "" && this.props.description !== "" && this.props.group !== ""){
             const topicInfo = {
@@ -18,8 +18,12 @@ class CreateForumTheme extends React.Component {
                 description: this.props.description
             };
             this.props.createForumTopic(topicInfo)
+            this.props.resetValues()
             this.renderRedirect()
         } 
+        else{
+            this.props.changeErrorValue(true)
+        }
     }
 
     renderRedirect = () => {
@@ -80,8 +84,11 @@ class CreateForumTheme extends React.Component {
                         </InputGroupButtonDropdown>
                     </div>
 
+                    {this.props.error_value ? 
+                            <p style={{marginLeft:"17%"}} className="text-red-style-no-center">Tots els camps del formulari són obligatoris</p>:null}
+
                     <Row style={{paddingLeft:"45%"}}>
-                        <Button color="link" className="text-grey-style">
+                        <Button color="link" className="text-grey-style" onClick={this.props.resetValues}>
                             <Link style={{ textDecoration: 'none' }} to={"/forum"}>Cancel·lar</Link>
                         </Button>
 
@@ -105,7 +112,8 @@ const mapStateToProps = (state) => {
         group: state.createForumTopicReducer.group,
         group_choices: state.createForumTopicReducer.group_choices,
         dropdownOpen: state.createForumTopicReducer.dropdownOpen,
-        new_topic: state.createForumTopicReducer.new_topic
+        new_topic: state.createForumTopicReducer.new_topic,
+        error_value: state.createForumTopicReducer.error_value
     }
 
 };
@@ -115,6 +123,8 @@ const  mapDispatchToProps = (dispatch)=>{
         changeCreateTopicFormProperty : (propertyName, value) => dispatch(changeCreateTopicFormProperty(propertyName, value)),
         createForumTopic: (topicInfo) => dispatch(createForumTopic(topicInfo)),
         changeDropDown: () => dispatch(changeDropDown()),
+        changeErrorValue: (value) => dispatch(changeErrorValue(value)),
+        resetValues: () => dispatch(resetValues())
     }
 };
 

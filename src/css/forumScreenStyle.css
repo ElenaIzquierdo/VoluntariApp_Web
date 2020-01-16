@@ -52,3 +52,10 @@
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
+
+.text-red-style-no-center{
+    color: darkred;
+    font-size: 16px;
+    font-weight: light;
+    font-family: 'Montserrat', sans-serif;
+}
