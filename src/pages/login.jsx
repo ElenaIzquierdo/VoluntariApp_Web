@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 import connect from "react-redux/es/connect/connect";
 import {changeLoginFormProperty, changeErrorLoginMapProperty, resetErrorLoginMap, login} from "../actions/loginActions";
-import { Redirect} from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 import logo from '../images/VoluntariApp_Logo.png';
 
 class LoginScreen extends React.Component{
@@ -35,7 +35,11 @@ class LoginScreen extends React.Component{
                                 <Input type="password" name="password" id="examplePassword" value={this.props.password}
                                         onChange={(e) => this.props.changeLoginFormProperty("password",e.target.value)}/>
                             </FormGroup>
-                            <Button onClick={this.clickLogin.bind(this)}>Accedir</Button>
+                            <Link className="button-login" style={{textDecoration: 'none'}}>
+                                <div className="button-login" onClick={this.clickLogin.bind(this)}>  
+                                    <p className="text-white">Nou Tema</p> 
+                                </div>
+                            </Link>
                         </Form>
                     </div>
                 </div>

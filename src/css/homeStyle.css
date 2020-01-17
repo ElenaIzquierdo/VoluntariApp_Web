@@ -241,4 +241,10 @@ h2 {
     padding-bottom: 25%;
 }
 
-
+.button-login{
+    margin-left:37%;
+    height: 35px;
+    width: 100px;
+    background-color: #014029;
+    border-radius: 6px;
+}
