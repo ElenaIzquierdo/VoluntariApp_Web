@@ -2,7 +2,7 @@ import React from "react";
 import {
     Row, Col, Button,
     Modal, ModalHeader, ModalBody, ModalFooter,
-    FormGroup, Label, Input, FormText
+    FormGroup, Label, Input
 } from 'reactstrap';
 import Moment from 'react-moment';
 import {Link} from "react-router-dom";
@@ -142,28 +142,7 @@ class Activity extends React.Component {
     uploadFile(){
         const uploadData = new FormData();
         uploadData.append('activity_file', this.state.file, this.state.file.name)
-
         this.props.uploadFile(this.props.activity.id, uploadData)
-        /*
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgxNDQ1OTUxLCJqdGkiOiJhZGZhNWI1YmE5OGQ0MTRiYTYyMDZhZGNhNTMzM2EwMiIsInVzZXJfaWQiOjF9.SbuGyl1jxOmjr27aSgsYbAivHbxom_sNHnZ3UWYzzHY");
-        myHeaders.append("Content-Type", "multipart/form-data; boundary=--------------------------815229849714982661971507");
-
-        var formdata = new FormData();
-        formdata.append("activity_file", this.state.file, this.state.file.name);
-
-        var requestOptions = {
-        method: 'PUT',
-        headers: myHeaders,
-        body: formdata,
-        redirect: 'follow'
-        };
-
-        fetch("http://165.22.76.147:8080/voluntariapp/event/1/file", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));*/
-
         this.toggle()
     }
 

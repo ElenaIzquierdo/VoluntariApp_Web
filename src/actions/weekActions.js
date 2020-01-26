@@ -104,7 +104,6 @@ export const uploadFile = (eventId, body) => {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'multipart/form-data; boundary=---------------------------835520831204766226565879',
                 Authorization: 'Bearer ' + token
             },
             body: body
