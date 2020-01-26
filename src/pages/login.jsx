@@ -37,7 +37,7 @@ class LoginScreen extends React.Component{
                             </FormGroup>
                             <Link className="button-login" style={{textDecoration: 'none'}}>
                                 <div className="button-login" onClick={this.clickLogin.bind(this)}>  
-                                    <p className="text-white">Nou Tema</p> 
+                                    <p className="text-white">Accedir</p> 
                                 </div>
                             </Link>
                         </Form>
