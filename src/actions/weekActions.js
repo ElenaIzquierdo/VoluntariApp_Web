@@ -96,8 +96,8 @@ export const changeModal =()=>{
     }
 }
 
-export const uploadFile = (eventId, body) => {
-    return () => {
+export const uploadFile = (eventId, body, weekId) => {
+    return (dispatch) => {
         const token = localStorage.getItem('token')
         const baseUrl = 'http://165.22.76.147:8080/voluntariapp/event/'+eventId+'/file';
         fetch(baseUrl, {
@@ -110,6 +110,7 @@ export const uploadFile = (eventId, body) => {
         }).then((resp) =>{
             if(resp.ok){
                 console.log("ok")
+                dispatch(fetchActivitiesFromWeek(weekId))
             }
             else{
                 console.log("Server responded with ", resp.code)

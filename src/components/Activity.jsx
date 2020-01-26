@@ -2,7 +2,7 @@ import React from "react";
 import {
     Row, Col, Button,
     Modal, ModalHeader, ModalBody, ModalFooter,
-    FormGroup, Label, Input
+    FormGroup, Label, Input, FormText
 } from 'reactstrap';
 import Moment from 'react-moment';
 import {Link} from "react-router-dom";
@@ -142,7 +142,9 @@ class Activity extends React.Component {
     uploadFile(){
         const uploadData = new FormData();
         uploadData.append('activity_file', this.state.file, this.state.file.name)
-        this.props.uploadFile(this.props.activity.id, uploadData)
+
+        this.props.uploadFile(this.props.activity.id, uploadData, this.props.weekid)
+
         this.toggle()
     }
 
